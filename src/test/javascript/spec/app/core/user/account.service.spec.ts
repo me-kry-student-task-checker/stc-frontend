@@ -91,7 +91,7 @@ describe('Service Tests', () => {
       it('should call /account if user is undefined', () => {
         service.identity().subscribe();
         const req = httpMock.expectOne({ method: 'GET' });
-        const resourceUrl = SERVER_API_URL + 'api/account';
+        const resourceUrl = SERVER_API_URL + 'api/user/me';
 
         expect(req.request.url).toEqual(`${resourceUrl}`);
       });

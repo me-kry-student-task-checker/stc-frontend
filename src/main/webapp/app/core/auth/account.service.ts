@@ -17,7 +17,7 @@ export class AccountService {
   constructor(private http: HttpClient, private stateStorageService: StateStorageService, private router: Router) {}
 
   save(account: Account): Observable<{}> {
-    return this.http.post(SERVER_API_URL + 'api/account', account);
+    return this.http.post(SERVER_API_URL + 'api/user/me', account);
   }
 
   authenticate(identity: Account | null): void {
@@ -67,7 +67,7 @@ export class AccountService {
   }
 
   private fetch(): Observable<Account> {
-    return this.http.get<Account>(SERVER_API_URL + 'api/account');
+    return this.http.get<Account>(SERVER_API_URL + 'api/user/me');
   }
 
   private navigateToStoredUrl(): void {
