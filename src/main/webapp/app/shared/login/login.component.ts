@@ -55,7 +55,11 @@ export class LoginModalComponent implements AfterViewInit {
             this.router.navigate(['']);
           }
         },
-        () => (this.authenticationError = true)
+        (error: any) => {
+          // fixme: valahova mashova loggolni, hogy mi a baj
+          console.warn(error);
+          this.authenticationError = true;
+        }
       );
   }
 

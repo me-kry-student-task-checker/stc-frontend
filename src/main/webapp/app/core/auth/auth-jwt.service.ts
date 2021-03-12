@@ -20,10 +20,8 @@ export class AuthServerProvider {
   }
 
   login(credentials: Login): Observable<any> {
-    return this.http.post<any>(SERVER_API_URL + 'api/user/auth', credentials).pipe(
-      // eslint-disable-next-line no-console
+    return this.http.post<JwtToken>(SERVER_API_URL + 'api/user/auth', credentials).pipe(
       map(response => {
-        console.log(response);
         this.authenticateSuccess(response);
       })
     );
@@ -37,8 +35,6 @@ export class AuthServerProvider {
   }
 
   private authenticateSuccess(response: JwtToken): void {
-    // eslint-disable-next-line no-console
-    console.log(response);
     const jwt = response.id_token;
     this.$localStorage.store('authenticationToken', jwt);
   }
