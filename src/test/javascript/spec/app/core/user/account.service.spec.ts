@@ -14,14 +14,13 @@ import { MockStateStorageService } from '../../../helpers/mock-state-storage.ser
 
 function accountWithAuthorities(authorities: string[]): Account {
   return {
-    activated: true,
-    authorities,
+    enabled: true,
+    role: [],
     email: '',
     firstName: '',
-    langKey: '',
     lastName: '',
     login: '',
-    imageUrl: '',
+    createdCourseIds: [],
   };
 }
 
