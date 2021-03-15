@@ -62,10 +62,6 @@ export class AccountService {
     return this.authenticationState.asObservable();
   }
 
-  getImageUrl(): string {
-    return this.userIdentity ? this.userIdentity.imageUrl : '';
-  }
-
   private fetch(): Observable<Account> {
     return this.http.get<Account>(SERVER_API_URL + 'api/user/me');
   }

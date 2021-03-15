@@ -28,13 +28,12 @@
             </thead>
             <tbody *ngIf="users">
                 <tr *ngFor="let user of users; trackBy: trackIdentity">
-                    <td><a [routerLink]="['./', user.login, 'view']">{{ user.id }}</a></td>
-                    <td>{{ user.login }}</td>
+                    <td><a [routerLink]="['./', user.email, 'view']">{{ user.id }}</a></td>
                     <td>{{ user.email }}</td>
                     <td>
                         <button class="btn btn-danger btn-sm" (click)="setActive(user, true)" *ngIf="!user.activated">Deactivated</button>
                         <button class="btn btn-success btn-sm" (click)="setActive(user, false)" *ngIf="user.activated"
-                                [disabled]="!currentAccount || currentAccount.login === user.login">Activated</button>
+                                [disabled]="!currentAccount || currentAccount.email === user.email">Activated</button>
                     </td>
                     <td>
                         <div *ngFor="let authority of user.authorities">
@@ -47,14 +46,14 @@
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['./', user.login, 'view']"
+                                    [routerLink]="['./', user.email, 'view']"
                                     class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline">View</span>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['./', user.login, 'edit']"
+                                    [routerLink]="['./', user.email, 'edit']"
                                     queryParamsHandling="merge"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
@@ -62,7 +61,7 @@
                             </button>
 
                             <button type="button" (click)="deleteUser(user)"
-                                    class="btn btn-danger btn-sm" [disabled]="!currentAccount || currentAccount.login === user.login">
+                                    class="btn btn-danger btn-sm" [disabled]="!currentAccount || currentAccount.email === user.email">
                                 <fa-icon icon="times"></fa-icon>
                                 <span class="d-none d-md-inline">Delete</span>
                             </button>
