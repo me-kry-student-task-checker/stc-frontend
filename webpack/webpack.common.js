@@ -36,24 +36,25 @@ module.exports = (options) => ({
                 exclude: utils.root('src/main/webapp/index.html')
             },
             {
-                test: /\.(jpe?g|png|gif|svg|woff2?|ttf|eot)$/i,
-                loader: 'file-loader',
-                options: {
-                    digest: 'hex',
-                    hash: 'sha512',
-                    // For fixing src attr of image
-                    // See https://github.com/jhipster/generator-jhipster/issues/11209
-                    name: 'content/[hash].[ext]',
-                    esModule: false
-                }
-            },
-            {
                 test: /manifest.webapp$/,
                 loader: 'file-loader',
                 options: {
                     name: 'manifest.webapp'
                 }
             },
+          {
+            test: /\.(jpe?g|png|gif)$/i,
+            use: [
+              'file-loader',
+              {
+                loader: 'image-webpack-loader',
+                options: {
+                  bypassOnDebug: true, // webpack@1.x
+                  disable: true, // webpack@2.x and newer
+                },
+              },
+              ]
+          },
             // Ignore warnings about System.import in Angular
             { test: /[\/\\]@angular[\/\\].+\.js$/, parser: { system: true } },
         ]
