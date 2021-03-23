@@ -1,4 +1,4 @@
-@mixin background($imgpath, $position: center top, $repeat: no-repeat) {
+@mixin background($imgpath, $position: absolute center, $repeat: no-repeat) {
   background: {
     image: url($imgpath);
     position: $position;
