@@ -17,7 +17,7 @@ export class AccountService {
   constructor(private http: HttpClient, private stateStorageService: StateStorageService, private router: Router) {}
 
   save(account: Account): Observable<{}> {
-    return this.http.post(SERVER_API_URL + 'api/account', account);
+    return this.http.post(SERVER_API_URL + 'api/user/me', account);
   }
 
   authenticate(identity: Account | null): void {
@@ -26,13 +26,13 @@ export class AccountService {
   }
 
   hasAnyAuthority(authorities: string[] | string): boolean {
-    if (!this.userIdentity || !this.userIdentity.authorities) {
+    if (!this.userIdentity || !this.userIdentity.role) {
       return false;
     }
     if (!Array.isArray(authorities)) {
       authorities = [authorities];
     }
-    return this.userIdentity.authorities.some((authority: string) => authorities.includes(authority));
+    return this.userIdentity.role.some((authority: string) => authorities.includes(authority));
   }
 
   identity(force?: boolean): Observable<Account | null> {
@@ -62,12 +62,8 @@ export class AccountService {
     return this.authenticationState.asObservable();
   }
 
-  getImageUrl(): string {
-    return this.userIdentity ? this.userIdentity.imageUrl : '';
-  }
-
   private fetch(): Observable<Account> {
-    return this.http.get<Account>(SERVER_API_URL + 'api/account');
+    return this.http.get<Account>(SERVER_API_URL + 'api/user/me');
   }
 
   private navigateToStoredUrl(): void {
