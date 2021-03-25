@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+
+.hipster {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+  @include background('/content/images/reading_icon.png');
+  background-size: contain;
+}

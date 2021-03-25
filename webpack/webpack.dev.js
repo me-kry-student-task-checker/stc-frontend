@@ -60,10 +60,10 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
                 loader: 'sass-loader',
                 options: { implementation: sass }
             }],
-            exclude: /(vendor\.scss|global\.scss)/
+            exclude: /(_vendor\.scss|global\.scss)/
         },
         {
-            test: /(vendor\.scss|global\.scss)/,
+            test: /(_vendor\.scss|global\.scss)/,
             use: ['style-loader', 'css-loader', 'postcss-loader', {
                 loader: 'sass-loader',
                 options: { implementation: sass }
