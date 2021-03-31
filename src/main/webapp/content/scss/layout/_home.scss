@@ -7,3 +7,11 @@
   @include background('/content/images/reading_icon.png');
   background-size: contain;
 }
+
+.login {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+  @include background('/content/images/login.jpg');
+  background-size: contain;
+}
