@@ -8,12 +8,18 @@
 
 .navbar {
   padding: 0.2rem 1rem;
-  background-color: #023e8a;
+  background-color: #1d4e89;
 
-  ul.navbar-nav {
-    .nav-item {
-      margin-left: 0.5em;
-    }
+  .dropdown-item.active:hover {
+    background-color: #90e0ef;
+  }
+
+  .dropdown-item {
+    color: #023e8a;
+  }
+
+  .dropdown-item:hover {
+    color: #caf0f8;
   }
 
   a.nav-link {

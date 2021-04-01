@@ -2,7 +2,7 @@
     <div class='col-md-3'>
         <div [ngSwitch]='isAuthenticated()'>
             <div *ngSwitchCase='true'>
-                <span class='hipster img-fluid rounded'></span>
+                <span class='calendar img-fluid rounded'></span>
             </div>
             <div *ngSwitchCase='false'>
                 <span class='login img-fluid'></span>
@@ -11,9 +11,21 @@
     </div>
 
     <div class='col-md-9'>
-        <h1 class='display-4'>Üdvözlet!</h1>
+        <div [ngSwitch]='isAuthenticated()'>
+            <div *ngSwitchCase='true'>
+                <h1 class='display-4'>Üdvözlet!</h1>
 
-        <p class='lead'>Önnek x értesítése van</p>
+                <p class='lead'>Önnek x értesítése van</p>
+            </div>
+        </div>
+
+        <div [ngSwitch]='isAuthenticated()'>
+            <div *ngSwitchCase='false'>
+                <h1 class='display-4'>Üdvözlet!</h1>
+
+                <p class='lead'>Kérlek jelentkezz be az oldal használatához</p>
+            </div>
+        </div>
 
         <div [ngSwitch]='isAuthenticated()'>
             <div class='alert alert-success' *ngSwitchCase='true'>
