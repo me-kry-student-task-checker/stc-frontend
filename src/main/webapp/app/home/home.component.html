@@ -28,10 +28,6 @@
         </div>
 
         <div [ngSwitch]='isAuthenticated()'>
-            <div class='alert alert-success' *ngSwitchCase='true'>
-                <span id='home-logged-message' *ngIf='account'>You are logged in as {{account.role}}
-                    : {{account.firstName}} {{ account.lastName }}.</span>
-            </div>
 
             <div class='alert alert-warning' *ngSwitchCase='false'>
                 <span>If you want to </span>

@@ -1,5 +1,4 @@
 @use '../abstracts' as *;
-@use '../utilities' as *;
 
 .profile-image {
   height: 1.75em;
@@ -8,7 +7,7 @@
 
 .navbar {
   padding: 0.2rem 1rem;
-  background-color: #1d4e89;
+  background: linear-gradient(0.5turn, #1d4e89, #1d4e89, #1d4e89, #0899ba);
 
   .dropdown-item.active:hover {
     background-color: #90e0ef;

@@ -11,7 +11,6 @@ import { PasswordResetInitComponent } from './password-reset/init/password-reset
 import { PasswordResetFinishComponent } from './password-reset/finish/password-reset-finish.component';
 import { SettingsComponent } from './settings/settings.component';
 import { accountState } from './account.route';
-import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   imports: [StchFrontendSharedModule, RouterModule.forChild(accountState)],
@@ -23,7 +22,6 @@ import { CoursesComponent } from './courses/courses.component';
     PasswordResetInitComponent,
     PasswordResetFinishComponent,
     SettingsComponent,
-    CoursesComponent,
   ],
 })
 export class AccountModule {}
