@@ -1,1 +1,19 @@
-<p>courses works!</p>
+<div>
+    <div class='h3'>
+        Jelenlegi kurzusok
+    </div>
+    <hr style='width: 85%; text-align: center; height: 2px; background-color: #1f69c0'>
+
+    <div *jhiHasAnyAuthority="'TEACHER'" class='container-2'>
+        <button class='course-button'>
+            <fa-icon icon='plus'></fa-icon>
+            Új kurzus
+        </button>
+    </div>
+
+    <div class='h3'>
+        Jelenleg nincsenek elérhető kurzusok
+    </div>
+
+
+</div>

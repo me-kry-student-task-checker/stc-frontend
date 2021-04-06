@@ -1,12 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Account } from 'app/core/user/account.model';
+import { AccountService } from 'app/core/auth/account.service';
+import { Subscription } from 'rxjs';
+import { ProfileService } from 'app/layouts/profiles/profile.service';
+
 @Component({
   selector: 'jhi-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['../../content/scss/layout/_courses.scss'],
 })
 export class CoursesComponent implements OnInit {
-  constructor() {}
+  account: Account | null = null;
+  authSubscription?: Subscription;
+  isNavbarCollapsed = true;
+  swaggerEnabled?: boolean;
+  inProduction?: boolean;
 
-  ngOnInit(): void {}
+  constructor(private accountService: AccountService, private profileService: ProfileService) {}
+
+  ngOnInit(): void {
+    this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+    this.profileService.getProfileInfo().subscribe(profileInfo => {
+      this.inProduction = profileInfo.inProduction;
+      this.swaggerEnabled = profileInfo.swaggerEnabled;
+    });
+  }
+
+  isAuthenticated(): boolean {
+    return this.accountService.isAuthenticated();
+  }
 }
