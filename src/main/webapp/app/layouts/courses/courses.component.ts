@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Account } from 'app/core/user/account.model';
-import { AccountService } from 'app/core/auth/account.service';
+import { Account } from '../../core/user/account.model';
+import { AccountService } from '../../core/auth/account.service';
 import { Subscription } from 'rxjs';
-import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { ProfileService } from '../profiles/profile.service';
 
 @Component({
   selector: 'jhi-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['../../content/scss/layout/_courses.scss'],
+  styleUrls: ['../../../content/scss/layout/_courses.scss'],
 })
 export class CoursesComponent implements OnInit {
   account: Account | null = null;

@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { CoursesComponent } from './courses.component';
-import { Authority } from 'app/shared/constants/authority.constants';
+import { Authority } from '../../shared/constants/authority.constants';
 
 export const coursesRoute: Routes = [
   {

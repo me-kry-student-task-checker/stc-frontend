@@ -12,7 +12,8 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CoursesComponent } from './courses/courses.component';
+import { CoursesComponent } from './layouts/courses/courses.component';
+import { NewcourseComponent } from './layouts/newcourse/newcourse.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { CoursesComponent } from './courses/courses.component';
     StchFrontendEntityModule,
     StchFrontendAppRoutingModule,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, FooterComponent, CoursesComponent],
+  declarations: [MainComponent, NavbarComponent, ErrorComponent, FooterComponent, CoursesComponent, NewcourseComponent],
   bootstrap: [MainComponent],
 })
 export class StchFrontendAppModule {}
