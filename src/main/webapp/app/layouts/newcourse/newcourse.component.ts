@@ -10,17 +10,20 @@ import { FormBuilder } from '@angular/forms';
 })
 export class NewcourseComponent implements OnInit {
   createForm = this.fb.group({
+    id: [1],
     name: [''],
     description: [''],
   });
-
   constructor(private newcourseService: NewCourseService, private accountService: AccountService, private fb: FormBuilder) {}
 
   create(): void {
-    this.newcourseService.create({
-      name: this.createForm.get('name')!.value,
-      description: this.createForm.get('description')!.value,
-    });
+    this.newcourseService
+      .create({
+        id: this.createForm.get('id')!.value,
+        name: this.createForm.get('name')!.value,
+        description: this.createForm.get('description')!.value,
+      })
+      .subscribe();
   }
 
   ngOnInit(): void {}
