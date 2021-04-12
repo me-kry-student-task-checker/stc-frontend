@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'app/core/auth/account.service';
-import { NewCourseService } from 'app/layouts/newcourse/newcourse.service';
+import { CourseService } from 'app/layouts/courses/courses.service';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -14,10 +14,10 @@ export class NewcourseComponent implements OnInit {
     name: [''],
     description: [''],
   });
-  constructor(private newcourseService: NewCourseService, private accountService: AccountService, private fb: FormBuilder) {}
+  constructor(private coursesService: CourseService, private accountService: AccountService, private fb: FormBuilder) {}
 
   create(): void {
-    this.newcourseService
+    this.coursesService
       .create({
         id: this.createForm.get('id')!.value,
         name: this.createForm.get('name')!.value,

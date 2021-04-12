@@ -1,0 +1,15 @@
+<mat-card class='course-card'>
+    <mat-card-header>
+        <mat-card-title>{{course.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <span>Tanár neve: {{course.creator.firstName}} {{course.creator.lastName}}</span>
+        <span>Leírás: {{course.description}}</span>
+        <span>Létrehozás dátuma: {{course.creationDate}}</span>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>Módosítás</button>
+        <button mat-button>Törlés</button>
+        <button mat-button>Részletek</button>
+    </mat-card-actions>
+</mat-card>
