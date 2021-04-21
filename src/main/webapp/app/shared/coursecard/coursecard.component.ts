@@ -7,7 +7,7 @@ import { Course } from 'app/layouts/courses/course.model';
   styleUrls: ['../../../content/scss/components/_coursecard.scss'],
 })
 export class CoursecardComponent implements OnInit {
-  course: Course | null = null;
+  course: Course[] = [];
 
   constructor() {}
 

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Account } from '../../core/user/account.model';
-import { AccountService } from '../../core/auth/account.service';
+import { Account } from 'app/core/user/account.model';
+import { AccountService } from 'app/core/auth/account.service';
 import { Subscription } from 'rxjs';
-import { ProfileService } from '../profiles/profile.service';
+import { CourseService } from 'app/layouts/courses/courses.service';
+import { Course } from 'app/layouts/courses/course.model';
 
 @Component({
   selector: 'jhi-courses',
@@ -12,22 +13,15 @@ import { ProfileService } from '../profiles/profile.service';
 })
 export class CoursesComponent implements OnInit {
   account: Account | null = null;
+  course: Course | object = Object;
   authSubscription?: Subscription;
-  isNavbarCollapsed = true;
   swaggerEnabled?: boolean;
   inProduction?: boolean;
 
-  constructor(private accountService: AccountService, private profileService: ProfileService) {}
+  constructor(private accountService: AccountService, private courseService: CourseService) {}
 
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
-    this.profileService.getProfileInfo().subscribe(profileInfo => {
-      this.inProduction = profileInfo.inProduction;
-      this.swaggerEnabled = profileInfo.swaggerEnabled;
-    });
-  }
-
-  isAuthenticated(): boolean {
-    return this.accountService.isAuthenticated();
+    this.courseService.getAll().subscribe(course => (this.course = course));
   }
 }

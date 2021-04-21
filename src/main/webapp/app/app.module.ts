@@ -14,6 +14,8 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursesComponent } from './layouts/courses/courses.component';
 import { NewcourseComponent } from './layouts/newcourse/newcourse.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import { NewcourseComponent } from './layouts/newcourse/newcourse.component';
     StchFrontendHomeModule,
     StchFrontendEntityModule,
     StchFrontendAppRoutingModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, FooterComponent, CoursesComponent, NewcourseComponent],
   bootstrap: [MainComponent],
