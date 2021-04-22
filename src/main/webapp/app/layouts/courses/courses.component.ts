@@ -14,7 +14,9 @@ import { Course } from 'app/layouts/courses/course.model';
 export class CoursesComponent implements OnInit {
   account: Account | null = null;
   course: Course | object = Object;
+  cardcourse: Course[] = [];
   authSubscription?: Subscription;
+  courseSubscription?: Subscription;
   swaggerEnabled?: boolean;
   inProduction?: boolean;
 
@@ -22,6 +24,6 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
-    this.courseService.getAll().subscribe(course => (this.course = course));
+    this.courseSubscription = this.courseService.getAll().subscribe(course => (this.cardcourse = course));
   }
 }

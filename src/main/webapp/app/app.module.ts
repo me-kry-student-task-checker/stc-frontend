@@ -16,6 +16,8 @@ import { CoursesComponent } from './layouts/courses/courses.component';
 import { NewcourseComponent } from './layouts/newcourse/newcourse.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -28,6 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StchFrontendAppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, FooterComponent, CoursesComponent, NewcourseComponent],
   bootstrap: [MainComponent],
