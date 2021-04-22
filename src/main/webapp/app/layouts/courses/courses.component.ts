@@ -13,7 +13,6 @@ import { Course } from 'app/layouts/courses/course.model';
 })
 export class CoursesComponent implements OnInit {
   account: Account | null = null;
-  course: Course | object = Object;
   cardcourse: Course[] = [];
   authSubscription?: Subscription;
   courseSubscription?: Subscription;

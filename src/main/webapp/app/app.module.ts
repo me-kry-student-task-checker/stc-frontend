@@ -18,6 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { EditcourseComponent } from './layouts/editcourse/editcourse.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatButtonModule,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, FooterComponent, CoursesComponent, NewcourseComponent],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    FooterComponent,
+    CoursesComponent,
+    NewcourseComponent,
+    EditcourseComponent,
+  ],
   bootstrap: [MainComponent],
 })
 export class StchFrontendAppModule {}

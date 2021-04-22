@@ -5,6 +5,7 @@ import { SERVER_API_URL } from 'app/app.constants';
 import { Observable } from 'rxjs';
 import { NewCourse } from '../newcourse/newcourse.model';
 import { Course } from 'app/layouts/courses/course.model';
+import { EditCourse } from 'app/layouts/editcourse/editcourse.model';
 
 @Injectable({ providedIn: 'root' })
 export class CourseService {
@@ -16,5 +17,9 @@ export class CourseService {
 
   getAll(): Observable<Course[]> {
     return this.http.get<Course[]>(SERVER_API_URL + '/api/course/getAll');
+  }
+
+  edit(credentials: EditCourse): Observable<object> {
+    return this.http.post(SERVER_API_URL + 'api/course/edit', credentials);
   }
 }

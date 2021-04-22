@@ -10,7 +10,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class NewcourseComponent implements OnInit {
   createForm = this.fb.group({
-    id: [1],
+    id: [''],
     name: [''],
     description: [''],
   });
