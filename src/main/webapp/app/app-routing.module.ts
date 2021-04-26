@@ -6,10 +6,11 @@ import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import { Authority } from 'app/shared/constants/authority.constants';
 import { coursesRoute } from 'app/layouts/courses/courses.route';
 import { newCourseRoute } from 'app/layouts/newcourse/newcourse.route';
+import { editCourseRoute } from 'app/layouts/editcourse/editcourse.route';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 
-const LAYOUT_ROUTES = [navbarRoute, ...coursesRoute, ...newCourseRoute, ...errorRoute];
+const LAYOUT_ROUTES = [navbarRoute, ...coursesRoute, ...newCourseRoute, ...editCourseRoute, ...errorRoute];
 
 @NgModule({
   imports: [

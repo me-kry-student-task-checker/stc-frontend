@@ -10,7 +10,6 @@ import { FormBuilder } from '@angular/forms';
 })
 export class NewcourseComponent implements OnInit {
   createForm = this.fb.group({
-    id: [''],
     name: [''],
     description: [''],
   });
@@ -19,7 +18,6 @@ export class NewcourseComponent implements OnInit {
   create(): void {
     this.coursesService
       .create({
-        id: this.createForm.get('id')!.value,
         name: this.createForm.get('name')!.value,
         description: this.createForm.get('description')!.value,
       })

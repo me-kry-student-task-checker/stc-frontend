@@ -11,7 +11,7 @@
         </button>
     </div>
 
-    <div class='container-fluid2' *ngFor='let card of cardcourse'>
+    <div class='container-fluid2' *ngFor='let card of cardCourse'>
         <mat-card class='cards'>
             <mat-card-header>
                 <mat-card-title>{{card.name}}</mat-card-title>
@@ -28,7 +28,7 @@
                 </div>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button>Módosítás</button>
+                <button mat-button routerLink='/editCourse' routerLinkActive='active'>Módosítás</button>
                 <button mat-button>Törlés</button>
                 <button mat-button>Részletek</button>
             </mat-card-actions>
