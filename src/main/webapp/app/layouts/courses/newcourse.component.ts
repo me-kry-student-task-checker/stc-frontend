@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from 'app/core/auth/account.service';
-import { CourseService } from 'app/layouts/courses/courses.service';
+import { AccountService } from '../../core/auth/account.service';
+import { CourseService } from './courses.service';
 import { FormBuilder } from '@angular/forms';
 
 @Component({

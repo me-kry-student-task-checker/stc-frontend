@@ -13,12 +13,12 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursesComponent } from './layouts/courses/courses.component';
-import { NewcourseComponent } from './layouts/newcourse/newcourse.component';
+import { NewcourseComponent } from './layouts/courses/newcourse.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { EditcourseComponent } from './layouts/editcourse/editcourse.component';
+import { EditcourseComponent } from './layouts/courses/editcourse.component';
 
 @NgModule({
   imports: [

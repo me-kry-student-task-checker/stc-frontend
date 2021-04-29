@@ -1,0 +1,27 @@
+<div>
+    <div class='h3'>
+        Új kurzus létrehozása
+    </div>
+    <hr style='width: 85%; text-align: center; height: 2px; background-color: #1f69c0'>
+
+    <div class='row justify-content-center'>
+        <div class='col-8'>
+            <form class='form' role='form' (ngSubmit)='create()' [formGroup]='createForm'>
+                <div class='form-group'>
+                    <label class='name-label' for='name'>Kurzus neve</label>
+                    <input class='form-control' type='text' name='name' id='name' placeholder='Új kurzus neve...'
+                           formControlName='name'><br>
+                </div>
+                <div class='form-group'>
+                    <label class='description-label' for='description'>Kurzus leírása</label>
+                    <input class='form-control' type='text' id='description' name='description'
+                           placeholder='Új kurzus leírása...' formControlName='description'><br>
+                </div>
+                <div class='container'>
+                    <button class='course-button' type='submit'>Új kurzus létrehozás</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
