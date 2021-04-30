@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { EditcourseComponent } from './layouts/courses/editcourse.component';
+import { DeleteCourseComponent } from 'app/layouts/courses/delete-course.component';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { EditcourseComponent } from './layouts/courses/editcourse.component';
     CoursesComponent,
     NewcourseComponent,
     EditcourseComponent,
+    DeleteCourseComponent,
   ],
   bootstrap: [MainComponent],
 })
