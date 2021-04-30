@@ -4,6 +4,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import { CourseService } from './courses.service';
 import { Course } from './course.model';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'jhi-editcourse',
@@ -22,7 +23,8 @@ export class EditcourseComponent implements OnInit {
     private accountService: AccountService,
     private fb: FormBuilder,
     private coursesService: CourseService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -51,5 +53,9 @@ export class EditcourseComponent implements OnInit {
     if (this.course.id !== undefined) {
       this.coursesService.edit(this.course).subscribe();
     }
+  }
+
+  backTo(): void {
+    this.location.back();
   }
 }

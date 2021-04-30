@@ -1,19 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../../core/auth/account.service';
+import { Component } from '@angular/core';
+import { AccountService } from 'app/core/auth/account.service';
 import { CourseService } from './courses.service';
 import { FormBuilder } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'jhi-newcourse',
   templateUrl: './newcourse.component.html',
   styleUrls: ['../../../content/scss/layout/_newcourse.scss'],
 })
-export class NewcourseComponent implements OnInit {
+export class NewcourseComponent {
   createForm = this.fb.group({
     name: [''],
     description: [''],
   });
-  constructor(private coursesService: CourseService, private accountService: AccountService, private fb: FormBuilder) {}
+  constructor(
+    private coursesService: CourseService,
+    private accountService: AccountService,
+    private fb: FormBuilder,
+    private location: Location
+  ) {}
 
   create(): void {
     this.coursesService
@@ -24,5 +30,7 @@ export class NewcourseComponent implements OnInit {
       .subscribe();
   }
 
-  ngOnInit(): void {}
+  backTo(): void {
+    this.location.back();
+  }
 }
