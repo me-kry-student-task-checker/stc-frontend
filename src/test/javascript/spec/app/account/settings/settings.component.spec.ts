@@ -13,15 +13,11 @@ describe('Component Tests', () => {
     let comp: SettingsComponent;
     let fixture: ComponentFixture<SettingsComponent>;
     let mockAuth: MockAccountService;
-    const accountValues: Account = {
+    const accountValues: { firstName: string; lastName: string; role: string; email: string } = {
       firstName: 'John',
       lastName: 'Doe',
-      activated: true,
       email: 'john.doe@mail.com',
-      langKey: 'en',
-      login: 'john',
-      authorities: [],
-      imageUrl: '',
+      role: 'TEACHER',
     };
 
     beforeEach(async(() => {

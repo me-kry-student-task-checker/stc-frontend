@@ -24,7 +24,7 @@ export class MockAccountService extends SpyObject {
     this.isAuthenticated = this.spy('isAuthenticated').andReturn(true);
   }
 
-  setIdentityResponse(account: Account | null): void {
+  setIdentityResponse(account: { firstName: string; lastName: string; role: string; email: string }): void {
     this.identitySpy = this.spy('identity').andReturn(of(account));
     this.getAuthenticationStateSpy = this.spy('getAuthenticationState').andReturn(of(account));
   }

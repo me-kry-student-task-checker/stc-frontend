@@ -36,16 +36,16 @@ describe('Service Tests', () => {
         expect(req.request.url).toEqual(`${resourceUrl}/user`);
       });
 
-      it('should return User', () => {
+      it('should return Student', () => {
         let expectedResult: string | undefined;
 
-        service.find('user').subscribe(received => {
+        service.find('student').subscribe(received => {
           expectedResult = received.login;
         });
 
         const req = httpMock.expectOne({ method: 'GET' });
-        req.flush(new User(1, 'user'));
-        expect(expectedResult).toEqual('user');
+        req.flush(new User(1, 'student'));
+        expect(expectedResult).toEqual('student');
       });
 
       it('should return Authorities', () => {
@@ -56,8 +56,8 @@ describe('Service Tests', () => {
         });
         const req = httpMock.expectOne({ method: 'GET' });
 
-        req.flush([Authority.USER, Authority.ADMIN]);
-        expect(expectedResult).toEqual([Authority.USER, Authority.ADMIN]);
+        req.flush([Authority.STUDENT, Authority.ADMIN]);
+        expect(expectedResult).toEqual([Authority.STUDENT, Authority.ADMIN]);
       });
 
       it('should propagate not found response', () => {

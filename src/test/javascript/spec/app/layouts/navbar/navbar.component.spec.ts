@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { of } from 'rxjs';
 
 import { StchFrontendTestModule } from '../../../test.module';
 import { NavbarComponent } from 'app/layouts/navbar/navbar.component';
