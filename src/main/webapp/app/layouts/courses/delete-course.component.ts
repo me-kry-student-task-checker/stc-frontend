@@ -17,7 +17,7 @@ export class DeleteCourseComponent {
     this.activeModal.dismiss();
   }
 
-  confirmDelete(id: bigint): void {
+  confirmDelete(id: number): void {
     this.courseService.delete(id).subscribe(() => {
       this.activeModal.close();
     });

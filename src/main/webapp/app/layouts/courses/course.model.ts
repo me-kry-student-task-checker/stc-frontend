@@ -1,6 +1,6 @@
 export class Course {
   constructor(
-    public id: bigint,
+    public id: number,
     public name: string,
     public description: string,
     public creationDate: Date,
@@ -11,7 +11,7 @@ export class Course {
       lastName: string;
       role: string;
       enabled: boolean;
-      createdCourseIds: bigint[];
+      createdCourseIds: number[];
     }
   ) {}
 }

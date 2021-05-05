@@ -28,7 +28,7 @@ export class CourseService {
     return this.http.put(SERVER_API_URL + 'api/course/edit', credentials);
   }
 
-  delete(id: bigint): Observable<{}> {
+  delete(id: number): Observable<{}> {
     return this.http.delete(`${SERVER_API_URL + 'api/course/delete'}/${id}`);
   }
 }
