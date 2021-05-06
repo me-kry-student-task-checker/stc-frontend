@@ -52,6 +52,7 @@ export class EditcourseComponent implements OnInit {
     this.updateCourse(this.course);
     if (this.course.id !== undefined) {
       this.coursesService.edit(this.course).subscribe();
+      this.location.back();
     }
   }
 

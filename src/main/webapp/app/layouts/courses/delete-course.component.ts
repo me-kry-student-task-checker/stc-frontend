@@ -20,6 +20,7 @@ export class DeleteCourseComponent {
   confirmDelete(id: number): void {
     this.courseService.delete(id).subscribe(() => {
       this.activeModal.close();
+      window.location.reload();
     });
   }
 }
