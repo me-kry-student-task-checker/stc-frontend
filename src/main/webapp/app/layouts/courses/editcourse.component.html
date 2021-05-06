@@ -3,7 +3,7 @@
         Kurzus módosítása
         <hr class='courseHeader'>
     </div>
-    <div class='courseFormContainer'>
+    <div class='editCourseFormContainer'>
         <div class='row justify-content-center'>
             <div class='col-8'>
                 <div *ngIf='course'>
@@ -26,11 +26,11 @@
                             <button class='button' type='submit'>
                                 <span>Módosítás</span>
                             </button>
-                            <button class='back-button' (click)='backTo()'>
-                                <span>Vissza</span>
-                            </button>
                         </div>
                     </form>
+                </div>
+                <div class='container'>
+                    <button class='back-button' (click)='backTo()'>Vissza</button>
                 </div>
             </div>
         </div>

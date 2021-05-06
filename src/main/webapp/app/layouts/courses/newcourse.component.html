@@ -3,7 +3,7 @@
         Új kurzus létrehozása
         <hr class='courseHeader'>
     </div>
-    <div class='courseFormContainer'>
+    <div class='newCourseFormContainer'>
         <div class='row justify-content-center'>
             <div class='col-8'>
                 <form class='form' role='form' (ngSubmit)='create()' [formGroup]='createForm'>
@@ -19,11 +19,11 @@
                     </div>
                     <div class='container'>
                         <button class='button' type='submit'>Új kurzus létrehozás</button>
-                        <br>
-                        <br>
-                        <button class='back-button' (click)='backTo()'>Vissza</button>
                     </div>
                 </form>
+            </div>
+            <div class='container'>
+                <button class='back-button' (click)='backTo()'>Vissza</button>
             </div>
         </div>
     </div>
