@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'app/core/auth/account.service';
 import { CourseService } from './courses.service';
 import { Course } from './course.model';
@@ -15,8 +15,8 @@ export class EditcourseComponent implements OnInit {
   course!: Course;
   editForm = this.fb.group({
     id: [],
-    name: [''],
-    description: [''],
+    name: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(5)]],
+    description: ['', Validators.maxLength(220)],
   });
 
   constructor(

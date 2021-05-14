@@ -21,9 +21,7 @@ export class CourseService {
   }
 
   getAll(): Observable<Course[]> {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    return this.http.get<Course[]>(SERVER_API_URL + '/api/course/getAll').toPromise();
+    return this.http.get<Course[]>(SERVER_API_URL + '/api/course/getAll');
   }
 
   edit(credentials: Course): Observable<object> {

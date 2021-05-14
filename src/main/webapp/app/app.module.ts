@@ -20,7 +20,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { EditcourseComponent } from './layouts/courses/editcourse.component';
 import { DeleteCourseComponent } from 'app/layouts/courses/delete-course.component';
-import { ErrorHandlerModule } from 'app/core/errors/error-handleing.module';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -36,7 +35,6 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    ErrorHandlerModule,
     CommonModule,
   ],
   declarations: [

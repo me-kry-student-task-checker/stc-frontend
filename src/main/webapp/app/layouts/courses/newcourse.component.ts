@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AccountService } from 'app/core/auth/account.service';
 import { CourseService } from './courses.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 @Component({
@@ -11,8 +11,8 @@ import { Location } from '@angular/common';
 })
 export class NewcourseComponent {
   createForm = this.fb.group({
-    name: [''],
-    description: [''],
+    name: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(5)]],
+    description: ['', Validators.maxLength(220)],
   });
 
   constructor(

@@ -10,15 +10,42 @@
                     <div class='form-group'>
                         <label class='name-label' for='name'>Kurzus neve</label>
                         <input class='form-control' type='text' name='name' id='name' placeholder='Új kurzus neve...'
-                               formControlName='name'><br>
+                               formControlName='name'>
+                        <div
+                            *ngIf="createForm.get('name')!.invalid && (createForm.get('name')!.dirty || createForm.get('name')!.touched)">
+                            <small class='form-text text-danger'
+                                   *ngIf="createForm.get('name')?.errors?.required">
+                                Kurzusnév megadása kötelező!
+                            </small>
+
+                            <small class='form-text text-danger'
+                                   *ngIf="createForm.get('name')?.errors?.maxlength">
+                                Túl hosszú kurzusnév!
+                            </small>
+
+                            <small class='form-text text-danger'
+                                   *ngIf="createForm.get('name')?.errors?.minlength">
+                                Túl rövid kurzusnév!
+                            </small>
+                        </div>
                     </div>
                     <div class='form-group'>
                         <label class='description-label' for='description'>Kurzus leírása</label>
                         <input class='form-control' type='text' id='description' name='description'
-                               placeholder='Új kurzus leírása...' formControlName='description'><br>
+                               placeholder='Új kurzus leírása...' formControlName='description'>
+                        <div
+                            *ngIf="createForm.get('description')!.invalid && (createForm.get('description')!.dirty || createForm.get('description')!.touched)">
+
+                            <small class='form-text text-danger'
+                                   *ngIf="createForm.get('description')?.errors?.maxlength">
+                                Túl hosszú leírás!
+                            </small>
+                        </div>
+                        <br>
                     </div>
                     <div class='container'>
-                        <button class='button' type='submit'>Új kurzus létrehozás</button>
+                        <button class='button' type='submit' [disabled]='createForm.invalid'>Új kurzus létrehozás
+                        </button>
                     </div>
                 </form>
             </div>
