@@ -4,10 +4,11 @@ import { errorRoute } from './layouts/error/error.route';
 import { navbarRoute } from './layouts/navbar/navbar.route';
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import { Authority } from 'app/shared/constants/authority.constants';
+import { coursesRoute } from 'app/courses/courses.router';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 
-const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
+const LAYOUT_ROUTES = [navbarRoute, ...coursesRoute, ...errorRoute];
 
 @NgModule({
   imports: [

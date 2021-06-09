@@ -32,7 +32,9 @@ export class AccountService {
     if (!Array.isArray(authorities)) {
       authorities = [authorities];
     }
-    return this.userIdentity.role.some((authority: string) => authorities.includes(authority));
+    const rAuthoritie: string[] = [];
+    rAuthoritie.push(this.userIdentity.role);
+    return rAuthoritie.some((authority: string) => authorities.includes(authority));
   }
 
   identity(force?: boolean): Observable<Account | null> {

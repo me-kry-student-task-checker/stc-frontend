@@ -7,12 +7,12 @@ import { StchFrontendCoreModule } from 'app/core/core.module';
 import { StchFrontendAppRoutingModule } from './app-routing.module';
 import { StchFrontendHomeModule } from './home/home.module';
 import { StchFrontendEntityModule } from './entities/entity.module';
-// jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   imports: [
@@ -21,11 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
     StchFrontendSharedModule,
     StchFrontendCoreModule,
     StchFrontendHomeModule,
-    // jhipster-needle-angular-add-module JHipster will add new module here
     StchFrontendEntityModule,
     StchFrontendAppRoutingModule,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, FooterComponent],
+  declarations: [MainComponent, NavbarComponent, ErrorComponent, FooterComponent, CoursesComponent],
   bootstrap: [MainComponent],
 })
 export class StchFrontendAppModule {}

@@ -1,9 +1,17 @@
 @use '../abstracts' as *;
 
-.hipster {
+.calendar {
   display: inline-block;
   width: 347px;
   height: 497px;
-  @include background('/content/images/reading_icon.png');
+  @include background('/content/images/calendar.png');
+  background-size: contain;
+}
+
+.login {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+  @include background('/content/images/login.jpg');
   background-size: contain;
 }
