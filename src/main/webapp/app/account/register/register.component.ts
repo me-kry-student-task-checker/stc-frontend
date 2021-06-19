@@ -11,8 +11,8 @@ import { RegisterService } from './register.service';
   templateUrl: './register.component.html',
 })
 export class RegisterComponent implements AfterViewInit {
-  @ViewChild('login', { static: false })
-  login?: ElementRef;
+  @ViewChild('email', { static: false })
+  email?: ElementRef;
 
   doNotMatch = false;
   error = false;
@@ -21,16 +21,25 @@ export class RegisterComponent implements AfterViewInit {
   success = false;
 
   registerForm = this.fb.group({
-    login: [
+    firstName: [
       '',
       [
         Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(50),
+        Validators.minLength(3),
+        Validators.maxLength(20),
         Validators.pattern('^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$'),
       ],
     ],
-    email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
+    lastName: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20),
+        Validators.pattern('^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$'),
+      ],
+    ],
+    email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.email]],
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
     confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
   });
@@ -38,8 +47,8 @@ export class RegisterComponent implements AfterViewInit {
   constructor(private loginModalService: LoginModalService, private registerService: RegisterService, private fb: FormBuilder) {}
 
   ngAfterViewInit(): void {
-    if (this.login) {
-      this.login.nativeElement.focus();
+    if (this.email) {
+      this.email.nativeElement.focus();
     }
   }
 
@@ -53,9 +62,10 @@ export class RegisterComponent implements AfterViewInit {
     if (password !== this.registerForm.get(['confirmPassword'])!.value) {
       this.doNotMatch = true;
     } else {
-      const login = this.registerForm.get(['login'])!.value;
+      const firstName = this.registerForm.get(['firstName'])!.value;
+      const lastName = this.registerForm.get(['lastName'])!.value;
       const email = this.registerForm.get(['email'])!.value;
-      this.registerService.save({ login, email, password, langKey: 'en' }).subscribe(
+      this.registerService.save({ firstName, lastName, email, password }).subscribe(
         () => (this.success = true),
         response => this.processError(response)
       );
