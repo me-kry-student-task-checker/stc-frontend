@@ -8,6 +8,7 @@
       color: inherit;
       padding: 0;
       margin: 0;
+      align-self: center;
     }
     .popover pre {
       font-size: 10px;
@@ -29,6 +30,11 @@
       bottom: 55px;
     }
   }
+}
+
+.regWarning {
+  margin-left: 12px;
+  margin-top: -12px;
 }
 
 @media screen and (min-width: 480px) {
