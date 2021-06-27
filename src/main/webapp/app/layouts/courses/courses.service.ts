@@ -12,11 +12,11 @@ export class CourseService {
 
   constructor(private http: HttpClient) {}
 
-  create(credentials: NewCourse): Observable<NewCourse> {
-    return this.http.post<NewCourse>(SERVER_API_URL + 'api/course/create', credentials);
+  create(newCourse: NewCourse): Observable<NewCourse> {
+    return this.http.post<NewCourse>(SERVER_API_URL + 'api/course/create', newCourse);
   }
 
-  get(id: Course['id']): Observable<Course> {
+  get(id: number): Observable<Course> {
     return this.http.get<Course>(SERVER_API_URL + '/api/course/get/' + id);
   }
 
@@ -24,8 +24,8 @@ export class CourseService {
     return this.http.get<Course[]>(SERVER_API_URL + '/api/course/getAll');
   }
 
-  edit(credentials: Course): Observable<Course> {
-    return this.http.put<Course>(SERVER_API_URL + 'api/course/edit', credentials);
+  edit(course: Course): Observable<Course> {
+    return this.http.put<Course>(SERVER_API_URL + 'api/course/edit', course);
   }
 
   delete(id: number): Observable<{}> {
