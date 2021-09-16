@@ -94,7 +94,7 @@
                     <div class='form-group'>
                         <label for='email'>E-mail</label>
                         <input type='email' class='form-control' id='email' name='email'
-                               placeholder='Például: bobross@example.com'
+                               placeholder='Például: kislaszlo@example.com'
                                formControlName='email' #email>
                         <div class='regWarning'
                              *ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)">
@@ -168,21 +168,13 @@
                                    *ngIf="registerForm.get('confirmPassword')?.errors?.required">
                                 Jelszó megerősítése kötelező!
                             </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('confirmPassword')?.errors?.minlength">
-                                Your confirmation password is required to be at least 4 characters.
-                            </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('confirmPassword')?.errors?.maxlength">
-                                Your confirmation password cannot be longer than 50 characters.
-                            </small>
                         </div>
                     </div>
-
+                    <div class='container'>
                     <button type='submit' [disabled]='registerForm.invalid' class='button'>Regisztrálás
                     </button>
+                        <button class='back-button' (click)='backTo()'>Vissza</button>
+                    </div>
                 </form>
             </div>
         </div>
