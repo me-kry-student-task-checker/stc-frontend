@@ -43,7 +43,7 @@ export class RegisterComponent implements AfterViewInit {
     email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.email]],
     role: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+    passwordConfirm: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
   });
 
   constructor(
@@ -66,14 +66,15 @@ export class RegisterComponent implements AfterViewInit {
     this.errorUserExists = false;
 
     const password = this.registerForm.get(['password'])!.value;
-    if (password !== this.registerForm.get(['confirmPassword'])!.value) {
+    if (password !== this.registerForm.get(['passwordConfirm'])!.value) {
       this.doNotMatch = true;
     } else {
       const firstName = this.registerForm.get(['firstName'])!.value;
       const lastName = this.registerForm.get(['lastName'])!.value;
       const email = this.registerForm.get(['email'])!.value;
       const role = this.registerForm.get(['role'])!.value;
-      this.registerService.save({ firstName, lastName, email, role, password }).subscribe(
+      const passwordConfirm = this.registerForm.get(['passwordConfirm'])!.value;
+      this.registerService.save({ firstName, lastName, email, role, password, passwordConfirm }).subscribe(
         () => (this.success = true),
         response => this.processError(response)
       );
