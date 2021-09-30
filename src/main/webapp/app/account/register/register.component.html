@@ -152,10 +152,24 @@
                                 A jelszónak 4 és 50 karakter között kell lennie!
                             </small>
                         </div>
-
-                        <jhi-password-strength-bar
-                            [passwordToCheck]="registerForm.get('password')!.value"></jhi-password-strength-bar>
                     </div>
+
+                    <label class="col" [ngClass]="registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+                        <i class="material-icons">{{ registerForm.controls['password'].hasError('required') ||
+                        registerForm.controls['password'].hasError('minlength') ? '✖' :
+                            '✔' }}</i>
+                        Legalább 6 karakter!
+                    </label>
+
+                    <label class="col" [ngClass]="registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('pattern')  ? 'text-danger' : 'text-success'">
+                        <i class="material-icons">{{ registerForm.controls['password'].hasError('required') ||
+                        registerForm.controls['password'].hasError('pattern') ? '✖' :
+                            '✔' }}</i>
+                        Tartalmaznia kell egy nagy és kis betűt, egy speciális karaktert és egy számot!
+                    </label>
+
+                    <jhi-password-strength-bar
+                        [passwordToCheck]="registerForm.get('password')!.value"></jhi-password-strength-bar>
 
                     <div class='form-group'>
                         <label for='passwordConfirm'>Jelszó újra</label>
