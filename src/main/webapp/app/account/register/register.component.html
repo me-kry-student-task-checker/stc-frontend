@@ -141,16 +141,6 @@
                                    *ngIf="registerForm.get('password')?.errors?.required">
                                 Jelszó megadása kötelező!
                             </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('password')?.errors?.minlength">
-                                A jelszónak 4 és 50 karakter között kell lennie!
-                            </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('password')?.errors?.maxlength">
-                                A jelszónak 4 és 50 karakter között kell lennie!
-                            </small>
                         </div>
                     </div>
 

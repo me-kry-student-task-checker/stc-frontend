@@ -47,11 +47,10 @@ export class RegisterComponent implements AfterViewInit {
       [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(50),
         Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z$@$!%*?&].{6,}'),
       ],
     ],
-    passwordConfirm: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(50)]],
+    passwordConfirm: ['', [Validators.required]],
   });
 
   constructor(
