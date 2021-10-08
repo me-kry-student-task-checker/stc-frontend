@@ -148,7 +148,7 @@
                         <i class="material-icons">{{ registerForm.controls['password'].hasError('required') ||
                         registerForm.controls['password'].hasError('minlength') ? '✖' :
                             '✔' }}</i>
-                        Legalább 6 karakter!
+                        Legalább 8 karakter!
                     </label>
 
                     <label class="col" [ngClass]="registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('pattern')  ? 'text-danger' : 'text-success'">
