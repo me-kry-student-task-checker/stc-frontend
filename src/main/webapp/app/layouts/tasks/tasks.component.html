@@ -1,6 +1,13 @@
 <div>
-    <div class='h3'>
-        Feladat leírása
+    <div class='h3' *ngFor='let course of c'>
+        {{course.name}}
         <hr class='courseHeader'>
     </div>
 </div>
+
+<nav id="task-nav">
+    <a class="link-1" href="#">Kurzus idnformációk</a>
+    <a class="link-1" href="#">Tanulok</a>
+    <a class="link-1" href="#">Feltöltött fájlok</a>
+    <a class="link-1" href="#">Új feladat</a>
+</nav>
