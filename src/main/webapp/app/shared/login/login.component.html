@@ -1,12 +1,11 @@
 <div class='modal-header'>
     <h4 class='modal-title'>Bejelentkezés</h4>
 </div>
-
 <div class='modal-body'>
     <div class='row justify-content-center'>
         <div class='col-md-8'>
             <div class='alert alert-danger' *ngIf='authenticationError'>
-                <strong>Belépés sikertelen!</strong> Kérem ellenőrizze az adatait és probálja újra!.
+                <strong>Belépés sikertelen!</strong> Kérem ellenőrizze az adatait és probálja újra!
             </div>
         </div>
 
@@ -14,7 +13,7 @@
             <form class='form' role='form' (ngSubmit)='login()' [formGroup]='loginForm'>
                 <div class='form-group'>
                     <label class='email-label' for='email'>Bejelentkezés</label>
-                    <input type='text' class='form-control' name='email' id='email' placeholder='Your email'
+                    <input type='text' class='form-control' name='email' id='email' placeholder='példa@példa.com'
                            formControlName='email' #email>
                     <div *ngIf="loginForm.get('email')!.invalid && (loginForm.get('email')!.dirty || loginForm.get('email')!.touched)">
                         <small class="form-text text-danger"
@@ -32,7 +31,7 @@
                 <div class='form-group'>
                     <label for='password'>Jelszó</label>
                     <input type='password' class='form-control' name='password' id='password'
-                           placeholder='Your password'
+                           placeholder='jelszava...'
                            formControlName='password'>
                     <div *ngIf="loginForm.get('password')!.invalid && (loginForm.get('password')!.dirty || loginForm.get('password')!.touched)">
                         <small class="form-text text-danger"
@@ -52,7 +51,7 @@
 
             <div class='alert alert-warning'>
                 <span>Ha nem rendelkezne még fiókkal!</span>
-                <a class='alert-link' (click)='register()'>Új fiók regisztrálása</a>
+                <a class='alert-link' (click)='register()'>Regisztrálás</a>
             </div>
         </div>
     </div>
