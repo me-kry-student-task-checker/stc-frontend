@@ -6,6 +6,7 @@ import { CourseService } from 'app/layouts/courses/courses.service';
 @Component({
   selector: 'jhi-tasks',
   templateUrl: './tasks.component.html',
+  styleUrls: ['../../../content/scss/layout/_tasks.scss'],
 })
 export class TasksComponent implements OnInit {
   c: Course[] = [];

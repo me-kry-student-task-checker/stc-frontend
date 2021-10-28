@@ -15,6 +15,24 @@
   }
 }
 
+.tasksButton {
+  padding: 10px 40px;
+  text-transform: uppercase;
+  background: linear-gradient(0.5turn, #3fc1c0, #0f80aa, #1d4e89, #0f80aa, #3fc1c0);
+  color: #3fc1c0;
+  border: none;
+  font-weight: 650;
+  font-size: 0.8rem;
+  cursor: pointer;
+  float: left;
+  width: 25vw;
+
+  &:hover {
+    color: #1d4e89;
+    background: linear-gradient(0.5turn, #1d4e89, #0f80aa, #3fc1c0, #0f80aa, #1d4e89);
+  }
+}
+
 .delete-button {
   padding: 15px 50px;
   text-transform: uppercase;
