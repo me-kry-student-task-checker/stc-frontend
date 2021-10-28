@@ -4,10 +4,22 @@ import { AlertComponent } from './alert/alert.component';
 import { AlertErrorComponent } from './alert/alert-error.component';
 import { LoginModalComponent } from './login/login.component';
 import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
+import { ErrorDialogComponent } from 'app/shared/error-dialog/error-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { LoadingDialogComponent } from 'app/shared/loading/loading-dialog.componenet';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  imports: [StchFrontendSharedLibsModule],
-  declarations: [AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective],
+  imports: [StchFrontendSharedLibsModule, MatDialogModule, MatButtonModule, MatProgressSpinnerModule],
+  declarations: [
+    AlertComponent,
+    AlertErrorComponent,
+    LoginModalComponent,
+    HasAnyAuthorityDirective,
+    ErrorDialogComponent,
+    LoadingDialogComponent,
+  ],
   entryComponents: [LoginModalComponent],
   exports: [StchFrontendSharedLibsModule, AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective],
 })

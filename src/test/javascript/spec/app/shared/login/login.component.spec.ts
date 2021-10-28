@@ -47,18 +47,14 @@ describe('Component Tests', () => {
       fakeAsync(() => {
         // GIVEN
         const credentials = {
-          username: 'admin',
-          password: 'admin',
-          rememberMe: true,
+          email: 'mister@gatsby.com',
+          password: 'green123',
         };
 
         comp.loginForm.patchValue({
-          username: 'admin',
-          password: 'admin',
-          rememberMe: true,
+          email: 'mister@gatsby.com',
+          password: 'green123',
         });
-        mockLoginService.setResponse({});
-        mockRouter.url = '/admin/metrics';
 
         // WHEN/
         comp.login();
@@ -74,14 +70,13 @@ describe('Component Tests', () => {
     it('should empty the credentials upon cancel', () => {
       // GIVEN
       comp.loginForm.patchValue({
-        username: 'admin',
-        password: 'admin',
+        email: 'mister@gatsby.com',
+        password: 'green123',
       });
 
       const expected = {
-        username: '',
+        email: '',
         password: '',
-        rememberMe: false,
       };
 
       // WHEN
@@ -89,9 +84,8 @@ describe('Component Tests', () => {
 
       // THEN
       expect(comp.authenticationError).toEqual(false);
-      expect(comp.loginForm.get('username')!.value).toEqual(expected.username);
+      expect(comp.loginForm.get('email')!.value).toEqual(expected.email);
       expect(comp.loginForm.get('password')!.value).toEqual(expected.password);
-      expect(comp.loginForm.get('rememberMe')!.value).toEqual(expected.rememberMe);
       expect(mockActiveModal.dismissSpy).toHaveBeenCalledWith('cancel');
     });
 

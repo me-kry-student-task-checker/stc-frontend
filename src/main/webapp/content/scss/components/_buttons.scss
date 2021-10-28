@@ -14,3 +14,37 @@
     background: linear-gradient(0.5turn, #1d4e89, #0f80aa, #3fc1c0, #0f80aa, #1d4e89);
   }
 }
+
+.delete-button {
+  padding: 15px 50px;
+  text-transform: uppercase;
+  background: linear-gradient(0.5turn, #e85d04, #dc2f02, #d00000, #dc2f02, #e85d04);
+  color: #e8e8e4;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  &:hover {
+    color: #03071e;
+    background: linear-gradient(0.5turn, #d00000, #dc2f02, #e85d04, #dc2f02, #d00000);
+  }
+}
+
+.back-button {
+  padding: 15px 50px;
+  text-transform: uppercase;
+  background: linear-gradient(0.5turn, #7d8597, #5c677d, #33415c, #5c677d, #7d8597);
+  color: #e8e8e4;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  &:hover {
+    color: #03071e;
+    background: linear-gradient(0.5turn, #33415c, #5c677d, #7d8597, #5c677d, #33415c);
+  }
+}
