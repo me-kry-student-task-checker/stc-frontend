@@ -4,7 +4,7 @@ import { errorRoute } from './layouts/error/error.route';
 import { navbarRoute } from './layouts/navbar/navbar.route';
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import { Authority } from 'app/shared/constants/authority.constants';
-import { coursesRoute } from 'app/courses/courses.router';
+import { coursesRoute } from 'app/layouts/courses/courses.route';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 

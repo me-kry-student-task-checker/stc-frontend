@@ -12,7 +12,15 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CoursesComponent } from './courses/courses.component';
+import { CoursesComponent } from './layouts/courses/courses.component';
+import { NewcourseComponent } from './layouts/courses/newcourse.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { EditcourseComponent } from './layouts/courses/editcourse.component';
+import { DeleteCourseComponent } from 'app/layouts/courses/delete-course.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -23,8 +31,22 @@ import { CoursesComponent } from './courses/courses.component';
     StchFrontendHomeModule,
     StchFrontendEntityModule,
     StchFrontendAppRoutingModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    CommonModule,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, FooterComponent, CoursesComponent],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    FooterComponent,
+    CoursesComponent,
+    NewcourseComponent,
+    EditcourseComponent,
+    DeleteCourseComponent,
+  ],
   bootstrap: [MainComponent],
 })
 export class StchFrontendAppModule {}

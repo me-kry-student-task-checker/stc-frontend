@@ -12,10 +12,10 @@ import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { MockRouter } from '../../../helpers/mock-route.service';
 import { MockStateStorageService } from '../../../helpers/mock-state-storage.service';
 
-function accountWithAuthorities(authorities: string[]): Account {
+function accountWithAuthorities(role: string): Account {
   return {
     enabled: true,
-    role: [],
+    role,
     email: '',
     firstName: '',
     lastName: '',
@@ -59,7 +59,7 @@ describe('Service Tests', () => {
     describe('authenticate', () => {
       it('authenticationState should emit null if input is null', () => {
         // GIVEN
-        let userIdentity: Account | null = accountWithAuthorities([]);
+        let userIdentity: Account | null = accountWithAuthorities('');
         service.getAuthenticationState().subscribe(account => (userIdentity = account));
 
         // WHEN
@@ -72,7 +72,7 @@ describe('Service Tests', () => {
 
       it('authenticationState should emit the same account as was in input parameter', () => {
         // GIVEN
-        const expectedResult = accountWithAuthorities([]);
+        const expectedResult = accountWithAuthorities('');
         let userIdentity: Account | null = null;
         service.getAuthenticationState().subscribe(account => (userIdentity = account));
 
@@ -159,12 +159,12 @@ describe('Service Tests', () => {
     describe('hasAnyAuthority', () => {
       describe('hasAnyAuthority string parameter', () => {
         it('should return false if user is not logged', () => {
-          const hasAuthority = service.hasAnyAuthority(Authority.STUDENT || Authority.TEACHER);
+          const hasAuthority = service.hasAnyAuthority(Authority.TEACHER);
           expect(hasAuthority).toBe(false);
         });
 
         it('should return false if user is logged and has not authority', () => {
-          service.authenticate(accountWithAuthorities([Authority.STUDENT || Authority.TEACHER]));
+          service.authenticate(accountWithAuthorities(Authority.TEACHER));
 
           const hasAuthority = service.hasAnyAuthority(Authority.ADMIN);
 
@@ -172,9 +172,9 @@ describe('Service Tests', () => {
         });
 
         it('should return true if user is logged and has authority', () => {
-          service.authenticate(accountWithAuthorities([Authority.STUDENT || Authority.TEACHER]));
+          service.authenticate(accountWithAuthorities(Authority.TEACHER));
 
-          const hasAuthority = service.hasAnyAuthority(Authority.STUDENT || Authority.TEACHER);
+          const hasAuthority = service.hasAnyAuthority(Authority.TEACHER);
 
           expect(hasAuthority).toBe(true);
         });
@@ -182,22 +182,22 @@ describe('Service Tests', () => {
 
       describe('hasAnyAuthority array parameter', () => {
         it('should return false if user is not logged', () => {
-          const hasAuthority = service.hasAnyAuthority([Authority.STUDENT || Authority.TEACHER]);
+          const hasAuthority = service.hasAnyAuthority(Authority.TEACHER);
           expect(hasAuthority).toBeFalsy();
         });
 
         it('should return false if user is logged and has not authority', () => {
-          service.authenticate(accountWithAuthorities([Authority.STUDENT || Authority.TEACHER]));
+          service.authenticate(accountWithAuthorities(Authority.TEACHER));
 
-          const hasAuthority = service.hasAnyAuthority([Authority.ADMIN]);
+          const hasAuthority = service.hasAnyAuthority(Authority.ADMIN);
 
           expect(hasAuthority).toBe(false);
         });
 
         it('should return true if user is logged and has authority', () => {
-          service.authenticate(accountWithAuthorities([Authority.STUDENT || Authority.TEACHER]));
+          service.authenticate(accountWithAuthorities(Authority.TEACHER));
 
-          const hasAuthority = service.hasAnyAuthority([Authority.STUDENT, Authority.TEACHER, Authority.ADMIN]);
+          const hasAuthority = service.hasAnyAuthority(Authority.TEACHER);
 
           expect(hasAuthority).toBe(true);
         });
