@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 import { Course } from 'app/layouts/courses/course.model';
 import { CourseService } from 'app/layouts/courses/courses.service';
 import { Observable } from 'rxjs';
-import { TasksComponent } from 'app/layouts/tasks/tasks.component';
+import { TasksComponent } from 'app/layouts/courses/tasks/tasks.component';
 
 @Injectable({ providedIn: 'root' })
 export class CourseResolver implements Resolve<Course> {

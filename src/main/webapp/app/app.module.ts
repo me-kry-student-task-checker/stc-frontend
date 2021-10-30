@@ -20,8 +20,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { EditcourseComponent } from './layouts/courses/editcourse.component';
 import { DeleteCourseComponent } from 'app/layouts/courses/delete-course.component';
-import { TasksComponent } from 'app/layouts/tasks/tasks.component';
+import { TasksComponent } from 'app/layouts/courses/tasks/tasks.component';
 import { CommonModule } from '@angular/common';
+import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { CommonModule } from '@angular/common';
     EditcourseComponent,
     DeleteCourseComponent,
     TasksComponent,
+    NewTaskComponent,
   ],
   bootstrap: [MainComponent],
 })
