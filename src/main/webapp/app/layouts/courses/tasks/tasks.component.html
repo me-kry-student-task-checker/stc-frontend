@@ -1,5 +1,6 @@
 <div>
-    <div class='h3' *ngFor='let course of c'>
+    <div class='h3'>
+<!--        Somehow the name is undefined-->
         {{course.name}}
         <hr class='header'>
     </div>
@@ -20,8 +21,3 @@
 <div class='new_task'>
     <button class='button' (click)='newTask()'>Új feladat</button>
 </div>
-
-
-
-
-

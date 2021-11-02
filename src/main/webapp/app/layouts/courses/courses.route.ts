@@ -48,8 +48,11 @@ export const coursesRoute: Routes = [
     },
   },
   {
-    path: 'tasks',
+    path: 'tasks/:id',
     component: TasksComponent,
+    resolve: {
+      course: CourseResolver,
+    },
     data: {
       authorities: [Authority.ADMIN, Authority.TEACHER, Authority.STUDENT],
       pageTitle: 'Feladat',

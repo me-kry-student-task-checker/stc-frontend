@@ -29,6 +29,7 @@ export class NewcourseComponent {
         description: this.createForm.get('description')!.value,
       })
       .subscribe();
+    this.location.back();
   }
 
   backTo(): void {

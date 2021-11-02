@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CourseService } from '../courses.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'jhi-tasks',
@@ -11,15 +12,16 @@ import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
   styleUrls: ['../../../../content/scss/layout/_tasks.scss'],
 })
 export class TasksComponent implements OnInit {
-  c: Course[] = [];
+  course?: Course;
   courseSubscription?: Subscription;
 
-  constructor(private courseService: CourseService, private modalService: NgbModal) {}
+  constructor(private courseService: CourseService, private modalService: NgbModal, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.courseSubscription = this.courseService.getAll().subscribe(course => (this.c = course));
+    this.route.data.subscribe(({ course }) => {
+      this.course = course;
+    });
   }
-
   newTask(): void {
     this.modalService.open(NewTaskComponent, { size: 'lg', backdrop: 'static' });
   }
