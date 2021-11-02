@@ -1,8 +1,8 @@
 .button {
   padding: 15px 50px;
   text-transform: uppercase;
-  background: linear-gradient(0.5turn, #3fc1c0, #0f80aa, #1d4e89, #0f80aa, #3fc1c0);
-  color: #3fc1c0;
+  background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(213, 65%, 33%), hsl(196, 84%, 36%));
+  color: hsl(26, 100%, 92%);
   border: none;
   border-radius: 10px;
   font-weight: 600;
@@ -10,8 +10,25 @@
   cursor: pointer;
 
   &:hover {
-    color: #1d4e89;
-    background: linear-gradient(0.5turn, #1d4e89, #0f80aa, #3fc1c0, #0f80aa, #1d4e89);
+    color: black;
+    background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(180, 51%, 50%), hsl(196, 84%, 36%));
+  }
+}
+
+.back-button {
+  padding: 15px 50px;
+  text-transform: uppercase;
+  background: linear-gradient(0.5turn, hsl(220, 15%, 43%), hsl(220, 29%, 28%), hsl(220, 15%, 43%));
+  color: hsl(26, 100%, 92%);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+    background: linear-gradient(0.5turn, hsl(220, 15%, 43%), hsl(219, 12%, 71%), hsl(220, 15%, 43%));
   }
 }
 
