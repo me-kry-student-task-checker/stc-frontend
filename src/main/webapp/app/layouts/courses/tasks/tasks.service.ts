@@ -11,4 +11,8 @@ export class TasksService {
   create(taskModel: TaskModel): Observable<TaskModel> {
     return this.http.post<TaskModel>(SERVER_API_URL + '/api/task/create', taskModel);
   }
+
+  getAll(): Observable<TaskModel[]> {
+    return this.http.get<TaskModel[]>(SERVER_API_URL + '/api/task/getAll/1');
+  }
 }

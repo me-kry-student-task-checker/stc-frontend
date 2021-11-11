@@ -5,6 +5,7 @@ import { CourseService } from '../courses.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
 import { ActivatedRoute } from '@angular/router';
+import { TasksListComponent } from 'app/layouts/courses/tasks/tasksList.component';
 
 @Component({
   selector: 'jhi-tasks',
@@ -24,5 +25,9 @@ export class TasksComponent implements OnInit {
   }
   newTask(): void {
     this.modalService.open(NewTaskComponent, { size: 'lg', backdrop: 'static' });
+  }
+
+  taskList(): void {
+    this.modalService.open(TasksListComponent, { size: 'lg', backdrop: 'static' });
   }
 }

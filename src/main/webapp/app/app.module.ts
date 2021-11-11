@@ -23,6 +23,8 @@ import { DeleteCourseComponent } from 'app/layouts/courses/delete-course.compone
 import { TasksComponent } from 'app/layouts/courses/tasks/tasks.component';
 import { CommonModule } from '@angular/common';
 import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
+import { TasksListComponent } from 'app/layouts/courses/tasks/tasksList.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
@@ -38,6 +40,7 @@ import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
     MatCardModule,
     MatButtonModule,
     CommonModule,
+    MatTableModule,
   ],
   declarations: [
     MainComponent,
@@ -50,6 +53,7 @@ import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
     DeleteCourseComponent,
     TasksComponent,
     NewTaskComponent,
+    TasksListComponent,
   ],
   bootstrap: [MainComponent],
 })
