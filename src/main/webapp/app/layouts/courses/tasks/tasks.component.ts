@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['../../../../content/scss/layout/_tasks.scss'],
 })
 export class TasksComponent implements OnInit {
-  course?: Course;
+  course!: Course;
   courseSubscription?: Subscription;
 
   constructor(private courseService: CourseService, private modalService: NgbModal, private route: ActivatedRoute) {}

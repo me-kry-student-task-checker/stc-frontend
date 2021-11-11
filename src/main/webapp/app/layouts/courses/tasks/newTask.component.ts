@@ -15,13 +15,15 @@ export class NewTaskComponent {
 
   constructor(private activeModal: NgbActiveModal, private fb: FormBuilder, private taskService: TasksService) {}
 
-  create(): void {
+  submit(): void {
     this.taskService
       .create({
+        id: null,
         name: this.createForm.get('name')!.value,
         description: this.createForm.get('description')!.value,
       })
       .subscribe();
+    this.activeModal.close();
   }
 
   cancel(): void {

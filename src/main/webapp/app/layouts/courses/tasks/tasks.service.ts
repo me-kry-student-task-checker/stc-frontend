@@ -9,6 +9,6 @@ export class TasksService {
   constructor(private http: HttpClient) {}
 
   create(taskModel: TaskModel): Observable<TaskModel> {
-    return this.http.post<TaskModel>(SERVER_API_URL + 'api/task/create', taskModel);
+    return this.http.post<TaskModel>(SERVER_API_URL + '/api/task/create', taskModel);
   }
 }

@@ -48,7 +48,7 @@ export const coursesRoute: Routes = [
     },
   },
   {
-    path: 'tasks/:id',
+    path: 'course/tasks/:id',
     component: TasksComponent,
     resolve: {
       course: CourseResolver,

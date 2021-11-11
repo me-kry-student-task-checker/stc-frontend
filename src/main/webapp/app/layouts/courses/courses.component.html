@@ -30,7 +30,7 @@
             <mat-card-actions>
                 <button mat-button [routerLink]="['/editCourse', card.id]">Módosítás</button>
                 <button mat-button (click)='deleteCourse(card)'>Törlés</button>
-                <button mat-button [routerLink]="['/tasks', card.id]">Részletek</button>
+                <button mat-button [routerLink]="['/course/tasks', card.id]">Részletek</button>
             </mat-card-actions>
         </mat-card>
     </div>

@@ -6,7 +6,7 @@
     </div>
 
     <div class='modal-body'>
-        <form class='form' role='form' (ngSubmit)='create()' [formGroup]='createForm'>
+        <form class='form' role='form' (ngSubmit)='submit()' [formGroup]='createForm'>
             <div class='form-group'>
                 <label class='name-label' for='name'>Feladat neve:</label>
                 <input class='form-control' type='text' name='name' id='name' placeholder='Új feladat neve...'
@@ -26,7 +26,7 @@
             <span>Mégse</span>
         </button>
 
-        <button type='submit' class='button'>
+        <button class='button' (click)='submit()'>
             <span>Létrehozás</span>
         </button>
     </div>
