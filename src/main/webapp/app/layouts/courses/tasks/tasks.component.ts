@@ -23,8 +23,9 @@ export class TasksComponent implements OnInit {
       this.course = course;
     });
   }
-  newTask(): void {
-    this.modalService.open(NewTaskComponent, { size: 'lg', backdrop: 'static' });
+  newTask(course: Course): void {
+    const modalRef = this.modalService.open(NewTaskComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.course = course;
   }
 
   taskList(): void {

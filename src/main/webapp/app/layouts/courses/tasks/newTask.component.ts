@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder } from '@angular/forms';
 import { TasksService } from 'app/layouts/courses/tasks/tasks.service';
+import {Course} from "app/layouts/courses/course.model";
 
 @Component({
   selector: 'jhi-new-task',
   templateUrl: './newTask.component.html',
 })
 export class NewTaskComponent {
+  course!: Course;
   createForm = this.fb.group({
     name: [''],
     description: [''],
@@ -19,6 +21,7 @@ export class NewTaskComponent {
     this.taskService
       .create({
         id: null,
+        courseId: this.course.id,
         name: this.createForm.get('name')!.value,
         description: this.createForm.get('description')!.value,
       })
