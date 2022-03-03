@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Course } from './course.model';
-import { CourseService } from './courses.service';
+import { Course } from 'app/models/course.model';
+import { CourseService } from './course.service';
 
 @Component({
   selector: 'jhi-delete-course',
-  templateUrl: './delete-course.component.html',
+  templateUrl: './courseDelete.component.html',
   styleUrls: ['../../../content/scss/layout/_delete-course.scss'],
 })
-export class DeleteCourseComponent {
+export class CourseDeleteComponent {
   course?: Course;
 
   constructor(private activeModal: NgbActiveModal, private courseService: CourseService) {}

@@ -3,17 +3,17 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from 'app/core/user/account.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { Subscription } from 'rxjs';
-import { CourseService } from 'app/layouts/courses/courses.service';
-import { Course } from 'app/layouts/courses/course.model';
-import { DeleteCourseComponent } from 'app/layouts/courses/delete-course.component';
+import { CourseService } from 'app/layouts/courses/course.service';
+import { Course } from 'app/models/course.model';
+import { CourseDeleteComponent } from 'app/layouts/courses/courseDelete.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-courses',
-  templateUrl: './courses.component.html',
+  templateUrl: './courseList.component.html',
   styleUrls: ['../../../content/scss/layout/_courses.scss'],
 })
-export class CoursesComponent implements OnInit {
+export class CourseListComponent implements OnInit {
   account: Account | null = null;
   cardCourse: Course[] = [];
   authSubscription?: Subscription;
@@ -27,7 +27,7 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(course: Course): void {
-    const modalRef = this.modalService.open(DeleteCourseComponent, { size: 'lg', backdrop: 'static' });
+    const modalRef = this.modalService.open(CourseDeleteComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.course = course;
   }
 }

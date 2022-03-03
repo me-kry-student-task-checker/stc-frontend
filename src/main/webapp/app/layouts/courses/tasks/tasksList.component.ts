@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { TaskModel } from 'app/layouts/courses/tasks/task.model';
+import { TaskModel } from 'app/models/task.model';
 import { Subscription } from 'rxjs';
 import { TasksService } from 'app/layouts/courses/tasks/tasks.service';
 

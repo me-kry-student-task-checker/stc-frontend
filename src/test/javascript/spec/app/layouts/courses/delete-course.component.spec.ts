@@ -1,6 +1,6 @@
-import { DeleteCourseComponent } from 'app/layouts/courses/delete-course.component';
+import { CourseDeleteComponent } from '../../../../../../main/webapp/app/layouts/courses/courseDelete.component';
 import { async, ComponentFixture, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
-import { CourseService } from 'app/layouts/courses/courses.service';
+import { CourseService } from '../../../../../../main/webapp/app/layouts/courses/course.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
 import { StchFrontendTestModule } from '../../../test.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -8,22 +8,22 @@ import { of } from 'rxjs';
 
 describe('Component Test', () => {
   describe('Course Delete Component', () => {
-    let comp: DeleteCourseComponent;
-    let fixture: ComponentFixture<DeleteCourseComponent>;
+    let comp: CourseDeleteComponent;
+    let fixture: ComponentFixture<CourseDeleteComponent>;
     let service: CourseService;
     let mockActiveModal: MockActiveModal;
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         imports: [StchFrontendTestModule],
-        declarations: [DeleteCourseComponent],
+        declarations: [CourseDeleteComponent],
       })
-        .overrideTemplate(DeleteCourseComponent, '')
+        .overrideTemplate(CourseDeleteComponent, '')
         .compileComponents();
     }));
 
     beforeEach(() => {
-      fixture = TestBed.createComponent(DeleteCourseComponent);
+      fixture = TestBed.createComponent(CourseDeleteComponent);
       comp = fixture.componentInstance;
       service = fixture.debugElement.injector.get(CourseService);
       mockActiveModal = TestBed.get(NgbActiveModal);

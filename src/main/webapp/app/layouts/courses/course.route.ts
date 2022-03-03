@@ -1,13 +1,13 @@
 import { Routes, Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { CoursesComponent } from './courses.component';
+import { CourseListComponent } from './courseList.component';
 import { Authority } from 'app/shared/constants/authority.constants';
-import { NewcourseComponent } from '../courses/newcourse.component';
-import { EditcourseComponent } from '../courses/editcourse.component';
+import { NewCourseComponent } from './newCourse.component';
+import { EditCourseComponent } from './editCourse.component';
 import { Injectable } from '@angular/core';
-import { Course } from 'app/layouts/courses/course.model';
-import { CourseService } from 'app/layouts/courses/courses.service';
+import { Course } from 'app/models/course.model';
+import { CourseService } from 'app/layouts/courses/course.service';
 import { Observable } from 'rxjs';
-import { TasksComponent } from 'app/layouts/courses/tasks/tasks.component';
+import { CourseComponent } from 'app/layouts/courses/course.component';
 
 @Injectable({ providedIn: 'root' })
 export class CourseResolver implements Resolve<Course> {
@@ -19,10 +19,10 @@ export class CourseResolver implements Resolve<Course> {
   }
 }
 
-export const coursesRoute: Routes = [
+export const courseRoute: Routes = [
   {
     path: 'courses',
-    component: CoursesComponent,
+    component: CourseListComponent,
     data: {
       authorities: [Authority.ADMIN, Authority.TEACHER, Authority.STUDENT],
       pageTitle: 'Kurzusok',
@@ -30,7 +30,7 @@ export const coursesRoute: Routes = [
   },
   {
     path: 'newCourse',
-    component: NewcourseComponent,
+    component: NewCourseComponent,
     data: {
       authorities: [Authority.TEACHER],
       pageTitle: 'Új kurzus',
@@ -38,7 +38,7 @@ export const coursesRoute: Routes = [
   },
   {
     path: 'editCourse/:id',
-    component: EditcourseComponent,
+    component: EditCourseComponent,
     resolve: {
       course: CourseResolver,
     },
@@ -49,7 +49,7 @@ export const coursesRoute: Routes = [
   },
   {
     path: 'course/:id',
-    component: TasksComponent,
+    component: CourseComponent,
     resolve: {
       course: CourseResolver,
     },

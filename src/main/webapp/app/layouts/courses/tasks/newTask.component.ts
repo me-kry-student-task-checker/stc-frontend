@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder } from '@angular/forms';
 import { TasksService } from 'app/layouts/courses/tasks/tasks.service';
-import {Course} from "app/layouts/courses/course.model";
+import {Course} from "app/models/course.model";
 
 @Component({
   selector: 'jhi-new-task',

@@ -1,9 +1,9 @@
-import { CourseService } from 'app/layouts/courses/courses.service';
+import { CourseService } from '../../../../../../main/webapp/app/layouts/courses/course.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SERVER_API_URL } from 'app/app.constants';
-import { NewCourse } from 'app/layouts/courses/newcourse.model';
-import { Course } from 'app/layouts/courses/course.model';
+import { NewCourse } from '../../../../../../main/webapp/app/models/newcourse.model';
+import { Course } from '../../../../../../main/webapp/app/models/course.model';
 
 describe('Service Tests', () => {
   describe('Courses Service', () => {

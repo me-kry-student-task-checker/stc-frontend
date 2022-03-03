@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../course.model';
+import { Course } from 'app/models/course.model';
 import { Subscription } from 'rxjs';
-import { CourseService } from '../courses.service';
+import { CourseService } from './course.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
+import { NewTaskComponent } from './tasks/newTask.component';
 import { ActivatedRoute } from '@angular/router';
-import { TasksListComponent } from 'app/layouts/courses/tasks/tasksList.component';
+import { TasksListComponent } from './tasks/tasksList.component';
 
 @Component({
   selector: 'jhi-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['../../../../content/scss/layout/_tasks.scss'],
+  templateUrl: './course.component.html',
+  styleUrls: ['../../../content/scss/layout/_tasks.scss'],
 })
-export class TasksComponent implements OnInit {
+export class CourseComponent implements OnInit {
   course!: Course;
   courseSubscription?: Subscription;
 
