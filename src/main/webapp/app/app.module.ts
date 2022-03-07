@@ -23,23 +23,26 @@ import { CourseComponent } from 'app/layouts/courses/course.component';
 import { CommonModule } from '@angular/common';
 import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
 import { TasksListComponent } from 'app/layouts/courses/tasks/tasksList.component';
+import {TaskComponent} from 'app/layouts/courses/tasks/task.component';
 import { MatTableModule } from '@angular/material/table';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    StchFrontendSharedModule,
-    StchFrontendCoreModule,
-    StchFrontendHomeModule,
-    StchFrontendAppRoutingModule,
-    FlexLayoutModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    CommonModule,
-    MatTableModule,
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        StchFrontendSharedModule,
+        StchFrontendCoreModule,
+        StchFrontendHomeModule,
+        StchFrontendAppRoutingModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatButtonModule,
+        CommonModule,
+        MatTableModule,
+        MatButtonToggleModule,
+    ],
   declarations: [
     MainComponent,
     NavbarComponent,
@@ -52,6 +55,7 @@ import { MatTableModule } from '@angular/material/table';
     CourseComponent,
     NewTaskComponent,
     TasksListComponent,
+    TaskComponent,
   ],
   bootstrap: [MainComponent],
 })
