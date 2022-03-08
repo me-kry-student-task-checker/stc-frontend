@@ -7,8 +7,9 @@ import { Authority } from 'app/shared/constants/authority.constants';
 import { courseRoute } from 'app/layouts/courses/course.route';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
+import {taskRoute} from "app/layouts/courses/tasks/task.router";
 
-const LAYOUT_ROUTES = [navbarRoute, ...courseRoute, ...errorRoute];
+const LAYOUT_ROUTES = [navbarRoute, ...courseRoute, ...taskRoute, ...errorRoute];
 
 @NgModule({
   imports: [

@@ -8,7 +8,6 @@ import { Course } from 'app/models/course.model';
 import { CourseService } from 'app/layouts/courses/course.service';
 import { Observable } from 'rxjs';
 import { CourseComponent } from 'app/layouts/courses/course.component';
-import {TaskComponent} from "app/layouts/courses/tasks/task.component";
 
 @Injectable({ providedIn: 'root' })
 export class CourseResolver implements Resolve<Course> {
@@ -57,15 +56,6 @@ export const courseRoute: Routes = [
     data: {
       authorities: [Authority.ADMIN, Authority.TEACHER, Authority.STUDENT],
       pageTitle: 'Kurzus',
-    },
-  },
-
-  {
-    path: 'task/:id',
-    component: TaskComponent,
-    data: {
-      authorities: [Authority.ADMIN, Authority.TEACHER, Authority.STUDENT],
-      pageTitle: 'Feladat',
     },
   },
 ];
