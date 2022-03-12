@@ -30,3 +30,36 @@
 .justify-content-center {
   margin: 20px auto;
 }
+
+.newCourseFormContainer {
+  margin: 80px auto;
+  align-items: center;
+  border: 2px solid #0d5aa7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0f80aa;
+  width: 1000px;
+  height: 400px;
+}
+
+.editCourseFormContainer {
+  margin: 80px auto;
+  align-items: center;
+  border: 2px solid #0d5aa7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0f80aa;
+  width: 1000px;
+  height: 500px;
+}
+
+.regFormContainer {
+  margin: 60px auto;
+  border: 2px solid #0d5aa7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0f80aa;
+  width: 1000px;
+  height: auto;
+}
+
+.justify-content-center {
+  margin: 20px auto;
+}
