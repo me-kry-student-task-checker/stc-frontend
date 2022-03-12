@@ -10,7 +10,7 @@ import { TasksListComponent } from './tasks/tasksList.component';
 @Component({
   selector: 'jhi-tasks',
   templateUrl: './course.component.html',
-  styleUrls: ['../../../content/scss/layout/_tasks.scss'],
+  styleUrls: ['../../../content/scss/layout/course.scss'],
 })
 export class CourseComponent implements OnInit {
   course!: Course;
@@ -28,7 +28,8 @@ export class CourseComponent implements OnInit {
     modalRef.componentInstance.course = course;
   }
 
-  taskList(): void {
-    this.modalService.open(TasksListComponent, { size: 'lg', backdrop: 'static' });
+  taskList(course: Course): void {
+    const modalRef = this.modalService.open(TasksListComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.course = course;
   }
 }

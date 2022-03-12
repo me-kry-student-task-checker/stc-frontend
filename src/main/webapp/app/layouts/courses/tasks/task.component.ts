@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'jhi-task',
   templateUrl: './task.component.html',
+  styleUrls: ['../../../../content/scss/layout/_task.scss'],
 })
 export class TaskComponent implements OnInit {
   task!: TaskModel;

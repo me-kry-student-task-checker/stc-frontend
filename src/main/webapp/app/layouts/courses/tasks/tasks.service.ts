@@ -13,8 +13,8 @@ export class TasksService {
     return this.http.post<NewTaskModel>(SERVER_API_URL + '/api/task/create', taskModel);
   }
 
-  getAllTasks(): Observable<TaskModel[]> {
-    return this.http.get<TaskModel[]>(SERVER_API_URL + '/api/task/getAll/1');
+  getAllTasks(id: number): Observable<TaskModel[]> {
+    return this.http.get<TaskModel[]>(SERVER_API_URL + '/api/task/getAll/' + id);
   }
 
   get(id: number): Observable<TaskModel> {

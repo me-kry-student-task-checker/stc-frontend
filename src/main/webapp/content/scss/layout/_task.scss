@@ -1,0 +1,48 @@
+.container{
+ display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  margin-top: 4rem;
+  min-height: 20vh;
+}
+
+#complete{
+  border: 2px solid hsl(201, 100%, 36%);
+  min-height: 100px;
+}
+
+#help{
+  border: 2px solid hsl(201, 100%, 36%);
+  min-height: 100px;
+}
+
+label{
+  width: 535px;
+  background: hsl(201, 100%, 36%);
+  color: hsl(190, 76%, 82%);
+}
+
+.taskButtonCont{
+display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5rem;
+  width: 40vw;
+  margin-left: 30vw;
+}
+
+.commentTextArea{
+  display: flex;
+  margin-top: 4rem;
+  justify-content: center;
+}
+
+textarea{
+  width: 500px;
+  height: 108px;
+}
+
+.comments{
+  display: grid;
+  justify-content: center;
+  margin-top: 2rem;
+}
