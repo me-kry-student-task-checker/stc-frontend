@@ -1,0 +1,49 @@
+.regFormContainer {
+  margin: 60px auto;
+  border: 2px solid hsl(210, 86%, 35%);
+  border-radius: 10px;
+  box-shadow: 0 0 10px hsl(196, 84%, 36%);
+  height: max-content;
+}
+
+.regButtonCont {
+  text-align: center;
+  border: none;
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 1920px) {
+  .regFormContainer {
+    width: 40vw;
+  }
+
+  .regTextFieldsContainer {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .regFormContainer {
+    width: 60vw;
+  }
+
+  .regTextFieldsContainer {
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .regFormContainer {
+    width: 90vw;
+  }
+
+  .regTextFieldsContainer {
+    width: 50vw;
+  }
+}
+
+label {
+  font-weight: 500;
+}

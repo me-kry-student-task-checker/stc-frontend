@@ -1,186 +1,205 @@
 <div>
-    <div class='h3'>
-        Regisztálás
-        <hr class='header'>
-    </div>
-    <div class='row justify-content-center'>
-        <div class='col-md-6'>
+  <div class="regFormContainer">
+    <div class="h3">Regisztrálás</div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="alert alert-success" *ngIf="success"><strong>Sikeres regisztrálás!</strong> Ellenőrizze a megadott e-mail címét.</div>
 
-            <div class='alert alert-success' *ngIf='success'>
-                <strong>Sikeres regisztrálás!</strong> Ellenőrizze a megadott e-mail címét.
-            </div>
+        <div class="alert alert-danger" *ngIf="error"><strong>A regisztráció hibába ütközött!</strong> Kérem probálja meg később.</div>
 
-            <div class='alert alert-danger' *ngIf='error'>
-                <strong>A regisztráció hibába ütközött!</strong> Kérem probálja meg később.
-            </div>
+        <div class="alert alert-danger" *ngIf="errorUserExists"><strong>Ez a felhasználó név foglalt</strong> Adjon meg egy másikat.</div>
 
-            <div class='alert alert-danger' *ngIf='errorUserExists'>
-                <strong>Ez a felhasználó név foglalt</strong> Adjon meg egy másikat.
-            </div>
-
-            <div class='alert alert-danger' *ngIf='errorEmailExists'>
-                <strong>Ezzel az e-mail címmel már regisztráltak</strong> Adjon meg egy másikat.
-            </div>
-
-            <div class='alert alert-danger' *ngIf='doNotMatch'>
-                A jelszó és a megerősítő nem egyezik meg!
-            </div>
+        <div class="alert alert-danger" *ngIf="errorEmailExists">
+          <strong>Ezzel az e-mail címmel már regisztráltak</strong> Adjon meg egy másikat.
         </div>
+
+        <div class="alert alert-danger" *ngIf="doNotMatch">A jelszó és a megerősítő nem egyezik meg!</div>
+      </div>
     </div>
-    <div class='regFormContainer'>
-        <div class='row justify-content-center'>
-            <div class='col-md-6'>
-                <form name='form' role='form' (ngSubmit)='register()' [formGroup]='registerForm' *ngIf='!success'>
-                    <div class='form-group'>
-                            <label for='firstName'>Vezetéknév</label>
-                        <input type='text' class='form-control' id='firstName' name='firstName'
-                               placeholder='Például: Kis'
-                               formControlName='firstName'>
+    <div class="row justify-content-center">
+      <div class="regTextFieldsContainer">
+        <form name="form" role="form" (ngSubmit)="register()" [formGroup]="registerForm" *ngIf="!success">
+          <div class="form-group">
+            <label class="regLabel" for="firstName">Vezetéknév</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              placeholder="Például: Kis"
+              formControlName="firstName"
+            />
 
-                        <div class='regWarning'
-                             *ngIf="registerForm.get('firstName')!.invalid && (registerForm.get('firstName')!.dirty || registerForm.get('firstName')!.touched)">
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('firstName')?.errors?.required">
-                                Felhasználónév kötelető!
-                            </small>
+            <div
+              class="regWarning"
+              *ngIf="
+                registerForm.get('firstName')!.invalid && (registerForm.get('firstName')!.dirty || registerForm.get('firstName')!.touched)
+              "
+            >
+              <small class="form-text text-danger" *ngIf="registerForm.get('firstName')?.errors?.required">
+                Felhasználónév kötelető!
+              </small>
 
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('firstName')?.errors?.minlength">
-                                A felhasználónévnek 3 és 20 karakter között kell lennie!
-                            </small>
+              <small class="form-text text-danger" *ngIf="registerForm.get('firstName')?.errors?.minlength">
+                A felhasználónévnek 3 és 20 karakter között kell lennie!
+              </small>
 
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('firstName')?.errors?.maxlength">
-                                A felhasználónévnek 3 és 20 karakter között kell lennie!
-                            </small>
+              <small class="form-text text-danger" *ngIf="registerForm.get('firstName')?.errors?.maxlength">
+                A felhasználónévnek 3 és 20 karakter között kell lennie!
+              </small>
 
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('firstName')?.errors?.pattern">
-                                A felhasználónév csak betüket és számokat tartalmazhat!
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class='form-group'>
-                        <label for='lastName'>Keresztnév</label>
-                        <input type='text' class='form-control' id='lastName' name='lastName'
-                               placeholder='Például: László'
-                               formControlName='lastName'>
-
-                        <div class='regWarning'
-                             *ngIf="registerForm.get('lastName')!.invalid && (registerForm.get('lastName')!.dirty || registerForm.get('lastName')!.touched)">
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('lastName')?.errors?.required">
-                                Felhasználónév kötelető!
-                            </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('lastName')?.errors?.minlength">
-                                A felhasználónévnek 3 és 20 karakter között kell lennie!
-                            </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('lastName')?.errors?.maxlength">
-                                A felhasználónévnek 3 és 20 karakter között kell lennie!
-                            </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('lastName')?.errors?.pattern">
-                                A felhasználónév csak betüket és számokat tartalmazhat!
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class='form-group'>
-                        <label for='email'>E-mail</label>
-                        <input type='email' class='form-control' id='email' name='email'
-                               placeholder='Például: kislaszlo@example.com'
-                               formControlName='email' #email>
-                        <div class='regWarning'
-                             *ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)">
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('email')?.errors?.required">
-                                E-mail cím megadása kötelező!
-                            </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('email')?.errors?.invalid">
-                                Helytelen e-mail cím!
-                            </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('email')?.errors?.minlength">
-                                Az e-mail címnek 5 és 50 karakter között kell lennie!
-                            </small>
-
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('email')?.errors?.maxlength">
-                                Az e-mail címnek 5 és 50 karakter között kell lennie!
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class='form-group'>
-                        <label class='form-control-label' for='role'>Szerepkör</label>
-                        <select class='form-control' id='role' name='role'
-                                formControlName='role'>
-                            <option value='' disabled>-- Válaszon egyet! --</option>
-                            <option value='ROLE_teacher'>Tanár</option>
-                            <option value='ROLE_student'>Diák</option>
-                        </select>
-                    </div>
-
-                    <div class='form-group'>
-                            <label for='password'>Jelszó</label>
-                        <input type='password' class='form-control' id='password' name='password'
-                               placeholder='Jelszó...'
-                               formControlName='password'>
-                        <div class='regWarning'
-                             *ngIf="registerForm.get('password')!.invalid && (registerForm.get('password')!.dirty || registerForm.get('password')!.touched)">
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('password')?.errors?.required">
-                                Jelszó megadása kötelező!
-                            </small>
-                        </div>
-                    </div>
-
-                    <label class="col" [ngClass]="registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
-                        <i class="material-icons">{{ registerForm.controls['password'].hasError('required') ||
-                        registerForm.controls['password'].hasError('minlength') ? '✖' :
-                            '✔' }}</i>
-                        Legalább 8 karakter!
-                    </label>
-
-                    <label class="col" [ngClass]="registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('pattern')  ? 'text-danger' : 'text-success'">
-                        <i class="material-icons">{{ registerForm.controls['password'].hasError('required') ||
-                        registerForm.controls['password'].hasError('pattern') ? '✖' :
-                            '✔' }}</i>
-                        Tartalmaznia kell egy nagy és kis betűt, egy speciális karaktert és egy számot!
-                    </label>
-
-                    <jhi-password-strength-bar
-                        [passwordToCheck]="registerForm.get('password')!.value"></jhi-password-strength-bar>
-
-                    <div class='form-group'>
-                        <label for='passwordConfirm'>Jelszó újra</label>
-                        <input type='password' class='form-control' id='passwordConfirm' name='passwordConfirm'
-                               placeholder='Kérem adja meg újra a jelszót...'
-                               formControlName='passwordConfirm'>
-                        <div class='regWarning'
-                             *ngIf="registerForm.get('passwordConfirm')!.invalid && (registerForm.get('passwordConfirm')!.dirty || registerForm.get('passwordConfirm')!.touched)">
-                            <small class='form-text text-danger'
-                                   *ngIf="registerForm.get('passwordConfirm')?.errors?.required">
-                                Jelszó megerősítése kötelező!
-                            </small>
-                        </div>
-                    </div>
-                    <div class='container'>
-                    <button type='submit' [disabled]='registerForm.invalid' class='button'>Regisztrálás
-                    </button>
-                        <button class='back-button' (click)='backTo()'>Vissza</button>
-                    </div>
-                </form>
+              <small class="form-text text-danger" *ngIf="registerForm.get('firstName')?.errors?.pattern">
+                A felhasználónév csak betüket és számokat tartalmazhat!
+              </small>
             </div>
-        </div>
+          </div>
+
+          <div class="form-group">
+            <label class="regLabel" for="lastName">Keresztnév</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              name="lastName"
+              placeholder="Például: Andrea"
+              formControlName="lastName"
+            />
+
+            <div
+              class="regWarning"
+              *ngIf="
+                registerForm.get('lastName')!.invalid && (registerForm.get('lastName')!.dirty || registerForm.get('lastName')!.touched)
+              "
+            >
+              <small class="form-text text-danger" *ngIf="registerForm.get('lastName')?.errors?.required"> Felhasználónév kötelető! </small>
+
+              <small class="form-text text-danger" *ngIf="registerForm.get('lastName')?.errors?.minlength">
+                A felhasználónévnek 3 és 20 karakter között kell lennie!
+              </small>
+
+              <small class="form-text text-danger" *ngIf="registerForm.get('lastName')?.errors?.maxlength">
+                A felhasználónévnek 3 és 20 karakter között kell lennie!
+              </small>
+
+              <small class="form-text text-danger" *ngIf="registerForm.get('lastName')?.errors?.pattern">
+                A felhasználónév csak betüket és számokat tartalmazhat!
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="regLabel" for="email">E-mail</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Például: kisandrea@example.com"
+              formControlName="email"
+              #email
+            />
+            <div
+              class="regWarning"
+              *ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)"
+            >
+              <small class="form-text text-danger" *ngIf="registerForm.get('email')?.errors?.required">
+                E-mail cím megadása kötelező!
+              </small>
+
+              <small class="form-text text-danger" *ngIf="registerForm.get('email')?.errors?.invalid"> Helytelen e-mail cím! </small>
+
+              <small class="form-text text-danger" *ngIf="registerForm.get('email')?.errors?.minlength">
+                Az e-mail címnek 5 és 50 karakter között kell lennie!
+              </small>
+
+              <small class="form-text text-danger" *ngIf="registerForm.get('email')?.errors?.maxlength">
+                Az e-mail címnek 5 és 50 karakter között kell lennie!
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="regLabel" for="role">Szerepkör</label>
+            <select class="form-control" id="role" name="role" formControlName="role">
+              <option value="" disabled>-- Válaszon egyet! --</option>
+              <option value="ROLE_teacher">Tanár</option>
+              <option value="ROLE_student">Diák</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="regLabel" for="password">Jelszó</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Jelszó..." formControlName="password" />
+            <div
+              class="regWarning"
+              *ngIf="
+                registerForm.get('password')!.invalid && (registerForm.get('password')!.dirty || registerForm.get('password')!.touched)
+              "
+            >
+              <small class="form-text text-danger" *ngIf="registerForm.get('password')?.errors?.required">
+                Jelszó megadása kötelező!
+              </small>
+            </div>
+          </div>
+
+          <label
+            class="col"
+            [ngClass]="
+              registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('minlength')
+                ? 'text-danger'
+                : 'text-success'
+            "
+          >
+            <i class="material-icons">{{
+              registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('minlength') ? '✖' : '✔'
+            }}</i>
+            Legalább 8 karakter!
+          </label>
+
+          <label
+            class="col"
+            [ngClass]="
+              registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('pattern')
+                ? 'text-danger'
+                : 'text-success'
+            "
+          >
+            <i class="material-icons">{{
+              registerForm.controls['password'].hasError('required') || registerForm.controls['password'].hasError('pattern') ? '✖' : '✔'
+            }}</i>
+            Tartalmaznia kell egy nagy és kis betűt, egy speciális karaktert és egy számot!
+          </label>
+
+          <jhi-password-strength-bar [passwordToCheck]="registerForm.get('password')!.value"></jhi-password-strength-bar>
+
+          <div class="form-group">
+            <label class="regLabel" for="passwordConfirm">Jelszó újra</label>
+            <input
+              type="password"
+              class="form-control"
+              id="passwordConfirm"
+              name="passwordConfirm"
+              placeholder="Kérem adja meg újra a jelszót..."
+              formControlName="passwordConfirm"
+            />
+            <div
+              class="regWarning"
+              *ngIf="
+                registerForm.get('passwordConfirm')!.invalid &&
+                (registerForm.get('passwordConfirm')!.dirty || registerForm.get('passwordConfirm')!.touched)
+              "
+            >
+              <small class="form-text text-danger" *ngIf="registerForm.get('passwordConfirm')?.errors?.required">
+                Jelszó megerősítése kötelező!
+              </small>
+            </div>
+          </div>
+          <div class="regButtonCont">
+            <button type="submit" [disabled]="registerForm.invalid" class="button">Regisztrálás</button>
+            <button class="back-button" (click)="backTo()">Vissza</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

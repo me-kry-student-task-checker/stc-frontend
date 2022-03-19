@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
 import { LoginService } from 'app/core/login/login.service';
@@ -8,6 +8,7 @@ import { LoginService } from 'app/core/login/login.service';
 @Component({
   selector: 'jhi-login-modal',
   templateUrl: './login.component.html',
+  styleUrls: ['../../../content/scss/components/_login.scss'],
 })
 export class LoginModalComponent implements AfterViewInit {
   @ViewChild('email', { static: false })
@@ -20,7 +21,15 @@ export class LoginModalComponent implements AfterViewInit {
     password: ['', Validators.required],
   });
 
-  constructor(private loginService: LoginService, private router: Router, public activeModal: NgbActiveModal, private fb: FormBuilder) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    public activeModal: NgbActiveModal,
+    private fb: FormBuilder,
+    config: NgbModalConfig
+  ) {
+    config.backdrop = 'static';
+  }
 
   ngAfterViewInit(): void {
     if (this.email) {
@@ -47,16 +56,11 @@ export class LoginModalComponent implements AfterViewInit {
         () => {
           this.authenticationError = false;
           this.activeModal.close();
-          if (
-            this.router.url === '/account/register' ||
-            this.router.url.startsWith('/account/activate') ||
-            this.router.url.startsWith('/account/reset/')
-          ) {
+          if (this.router.url === '/account/register') {
             this.router.navigate(['']);
           }
         },
         (error: any) => {
-          // fixme: valahova mashova loggolni, hogy mi a baj
           console.warn(error);
           this.authenticationError = true;
         }
@@ -66,10 +70,5 @@ export class LoginModalComponent implements AfterViewInit {
   register(): void {
     this.activeModal.dismiss('to state register');
     this.router.navigate(['/account/register']);
-  }
-
-  requestResetPassword(): void {
-    this.activeModal.dismiss('to state requestReset');
-    this.router.navigate(['/account/reset', 'request']);
   }
 }

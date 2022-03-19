@@ -1,17 +1,23 @@
 @use '../abstracts' as *;
 
-.calendar {
-  display: inline-block;
-  width: 347px;
-  height: 497px;
-  @include background('/content/images/calendar.png');
-  background-size: contain;
+.loginFalse,
+.loginTrue {
+  justify-content: center;
+  display: grid;
+  margin-top: 8rem;
 }
 
-.login {
-  display: inline-block;
-  width: 347px;
-  height: 497px;
-  @include background('/content/images/login.jpg');
-  background-size: contain;
+.welcomeHeader {
+  text-align: center;
+  font-size: 70px;
+}
+
+.welcomeInfo {
+  text-align: center;
+  font-size: 25px;
+}
+
+.welcomeButtonCont {
+  display: grid;
+  justify-content: center;
 }

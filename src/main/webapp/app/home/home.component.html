@@ -1,38 +1,25 @@
-<div class='row'>
-    <div class='col-md-3'>
-        <div [ngSwitch]='isAuthenticated()'>
-            <div *ngSwitchCase='true'>
-                <span class='calendar img-fluid rounded'></span>
-            </div>
-            <div *ngSwitchCase='false'>
-                <span class='login img-fluid'></span>
-            </div>
-        </div>
+<div class="main">
+  <div>
+    <div [ngSwitch]="isAuthenticated()">
+      <div *ngSwitchCase="true" class="loginTrue">
+        <h1 class="welcomeHeader">Üdvözlet!</h1>
+
+        <p class="welcomeInfo">Önnek x értesítése van</p>
+      </div>
     </div>
 
-    <div class='col-md-9'>
-        <div [ngSwitch]='isAuthenticated()'>
-            <div *ngSwitchCase='true'>
-                <h1 class='display-4'>Üdvözlet!</h1>
+    <div [ngSwitch]="isAuthenticated()">
+      <div *ngSwitchCase="false" class="loginFalse">
+        <div class="welcomeText">
+          <h1 class="welcomeHeader">Üdvözlet az oldalon!</h1>
 
-                <p class='lead'>Önnek x értesítése van</p>
-            </div>
+          <p class="welcomeInfo">Kérlek jelentkezz be az oldal használatához</p>
+          <div class="welcomeButtonCont">
+            <button class="welcomeButton" (click)="login()">Bejelentkezés</button>
+            <button class="welcomeButton" routerLink="account/register">Regisztrálás</button>
+          </div>
         </div>
-
-        <div [ngSwitch]='isAuthenticated()'>
-            <div *ngSwitchCase='false'>
-                <h1 class='display-4'>Üdvözlet!</h1>
-
-                <p class='lead'>Kérlek jelentkezz be az oldal használatához</p>
-            </div>
-        </div>
-
-        <div [ngSwitch]='isAuthenticated()'>
-
-            <div class='container-3' *ngSwitchCase='false'>
-                <button class='button' (click)='login()'>Bejelentkezés</button>
-                <button class='button' routerLink='account/register'>Regisztrálás</button>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>

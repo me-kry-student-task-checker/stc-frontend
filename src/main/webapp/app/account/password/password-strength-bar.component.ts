@@ -3,7 +3,7 @@ import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
 @Component({
   selector: 'jhi-password-strength-bar',
   template: ` <div id="strength">
-    <small>Jelszó erőssége:</small>
+    <small class="regLabel">Jelszó erőssége:</small>
     <ul id="strengthBar">
       <li class="point"></li>
       <li class="point"></li>
