@@ -68,6 +68,10 @@ export class AccountService {
     return this.http.get<Account>(SERVER_API_URL + 'api/user/me');
   }
 
+  getNonAssignedStudents(id: number): Observable<Account[]> {
+    return this.http.get<Account[]>(SERVER_API_URL + 'api/user/student/notassigned/' + id)
+  }
+
   private navigateToStoredUrl(): void {
     // previousState can be set in the authExpiredInterceptor and in the userRouteAccessService
     // if login is successful, go to stored previousState and clear previousState

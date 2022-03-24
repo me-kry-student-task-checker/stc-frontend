@@ -12,6 +12,7 @@ export class Course {
       role: string;
       enabled: boolean;
       createdCourseIds: number[];
+      student: string[];
     }
   ) {}
 }

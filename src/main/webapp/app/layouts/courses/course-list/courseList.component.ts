@@ -3,15 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from 'app/core/user/account.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { Subscription } from 'rxjs';
-import { CourseService } from 'app/layouts/courses/course.service';
+import { CourseService } from '../course.service';
 import { Course } from 'app/models/course.model';
-import { CourseDeleteComponent } from 'app/layouts/courses/courseDelete.component';
+import { CourseDeleteComponent } from '../course-delete/courseDelete.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-courses',
   templateUrl: './courseList.component.html',
-  styleUrls: ['../../../content/scss/layout/_courses.scss'],
+  styleUrls: ['../../../../content/scss/layout/_courses.scss'],
 })
 export class CourseListComponent implements OnInit {
   account: Account | null = null;

@@ -4,8 +4,8 @@
         <hr class='header'>
     </div>
     <div class='taskH_buttonCont'>
+        <button *jhiHasAnyAuthority="'TEACHER'" class='button' (click)='courseInvite(course)'>Diákok meghívása</button>
         <button class='button' (click)='taskList(course)'>Feladatok</button>
-        <button class='button'>Diákok</button>
         <button class='button'>Fájlok</button>
     </div>
 
@@ -18,5 +18,5 @@
 </div>
 
 <div class='new_task'>
-    <button class='button' (click)='newTask(course)'>Új feladat</button>
+    <button *jhiHasAnyAuthority="'TEACHER'" class='button' (click)='newTask(course)'>Új feladat</button>
 </div>

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { AccountService } from 'app/core/auth/account.service';
-import { CourseService } from './course.service';
+import { AccountService } from '../../../core/auth/account.service';
+import { CourseService } from '../course.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 @Component({
   selector: 'jhi-newcourse',
   templateUrl: './newCourse.component.html',
-  styleUrls: ['../../../content/scss/layout/_newcourse.scss'],
+  styleUrls: ['../../../../content/scss/layout/_newcourse.scss'],
 })
 export class NewCourseComponent {
   createForm = this.fb.group({

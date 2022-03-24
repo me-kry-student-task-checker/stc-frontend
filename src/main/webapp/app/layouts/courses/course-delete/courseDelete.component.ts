@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Course } from 'app/models/course.model';
-import { CourseService } from './course.service';
+import { Course } from '../../../models/course.model';
+import { CourseService } from '../course.service';
 
 @Component({
   selector: 'jhi-delete-course',
   templateUrl: './courseDelete.component.html',
-  styleUrls: ['../../../content/scss/layout/_delete-course.scss'],
+  styleUrls: ['../../../../content/scss/layout/_delete-course.scss'],
 })
 export class CourseDeleteComponent {
   course?: Course;

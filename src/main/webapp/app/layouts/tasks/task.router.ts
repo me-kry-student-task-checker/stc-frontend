@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { TaskModel } from 'app/models/task.model';
+import { TaskModel } from '../../models/task.model';
 import { TasksService } from './tasks.service';
 import { ActivatedRouteSnapshot, Resolve, Routes } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TaskComponent } from './task.component';
-import { Authority } from 'app/shared/constants/authority.constants';
+import { Authority } from '../../shared/constants/authority.constants';
 
 @Injectable({ providedIn: 'root' })
 export class TaskResolver implements Resolve<TaskModel> {

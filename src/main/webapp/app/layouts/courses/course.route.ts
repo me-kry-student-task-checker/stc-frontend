@@ -1,13 +1,13 @@
 import { Routes, Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { CourseListComponent } from './courseList.component';
+import { CourseListComponent } from './course-list/courseList.component';
 import { Authority } from 'app/shared/constants/authority.constants';
-import { NewCourseComponent } from './newCourse.component';
-import { EditCourseComponent } from './editCourse.component';
+import { NewCourseComponent } from './course-new/newCourse.component';
+import { EditCourseComponent } from './course-edit/editCourse.component';
 import { Injectable } from '@angular/core';
 import { Course } from 'app/models/course.model';
 import { CourseService } from 'app/layouts/courses/course.service';
 import { Observable } from 'rxjs';
-import { CourseComponent } from 'app/layouts/courses/course.component';
+import { CourseComponent } from 'app/layouts/courses/course/course.component';
 
 @Injectable({ providedIn: 'root' })
 export class CourseResolver implements Resolve<Course> {

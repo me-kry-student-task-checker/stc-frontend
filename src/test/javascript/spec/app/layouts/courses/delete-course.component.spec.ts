@@ -1,4 +1,4 @@
-import { CourseDeleteComponent } from '../../../../../../main/webapp/app/layouts/courses/courseDelete.component';
+import { CourseDeleteComponent } from '../../../../../../main/webapp/app/layouts/courses/course-delete/courseDelete.component';
 import { async, ComponentFixture, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { CourseService } from '../../../../../../main/webapp/app/layouts/courses/course.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';

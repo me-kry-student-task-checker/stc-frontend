@@ -1,4 +1,4 @@
-import { CourseListComponent } from '../../../../../../main/webapp/app/layouts/courses/courseList.component';
+import { CourseListComponent } from '../../../../../../main/webapp/app/layouts/courses/course-list/courseList.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountService } from 'app/core/auth/account.service';
 import { StchFrontendTestModule } from '../../../test.module';
