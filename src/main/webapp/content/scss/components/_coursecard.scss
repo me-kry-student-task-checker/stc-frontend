@@ -1,3 +1,49 @@
-.course-card {
-  max-width: 500px;
+.wrapper {
+  width: 400px;
+}
+
+.cardsDisplay {
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.courseCard {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 400px;
+  height: 250px;
+  display: inline-block;
+  position: relative;
+  box-shadow: -1px 15px 30px -10px black;
+  margin-top: 2rem;
+}
+
+.cardName {
+  font-size: 25px;
+  background-color: hsl(213, 65%, 33%);
+  color: hsl(26, 100%, 92%);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  overflow: hidden;
+  text-align: center;
+  height: 40px;
+}
+
+.cardCont {
+  font-size: 18px;
+  margin-block: 10px;
+  margin-inline: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cardButtonCont {
+  position: absolute;
+  bottom: 0;
+  width: 398px;
 }

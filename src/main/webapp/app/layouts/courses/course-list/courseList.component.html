@@ -1,37 +1,28 @@
 <div>
-    <div class='h3'>
-        Jelenlegi kurzusok
-        <hr class='header'>
-    </div>
+  <div class="h3">
+    Jelenlegi kurzusok
+    <hr class="header" />
+  </div>
 
-    <div *jhiHasAnyAuthority="'TEACHER'" class='container-2'>
-        <button class='button' routerLink='/newCourse' routerLinkActive='active'>
-            <fa-icon icon='plus'></fa-icon>
-            Új kurzus
-        </button>
+  <div *jhiHasAnyAuthority="'TEACHER'" class="container-2">
+    <button class="button" routerLink="/newCourse" routerLinkActive="active">
+      <fa-icon icon="plus"></fa-icon>
+      Új kurzus
+    </button>
+  </div>
+  <div class="cardsDisplay">
+    <div class="wrapper" *ngFor="let card of cardCourse">
+      <div class="courseCard">
+        <div class="cardName">{{ card.name }}</div>
+        <div class="cardCont"><b>Kurzus felelős:</b> {{ card.creator.firstName }} {{ card.creator.lastName }}</div>
+        <div class="cardCont"><b>Leírás:</b> {{ card.description }}</div>
+        <div class="cardCont"><b>Létrehozás dátuma:</b> {{ card.creationDate | date }}</div>
+        <div class="cardButtonCont">
+          <button class="cardButtonLeft" [routerLink]="['/editCourse', card.id]">Módosítás</button>
+          <button class="cardButtonMiddle" (click)="deleteCourse(card)">Törlés</button>
+          <button class="cardButtonRight" [routerLink]="['/course', card.id]">Részletek</button>
+        </div>
+      </div>
     </div>
-
-    <div class='container-fluid2' *ngFor='let card of cardCourse' >
-        <mat-card class='cards'>
-            <mat-card-header>
-                <mat-card-title>{{card.name}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div>
-                    <span>Tanár neve: {{card.creator.firstName}} {{card.creator.lastName}} </span>
-                </div>
-                <div>
-                    <span>Leírás: {{card.description}} </span>
-                </div>
-                <div>
-                    <span>Létrehozás dátuma: {{card.creationDate | date}} </span>
-                </div>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button [routerLink]="['/editCourse', card.id]">Módosítás</button>
-                <button mat-button (click)='deleteCourse(card)'>Törlés</button>
-                <button mat-button [routerLink]="['/course', card.id]">Részletek</button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
+  </div>
 </div>
