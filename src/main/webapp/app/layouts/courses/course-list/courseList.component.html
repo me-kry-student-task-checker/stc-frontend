@@ -5,7 +5,7 @@
   </div>
 
   <div *jhiHasAnyAuthority="'TEACHER'" class="container-2">
-    <button class="button" routerLink="/newCourse" routerLinkActive="active">
+    <button class="button" (click)="newCourse()">
       <fa-icon icon="plus"></fa-icon>
       Új kurzus
     </button>

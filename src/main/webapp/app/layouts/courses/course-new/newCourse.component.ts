@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CourseService } from '../course.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-newcourse',
   templateUrl: './newCourse.component.html',
-  styleUrls: ['../../../../content/scss/layout/_newcourse.scss'],
 })
 export class NewCourseComponent {
   createForm = this.fb.group({
@@ -14,7 +13,7 @@ export class NewCourseComponent {
     description: ['', Validators.maxLength(220)],
   });
 
-  constructor(private coursesService: CourseService, private fb: FormBuilder, private location: Location) {}
+  constructor(private activeModal: NgbActiveModal, private coursesService: CourseService, private fb: FormBuilder) {}
 
   create(): void {
     this.coursesService
@@ -23,10 +22,11 @@ export class NewCourseComponent {
         description: this.createForm.get('description')!.value,
       })
       .subscribe();
-    this.location.back();
+    this.activeModal.close();
+    window.location.reload();
   }
 
-  backTo(): void {
-    this.location.back();
+  cancel(): void {
+    this.activeModal.dismiss();
   }
 }

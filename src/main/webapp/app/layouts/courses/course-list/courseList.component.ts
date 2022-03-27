@@ -7,6 +7,7 @@ import { CourseService } from '../course.service';
 import { Course } from 'app/models/course.model';
 import { CourseDeleteComponent } from '../course-delete/courseDelete.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NewCourseComponent } from './newCourse.component';
 
 @Component({
   selector: 'jhi-courses',
@@ -24,6 +25,11 @@ export class CourseListComponent implements OnInit {
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
     this.courseSubscription = this.courseService.getAll().subscribe(course => (this.cardCourse = course));
+  }
+
+  newCourse(): void {
+    const modalRef = this.modalService.open(NewCourseComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance;
   }
 
   deleteCourse(course: Course): void {
