@@ -28,6 +28,7 @@ import { EditCourseComponent } from './layouts/courses/course-edit/editCourse.co
 import { CourseDeleteComponent } from 'app/layouts/courses/course-delete/courseDelete.component';
 import { CourseComponent } from 'app/layouts/courses/course/course.component';
 import { CourseInviteComponent } from "app/layouts/courses/course-invite/courseInvite.component";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
     imports: [
@@ -44,6 +45,7 @@ import { CourseInviteComponent } from "app/layouts/courses/course-invite/courseI
         CommonModule,
         MatTableModule,
         MatButtonToggleModule,
+        MatCheckboxModule,
     ],
   declarations: [
     MainComponent,

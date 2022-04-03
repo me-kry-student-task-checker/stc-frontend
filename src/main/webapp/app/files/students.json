@@ -1,0 +1,58 @@
+[
+  {
+    "assignedCourseIds": [],
+    "email": "bart@simson.com",
+    "firstName": "Bart",
+    "lastName": "Simpson",
+    "role": "STUDENT",
+    "enabled": false
+  },
+  {
+    "assignedCourseIds": [],
+    "email": "karl@franz.com",
+    "firstName": "Karl",
+    "lastName": "Franz",
+    "role": "STUDENT",
+    "enabled": false
+  },
+  {
+    "assignedCourseIds": [],
+    "email": "balthasar@gelt.com",
+    "firstName": "Balthasar",
+    "lastName": "Gelt",
+    "role": "STUDENT",
+    "enabled": false
+  },
+  {
+    "assignedCourseIds": [1],
+    "email": "szalai@bence.com",
+    "firstName": "Szalai",
+    "lastName": "Bence",
+    "role": "STUDENT",
+    "enabled": false
+  },
+  {
+    "assignedCourseIds": [1,2],
+    "email": "antal@judit.com",
+    "firstName": "Antal",
+    "lastName": "Judit",
+    "role": "STUDENT",
+    "enabled": false
+  },
+  {
+    "assignedCourseIds": [1],
+    "email": "boros@adrienn.com",
+    "firstName": "Boros",
+    "lastName": "Adrienn",
+    "role": "STUDENT",
+    "enabled": false
+  },
+  {
+    "assignedCourseIds": [2],
+    "email": "varga@melinda.com",
+    "firstName": "Varga",
+    "lastName": "Melinda",
+    "role": "STUDENT",
+    "enabled": false
+  }
+]

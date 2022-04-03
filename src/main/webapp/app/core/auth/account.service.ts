@@ -7,6 +7,7 @@ import { StateStorageService } from 'app/core/auth/state-storage.service';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { Account } from 'app/core/user/account.model';
+import {Student} from "app/core/user/student.model";
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -68,8 +69,12 @@ export class AccountService {
     return this.http.get<Account>(SERVER_API_URL + 'api/user/me');
   }
 
-  getNonAssignedStudents(id: number): Observable<Account[]> {
-    return this.http.get<Account[]>(SERVER_API_URL + 'api/user/student/notassigned/' + id)
+  getNonAssignedStudents(id: number): Observable<Student[]> {
+      return this.http.get<Student[]>(SERVER_API_URL + 'api/user/student/notassigned/' + id)
+  }
+
+  getStudentsByAssignedCourseId(id: number): Observable<Student[]> {
+    return this.http.get<Student[]>(SERVER_API_URL + 'api/user/student/assigned/' + id)
   }
 
   private navigateToStoredUrl(): void {

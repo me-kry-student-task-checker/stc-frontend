@@ -1,0 +1,52 @@
+.taskH_buttonCont {
+  margin-left: 62vw;
+  width: 600px;
+}
+
+.courseButtonCont {
+  margin-top: 80px;
+  display: flex;
+  margin-left: 12vw;
+  width: 80vw;
+  height: 40px;
+}
+
+.new_task {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.collapsible{
+  margin-left: 12vw;
+  margin-top: 20px;
+  width: 75vw;
+  min-height: 120px;
+  background:  hsl(144, 10%, 95%);
+  color: black;
+  border-radius: 10px;
+  border: 2px solid hsl(213, 65%, 33%);
+}
+
+table {
+  width: 100%;
+}
+
+#courseStudents{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.studentCard{
+  display: grid;
+  height: 30px;
+  width: 300px;
+  border-radius: 10px;
+  border: 2px solid hsl(213, 65%, 33%);
+  background-color: #00b4d8;
+  justify-items: center;
+  margin-block: 10px;
+}

@@ -9,11 +9,21 @@
         <button class='button'>Fájlok</button>
     </div>
 
-    <div class='task_buttonCont'>
-        <button class='tasksButton'>Kurzus leírása</button>
-        <button class='tasksButton'>Diákok a kurzuson</button>
+
+    <div class='courseButtonCont'>
+        <button class='tasksButton'  (click)="descCollapsed = !descCollapsed" [attr.aria-expanded]="!descCollapsed" >Kurzus leírása</button>
+        <button class='tasksButton' (click)="studentCollapsed = !studentCollapsed" [attr.aria-expanded]="!studentCollapsed" >Diákok a kurzuson</button>
         <button class='tasksButton'>Feltöltött fájlok</button>
     </div>
+    <div>
+        <div id="courseDesc" [ngbCollapse]="descCollapsed" class="collapsible">
+            {{course.description}}
+        </div>
+        <div id="courseStudents" [ngbCollapse]="studentCollapsed" class="collapsible" >
+            <div class="studentCard" *ngFor="let student of assignedStudents">{{student.firstName}} {{student.lastName}} - {{student.email}}</div>
+        </div>
+    </div>
+
 
 </div>
 

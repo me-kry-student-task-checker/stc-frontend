@@ -10,7 +10,7 @@ import { Course } from 'app/models/course.model';
 @Component({
   selector: 'jhi-tasks-list',
   templateUrl: 'tasksList.component.html',
-  styleUrls: ['../../../content/scss/layout/course.scss'],
+  styleUrls: ['../../../content/scss/layout/_course.scss'],
 })
 export class TasksListComponent implements OnInit {
   account: Account | null = null;

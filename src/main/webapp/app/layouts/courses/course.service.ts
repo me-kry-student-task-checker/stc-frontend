@@ -32,7 +32,7 @@ export class CourseService {
     return this.http.delete(`${SERVER_API_URL + 'api/course/delete'}/${id}`);
   }
 
-  inviteStudents(id: number, email: string): Observable<any> {
-    return this.http.post(SERVER_API_URL + 'api/user/assignStudentsToCourse', {courseId: id, studentEmails: [email]});
+  inviteStudents(id: number, emails: string[]): Observable<any> {
+    return this.http.post(SERVER_API_URL + 'api/user/assignStudentsToCourse', {courseId: id, studentEmails: emails});
   }
 }
