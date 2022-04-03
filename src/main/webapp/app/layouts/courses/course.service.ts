@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { Observable } from 'rxjs';
-import { NewCourse } from './newcourse.model';
-import { Course } from 'app/layouts/courses/course.model';
+import { NewCourse } from 'app/models/newcourse.model';
+import { Course } from 'app/models/course.model';
 
 @Injectable({ providedIn: 'root' })
 export class CourseService {

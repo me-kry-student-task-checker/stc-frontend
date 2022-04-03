@@ -1,0 +1,33 @@
+<form name='newTask'>
+    <div class='modal-header'>
+        <h4 class='modal-title'>Új feladat létrehozása</h4>
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true' (click)='cancel()'>&times;
+        </button>
+    </div>
+
+    <div class='modal-body'>
+        <form class='form' role='form' (ngSubmit)='submit()' [formGroup]='createForm'>
+            <div class='form-group'>
+                <label class='name-label' for='name'>Feladat neve:</label>
+                <input class='form-control' type='text' name='name' id='name' placeholder='Új feladat neve...'
+                       formControlName='name'>
+            </div>
+            <div class='form-group'>
+                <label class='description-label' for='description'>Feladat leírása</label>
+                <input class='form-control' type='text' id='description' name='description'
+                       placeholder='Új feladat leírása...' formControlName='description'>
+            </div>
+        </form>
+    </div>
+
+    <div class='modal-footer'>
+        <p class='delete-footer'>Biztos létrehoza?</p>
+        <button type='button' class='back-button' data-dismiss='modal' (click)='cancel()'>
+            <span>Mégse</span>
+        </button>
+
+        <button class='button' (click)='submit()'>
+            <span>Létrehozás</span>
+        </button>
+    </div>
+</form>

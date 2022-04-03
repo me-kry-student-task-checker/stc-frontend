@@ -1,0 +1,22 @@
+<div>
+    <div class='h3'>
+        {{course.name}}
+        <hr class='header'>
+    </div>
+    <div class='taskH_buttonCont'>
+        <button class='button' (click)='taskList(course)'>Feladatok</button>
+        <button class='button'>Diákok</button>
+        <button class='button'>Fájlok</button>
+    </div>
+
+    <div class='task_buttonCont'>
+        <button class='tasksButton'>Kurzus leírása</button>
+        <button class='tasksButton'>Diákok a kurzuson</button>
+        <button class='tasksButton'>Feltöltött fájlok</button>
+    </div>
+
+</div>
+
+<div class='new_task'>
+    <button class='button' (click)='newTask(course)'>Új feladat</button>
+</div>

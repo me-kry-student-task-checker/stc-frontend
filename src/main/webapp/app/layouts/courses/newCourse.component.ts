@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { AccountService } from 'app/core/auth/account.service';
-import { CourseService } from './courses.service';
+import { CourseService } from './course.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 @Component({
   selector: 'jhi-newcourse',
-  templateUrl: './newcourse.component.html',
+  templateUrl: './newCourse.component.html',
   styleUrls: ['../../../content/scss/layout/_newcourse.scss'],
 })
-export class NewcourseComponent {
+export class NewCourseComponent {
   createForm = this.fb.group({
     name: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(5)]],
     description: ['', Validators.maxLength(220)],
@@ -29,6 +29,7 @@ export class NewcourseComponent {
         description: this.createForm.get('description')!.value,
       })
       .subscribe();
+    this.location.back();
   }
 
   backTo(): void {

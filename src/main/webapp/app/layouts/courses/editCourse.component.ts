@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'app/core/auth/account.service';
-import { CourseService } from './courses.service';
-import { Course } from './course.model';
+import { CourseService } from './course.service';
+import { Course } from 'app/models/course.model';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
   selector: 'jhi-editcourse',
-  templateUrl: './editcourse.component.html',
+  templateUrl: './editCourse.component.html',
   styleUrls: ['../../../content/scss/layout/_editcourse.scss'],
 })
-export class EditcourseComponent implements OnInit {
+export class EditCourseComponent implements OnInit {
   course!: Course;
   editForm = this.fb.group({
     id: [],

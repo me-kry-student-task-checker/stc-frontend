@@ -1,7 +1,7 @@
 <div>
     <div class='h3'>
         Jelenlegi kurzusok
-        <hr class='courseHeader'>
+        <hr class='header'>
     </div>
 
     <div *jhiHasAnyAuthority="'TEACHER'" class='container-2'>
@@ -30,7 +30,7 @@
             <mat-card-actions>
                 <button mat-button [routerLink]="['/editCourse', card.id]">Módosítás</button>
                 <button mat-button (click)='deleteCourse(card)'>Törlés</button>
-                <button mat-button>Részletek</button>
+                <button mat-button [routerLink]="['/course', card.id]">Részletek</button>
             </mat-card-actions>
         </mat-card>
     </div>

@@ -6,46 +6,56 @@ import { StchFrontendSharedModule } from 'app/shared/shared.module';
 import { StchFrontendCoreModule } from 'app/core/core.module';
 import { StchFrontendAppRoutingModule } from './app-routing.module';
 import { StchFrontendHomeModule } from './home/home.module';
-import { StchFrontendEntityModule } from './entities/entity.module';
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CoursesComponent } from './layouts/courses/courses.component';
-import { NewcourseComponent } from './layouts/courses/newcourse.component';
+import { CourseListComponent } from './layouts/courses/courseList.component';
+import { NewCourseComponent } from './layouts/courses/newCourse.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { EditcourseComponent } from './layouts/courses/editcourse.component';
-import { DeleteCourseComponent } from 'app/layouts/courses/delete-course.component';
+import { EditCourseComponent } from './layouts/courses/editCourse.component';
+import { CourseDeleteComponent } from 'app/layouts/courses/courseDelete.component';
+import { CourseComponent } from 'app/layouts/courses/course.component';
 import { CommonModule } from '@angular/common';
+import { NewTaskComponent } from 'app/layouts/courses/tasks/newTask.component';
+import { TasksListComponent } from 'app/layouts/courses/tasks/tasksList.component';
+import {TaskComponent} from 'app/layouts/courses/tasks/task.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    StchFrontendSharedModule,
-    StchFrontendCoreModule,
-    StchFrontendHomeModule,
-    StchFrontendEntityModule,
-    StchFrontendAppRoutingModule,
-    FlexLayoutModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    CommonModule,
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        StchFrontendSharedModule,
+        StchFrontendCoreModule,
+        StchFrontendHomeModule,
+        StchFrontendAppRoutingModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatButtonModule,
+        CommonModule,
+        MatTableModule,
+        MatButtonToggleModule,
+    ],
   declarations: [
     MainComponent,
     NavbarComponent,
     ErrorComponent,
     FooterComponent,
-    CoursesComponent,
-    NewcourseComponent,
-    EditcourseComponent,
-    DeleteCourseComponent,
+    CourseListComponent,
+    NewCourseComponent,
+    EditCourseComponent,
+    CourseDeleteComponent,
+    CourseComponent,
+    NewTaskComponent,
+    TasksListComponent,
+    TaskComponent,
   ],
   bootstrap: [MainComponent],
 })

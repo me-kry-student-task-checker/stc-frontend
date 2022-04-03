@@ -1,24 +1,24 @@
-import { CoursesComponent } from 'app/layouts/courses/courses.component';
+import { CourseListComponent } from '../../../../../../main/webapp/app/layouts/courses/courseList.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountService } from 'app/core/auth/account.service';
 import { StchFrontendTestModule } from '../../../test.module';
 
 describe('Component Tests', () => {
   describe('Courses Component', () => {
-    let comp: CoursesComponent;
-    let fixture: ComponentFixture<CoursesComponent>;
+    let comp: CourseListComponent;
+    let fixture: ComponentFixture<CourseListComponent>;
     let accountService: AccountService;
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         imports: [StchFrontendTestModule],
-        declarations: [CoursesComponent],
+        declarations: [CourseListComponent],
       })
-        .overrideTemplate(CoursesComponent, '')
+        .overrideTemplate(CourseListComponent, '')
         .compileComponents();
     }));
     beforeEach(() => {
-      fixture = TestBed.createComponent(CoursesComponent);
+      fixture = TestBed.createComponent(CourseListComponent);
       comp = fixture.componentInstance;
       accountService = TestBed.get(AccountService);
     });
