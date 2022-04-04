@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TaskModel } from '../../models/task.model';
-import { NewTaskModel } from '../../models/newTask.model';
-import { SERVER_API_URL } from '../../app.constants';
+import { TaskModel } from 'app/models/task.model';
+import { NewTaskModel } from 'app/models/newTask.model';
+import { SERVER_API_URL } from 'app/app.constants';
 
 @Injectable({ providedIn: 'root' })
 export class TasksService {
@@ -19,5 +19,13 @@ export class TasksService {
 
   get(id: number): Observable<TaskModel> {
     return this.http.get<TaskModel>(SERVER_API_URL + '/api/task/get/' + id);
+  }
+
+  edit(task: TaskModel): Observable<TaskModel> {
+    return this.http.put<TaskModel>(SERVER_API_URL + 'api/task/edit', task);
+  }
+
+  delete(id: number): Observable<{}> {
+    return this.http.delete(`${SERVER_API_URL + 'api/task/delete'}/${id}`);
   }
 }

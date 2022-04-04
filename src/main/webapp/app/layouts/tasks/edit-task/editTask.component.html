@@ -1,0 +1,62 @@
+<form name='newTask'>
+    <div class='modal-header'>
+        <h4 class='modal-title'>Feladat Módosítása</h4>
+        <button type="button" class="modalClose" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+    </div>
+
+    <div class='modal-body' *ngIf='task'>
+        <form class='form' role='form' (ngSubmit)='edit()' [formGroup]='editForm'>
+            <div class='form-group' [hidden]='!task.id'>
+                <label class='form-control-label'>ID</label>
+                <input class='form-control' type='number' name='id' formControlName='id'
+                       readonly><br>
+            </div>
+            <div class='form-group'>
+                <label class='name-label' for='name'>Feladat neve:</label>
+                <input class='form-control' type='text' name='name' id='name' formControlName='name'>
+                <div
+                    *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                    <small class='form-text text-danger'
+                           *ngIf="editForm.get('name')?.errors?.required">
+                        A feladat neve nem lehet üres!
+                    </small>
+
+                    <small class='form-text text-danger'
+                           *ngIf="editForm.get('name')?.errors?.maxlength">
+                        Túl hosszú feladatnév!
+                    </small>
+
+                    <small class='form-text text-danger'
+                           *ngIf="editForm.get('name')?.errors?.minlength">
+                        Túl rövid feladatnév!
+                    </small>
+                </div>
+                <br>
+            </div>
+            <div class='form-group'>
+                <label class='description-label' for='description'>Feladat leírása</label>
+                <input class='form-control' type='text' id='description' name='description' formControlName='description'>
+                <div
+                    *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+
+                    <small class='form-text text-danger'
+                           *ngIf="editForm.get('description')?.errors?.maxlength">
+                        Túl hosszú leírás!
+                    </small>
+                </div>
+                <br>
+            </div>
+        </form>
+    </div>
+
+    <div class='modal-footer'>
+        <p class='delete-footer'>Biztos módosítja?</p>
+        <button type='button' class='back-button' data-dismiss='modal' (click)='cancel()'>
+            <span>Mégse</span>
+        </button>
+
+        <button class='button' type='submit' (click)="edit()">
+            <span>Módosítás</span>
+        </button>
+    </div>
+</form>

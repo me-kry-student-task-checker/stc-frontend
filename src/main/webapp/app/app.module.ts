@@ -19,8 +19,8 @@ import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { ErrorComponent } from './layouts/error/error.component';
-import { NewTaskComponent } from 'app/layouts/tasks/newTask.component';
-import { TasksListComponent } from 'app/layouts/tasks/tasksList.component';
+import { NewTaskComponent } from 'app/layouts/tasks/new-task/newTask.component';
+import { TasksListComponent } from 'app/layouts/tasks/tasks-list/tasksList.component';
 import {TaskComponent} from 'app/layouts/tasks/task.component';
 import { CourseListComponent } from './layouts/courses/course-list/courseList.component';
 import { NewCourseComponent } from './layouts/courses/course-new/newCourse.component';
@@ -29,6 +29,7 @@ import { CourseDeleteComponent } from 'app/layouts/courses/course-delete/courseD
 import { CourseComponent } from 'app/layouts/courses/course/course.component';
 import { CourseInviteComponent } from "app/layouts/courses/course-invite/courseInvite.component";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {EditTaskComponent} from "app/layouts/tasks/edit-task/editTask.component";
 
 @NgModule({
     imports: [
@@ -61,6 +62,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     TasksListComponent,
     TaskComponent,
     CourseInviteComponent,
+    EditTaskComponent,
   ],
   bootstrap: [MainComponent],
 })

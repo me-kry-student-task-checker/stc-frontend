@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AccountService } from '../../../core/auth/account.service';
+import { AccountService } from 'app/core/auth/account.service';
 import { CourseService } from '../course.service';
-import { Course } from '../../../models/course.model';
+import { Course } from 'app/models/course.model';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'jhi-editcourse',
+  selector: 'jhi-edit-course',
   templateUrl: './editCourse.component.html',
   styleUrls: ['../../../../content/scss/layout/_editcourse.scss'],
 })

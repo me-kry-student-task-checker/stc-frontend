@@ -20,7 +20,9 @@
             {{course.description}}
         </div>
         <div id="courseStudents" [ngbCollapse]="studentCollapsed" class="collapsible" >
-            <div class="studentCard" *ngFor="let student of assignedStudents">{{student.firstName}} {{student.lastName}} - {{student.email}}</div>
+            <div class="studentWrapper">
+                <div class="studentCard" *ngFor="let student of assignedStudents">{{student.firstName}} {{student.lastName}} - {{student.email}}</div>
+            </div>
         </div>
     </div>
 
