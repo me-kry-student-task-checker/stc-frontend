@@ -1,0 +1,24 @@
+<form *ngIf='task' name='deleteForm' (ngSubmit)=confirmTaskDelete(task.id)>
+    <div class='modal-header'>
+        <h4 class='modal-title'> Törlés megerősítése!</h4>
+
+        <button type="button" class="modalClose" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+    </div>
+
+    <div class='modal-body'>
+        <p>Feladat neve: {{task.name}}</p>
+        <p>Feladat leírása: {{task.description}}</p>
+    </div>
+
+    <div class='modal-footer'>
+        <p class='delete-footer'>Biztos hogy törölni akarja az alábbi feladatott?</p>
+        <button type='button' class='button' data-dismiss='modal' (click)='cancel()'>
+            <span>Mégse</span>
+        </button>
+
+        <button type='submit' class='delete-button'>
+            <span>Törlés</span>
+        </button>
+    </div>
+
+</form>

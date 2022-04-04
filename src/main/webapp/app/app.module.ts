@@ -30,6 +30,7 @@ import { CourseComponent } from 'app/layouts/courses/course/course.component';
 import { CourseInviteComponent } from "app/layouts/courses/course-invite/courseInvite.component";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {EditTaskComponent} from "app/layouts/tasks/edit-task/editTask.component";
+import {DeleteTaskComponent} from "app/layouts/tasks/delete-task/deleteTask.component";
 
 @NgModule({
     imports: [
@@ -63,6 +64,7 @@ import {EditTaskComponent} from "app/layouts/tasks/edit-task/editTask.component"
     TaskComponent,
     CourseInviteComponent,
     EditTaskComponent,
+    DeleteTaskComponent,
   ],
   bootstrap: [MainComponent],
 })

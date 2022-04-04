@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Course } from '../../../models/course.model';
+import { Course } from 'app/models/course.model';
 import { CourseService } from '../course.service';
 
 @Component({
