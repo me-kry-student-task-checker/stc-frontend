@@ -1,86 +1,96 @@
-.button {
+@use '../abstracts' as *;
+
+.button,
+.back-button,
+.taskButton,
+.delete-button,
+.welcomeButton {
   padding: 15px 50px;
   text-transform: uppercase;
-  background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(213, 65%, 33%), hsl(196, 84%, 36%));
-  color: hsl(26, 100%, 92%);
   border: none;
   border-radius: 10px;
   font-weight: 600;
   font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.button {
+  background: $darkCornflower;
+  color: $lightCyan;
   margin-bottom: 10px;
 
   &:hover {
-    color: black;
-    background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(180, 51%, 50%), hsl(196, 84%, 36%));
+    color: $black;
+    background: $middleBlue;
   }
 }
 
 .back-button {
-  padding: 15px 50px;
-  text-transform: uppercase;
-  background: linear-gradient(0.5turn, hsl(220, 15%, 43%), hsl(220, 29%, 28%), hsl(220, 15%, 43%));
-  color: hsl(26, 100%, 92%);
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 0.75rem;
-  cursor: pointer;
+  background: $onyx;
+  color: $lightCyan;
 
   &:hover {
-    color: black;
-    background: linear-gradient(0.5turn, hsl(220, 15%, 43%), hsl(219, 12%, 71%), hsl(220, 15%, 43%));
+    color: $black;
+    background: $sonicSilver;
   }
 }
 
-.tasksButton {
-  padding: 10px 40px;
+.courseDescButtom,
+.studentsButton,
+.filesButton {
+  padding: 15px 50px;
   text-transform: uppercase;
-  background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(213, 65%, 33%), hsl(196, 84%, 36%));
-  color: hsl(26, 100%, 92%);
+  font-weight: 600;
+  font-size: 0.75rem;
   border: none;
-  font-weight: 650;
-  font-size: 0.8rem;
   cursor: pointer;
+  background: $darkCornflower;
+  color: $lightCyan;
   float: left;
   width: 25vw;
 
   &:hover {
-    color: black;
-    background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(180, 51%, 50%), hsl(196, 84%, 36%));
+    color: $black;
+    background: $middleBlue;
   }
 }
 
+.courseDescButtom {
+  border-right: 1px solid $black;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.studentsButton {
+  border-left: 1px solid $black;
+  border-right: 1px solid $black;
+}
+
+.filesButton {
+  border-left: 1px solid $black;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .taskButton {
-  padding: 10px 40px;
-  text-transform: uppercase;
-  background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(213, 65%, 33%), hsl(196, 84%, 36%));
-  color: hsl(26, 100%, 92%);
-  border: none;
-  font-weight: 650;
-  font-size: 0.8rem;
-  cursor: pointer;
+  background: $darkCornflower;
+  color: $lightCyan;
   float: left;
 
   &:hover {
-    color: black;
-    background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(180, 51%, 50%), hsl(196, 84%, 36%));
+    color: $black;
+    background: $middleBlue;
   }
 }
 
 .delete-button {
-  padding: 15px 50px;
-  text-transform: uppercase;
-  background: linear-gradient(0.5turn, #e85d04, #dc2f02, #d00000, #dc2f02, #e85d04);
-  color: #e8e8e4;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 0.75rem;
+  background: $darkRed;
+  color: $lightCyan;
   cursor: pointer;
 
   &:hover {
-    color: #03071e;
-    background: linear-gradient(0.5turn, #d00000, #dc2f02, #e85d04, #dc2f02, #d00000);
+    color: $black;
+    background: $vermillion;
   }
 }
 
@@ -106,32 +116,26 @@
   width: 50px;
   height: 50px;
   margin-left: 10px;
-  background: hsl(214, 97%, 27%);
-  color: hsl(190, 77%, 88%);
+  background: $darkCornflower;
+  color: $lightCyan;
   border-radius: 5px;
   border: none;
 
   &:hover {
-    color: black;
-    background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(180, 51%, 50%), hsl(196, 84%, 36%));
+    color: $black;
+    background: $middleBlue;
   }
 }
 
 .welcomeButton {
   margin-top: 15px;
   padding: 15px 50px;
-  text-transform: uppercase;
-  background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(213, 65%, 33%), hsl(196, 84%, 36%));
-  color: hsl(26, 100%, 92%);
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 0.75rem;
-  cursor: pointer;
+  background: $darkCornflower;
+  color: $lightCyan;
 
   &:hover {
-    color: black;
-    background: linear-gradient(0.5turn, hsl(196, 84%, 36%), hsl(180, 51%, 50%), hsl(196, 84%, 36%));
+    color: $black;
+    background: $middleBlue;
   }
 }
 
@@ -139,15 +143,15 @@
   margin-right: -38px;
   margin-top: -35px;
   border-radius: 50%;
-  background-color: hsl(213, 65%, 33%);
-  border: 2px solid white;
-  color: white;
+  background-color: $darkCornflower;
+  border: 2px solid $lightCyan;
+  color: $lightCyan;
   min-width: 45px;
   min-height: 45px;
   font-size: 25px;
 
   &:hover {
-    background-color: hsl(196, 84%, 36%);
+    background-color: $starCommandBlue;
   }
 }
 
@@ -155,16 +159,16 @@
 .cardButtonMiddle,
 .cardButtonRight {
   text-transform: uppercase;
-  background: hsl(213, 65%, 33%);
-  color: hsl(26, 100%, 92%);
+  background: $darkCornflower;
+  color: $lightCyan;
   border: none;
   height: 40px;
   float: left;
 
   &:hover {
-    color: black;
-    background: hsl(180, 51%, 50%);
-    border-top: 2px solid black;
+    color: $black;
+    background: $middleBlue;
+    border-top: 2px solid $black;
   }
 }
 
@@ -177,19 +181,19 @@
 .cardButtonLeft {
   border-bottom-left-radius: 6.8px;
   width: 135px;
-  border-right: 1px solid black;
+  border-right: 1px solid $black;
 }
 
 .cardButtonMiddle {
   width: 126px;
-  border-right: 1px solid black;
-  border-left: 1px solid black;
+  border-right: 1px solid $black;
+  border-left: 1px solid $black;
 }
 
 .cardButtonRight {
   width: 135px;
   border-bottom-right-radius: 6.8px;
-  border-left: 1px solid black;
+  border-left: 1px solid $black;
 }
 
 .uploadButton {

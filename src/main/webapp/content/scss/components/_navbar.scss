@@ -7,18 +7,18 @@
 
 .navbar {
   padding: 0.2rem 1rem;
-  background: linear-gradient(0.5turn, #1d4e89, #1d4e89, #1d4e89, #0899ba);
+  background: $darkCornflower;
 
   .dropdown-item.active:hover {
-    background-color: #90e0ef;
+    background-color: $middleBlue;
   }
 
   .dropdown-item {
-    color: #023e8a;
+    color: $midnightBlue;
   }
 
   .dropdown-item:hover {
-    color: #caf0f8;
+    color: $lightCyan;
   }
 
   a.nav-link {

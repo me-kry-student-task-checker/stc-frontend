@@ -1,8 +1,10 @@
+@use '../abstracts' as *;
+
 .regFormContainer {
   margin: 60px auto;
-  border: 2px solid hsl(210, 86%, 35%);
+  border: 2px solid $darkCornflower;
   border-radius: 10px;
-  box-shadow: 0 0 10px hsl(196, 84%, 36%);
+  box-shadow: 0 0 10px $starCommandBlue;
   height: max-content;
 }
 

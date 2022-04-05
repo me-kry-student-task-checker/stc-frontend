@@ -1,8 +1,10 @@
+@use '../abstracts' as *;
+
 .inp {
   width: 50%;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #0f80aa;
+  border: 1px solid $starCommandBlue;
   border-radius: 4px;
   box-sizing: border-box;
 }

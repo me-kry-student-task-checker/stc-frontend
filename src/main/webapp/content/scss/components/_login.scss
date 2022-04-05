@@ -1,13 +1,15 @@
+@use '../abstracts' as *;
+
 .loginHeader {
   display: grid;
   align-items: center;
   justify-content: center;
   width: 100vw;
-  color: hsl(26, 100%, 92%);
+  color: $lightCyan;
 }
 
 .modal-header {
-  background: linear-gradient(0.5turn, hsl(213, 65%, 33%), hsl(213, 65%, 33%), hsl(213, 65%, 33%), hsl(196, 84%, 36%));
+  background: $darkCornflower;
 }
 
 .loginButtons {
