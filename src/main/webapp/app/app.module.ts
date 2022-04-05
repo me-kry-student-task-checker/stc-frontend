@@ -56,7 +56,6 @@ import { TaskFileUploadComponent } from 'app/layouts/tasks/task-file-upload/task
     NavbarComponent,
     ErrorComponent,
     FooterComponent,
-    CourseListComponent,
     NewCourseComponent,
     EditCourseComponent,
     CourseDeleteComponent,

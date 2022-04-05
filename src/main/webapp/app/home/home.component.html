@@ -1,24 +1,42 @@
-<div class="main">
-  <div>
-    <div [ngSwitch]="isAuthenticated()">
-      <div *ngSwitchCase="true" class="loginTrue">
-        <h1 class="welcomeHeader">Üdvözlet!</h1>
-
-        <p class="welcomeInfo">Önnek x értesítése van</p>
-      </div>
+<div [ngSwitch]="isAuthenticated()">
+  <div *ngSwitchCase="true" class="loginTrue">
+    <div class="h3">
+      Jelenlegi kurzusok
+      <hr class="header" />
     </div>
 
-    <div [ngSwitch]="isAuthenticated()">
-      <div *ngSwitchCase="false" class="loginFalse">
-        <div class="welcomeText">
-          <h1 class="welcomeHeader">Üdvözlet az oldalon!</h1>
-
-          <p class="welcomeInfo">Kérlek jelentkezz be az oldal használatához</p>
-          <div class="welcomeButtonCont">
-            <button class="welcomeButton" (click)="login()">Bejelentkezés</button>
-            <button class="welcomeButton" routerLink="account/register">Regisztrálás</button>
+    <div *jhiHasAnyAuthority="'TEACHER'" class="container-2">
+      <button class="button" (click)="newCourse()">
+        <fa-icon icon="plus"></fa-icon>
+        Új kurzus
+      </button>
+    </div>
+    <div class="cardsDisplay">
+      <div class="wrapper" *ngFor="let card of cardCourse">
+        <div class="courseCard">
+          <div class="cardName">{{ card.name }}</div>
+          <div class="cardCont"><b>Kurzus felelős:</b> {{ card.creator.firstName }} {{ card.creator.lastName }}</div>
+          <div class="cardCont"><b>Leírás:</b> {{ card.description }}</div>
+          <div class="cardCont"><b>Létrehozás dátuma:</b> {{ card.creationDate | date }}</div>
+          <div class="cardButtonCont">
+            <button class="cardButtonLeft" [routerLink]="['/editCourse', card.id]">Módosítás</button>
+            <button class="cardButtonMiddle" (click)="deleteCourse(card)">Törlés</button>
+            <button class="cardButtonRight" [routerLink]="['/course', card.id]">Részletek</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div [ngSwitch]="isAuthenticated()">
+  <div *ngSwitchCase="false" class="loginFalse">
+    <div class="welcomeText">
+      <h1 class="welcomeHeader">Üdvözlet az oldalon!</h1>
+
+      <p class="welcomeInfo">Kérlek jelentkezz be az oldal használatához</p>
+      <div class="welcomeButtonCont">
+        <button class="welcomeButton" (click)="login()">Bejelentkezés</button>
+        <button class="welcomeButton" routerLink="account/register">Regisztrálás</button>
       </div>
     </div>
   </div>

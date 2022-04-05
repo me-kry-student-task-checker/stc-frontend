@@ -1,5 +1,4 @@
 import { Routes, Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { CourseListComponent } from './course-list/courseList.component';
 import { Authority } from 'app/shared/constants/authority.constants';
 import { NewCourseComponent } from './course-new/newCourse.component';
 import { EditCourseComponent } from './course-edit/editCourse.component';
@@ -20,14 +19,6 @@ export class CourseResolver implements Resolve<Course> {
 }
 
 export const courseRoute: Routes = [
-  {
-    path: 'courses',
-    component: CourseListComponent,
-    data: {
-      authorities: [Authority.ADMIN, Authority.TEACHER, Authority.STUDENT],
-      pageTitle: 'Kurzusok',
-    },
-  },
   {
     path: 'newCourse',
     component: NewCourseComponent,
