@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AccountService } from '../../../core/auth/account.service';
 import { CourseService } from '../course.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
@@ -15,12 +14,7 @@ export class NewCourseComponent {
     description: ['', Validators.maxLength(220)],
   });
 
-  constructor(
-    private coursesService: CourseService,
-    private accountService: AccountService,
-    private fb: FormBuilder,
-    private location: Location
-  ) {}
+  constructor(private coursesService: CourseService, private fb: FormBuilder, private location: Location) {}
 
   create(): void {
     this.coursesService

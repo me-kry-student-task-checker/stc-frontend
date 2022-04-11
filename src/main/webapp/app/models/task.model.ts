@@ -1,13 +1,14 @@
 export class TaskModel {
   constructor(
-    public id: number,
-    public name: string,
-    public description: string,
-    public creationDate: Date,
-    public file: File[],
-    public courseId: number,
-    public helpNeededStudents: string[],
     public comments: string[],
-    public done: boolean
+    public completedStudents: string[],
+    public courseId: number,
+    public creationDate: Date,
+    public description: string,
+    public done: boolean,
+    public file: File[],
+    public helpNeededStudents: string[],
+    public id: number,
+    public name: string
   ) {}
 }

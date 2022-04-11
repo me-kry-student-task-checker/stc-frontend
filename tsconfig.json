@@ -1,5 +1,8 @@
 {
   "compileOnSave": true,
+  "compilerOptions": {
+    "strict": false,
+  },
   "files": [],
   "references": [
     {

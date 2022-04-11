@@ -1,0 +1,28 @@
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title">Fájlfeltöltés</h4>
+        <button type='button' class='modalClose' data-dismiss='modal' aria-hidden='true' (click)='cancel()'>&times;</button>
+    </div>
+
+    <div class="modal-body">
+        <p>Kérem válassza ki a feltöltendő fájlokat</p>
+        <div class="file-upload">
+            <div class="file-select">
+                <input type="file" class="fileUpload" (change)="onChange($event)" multiple>
+            </div>
+        </div>
+        <div class="container" *ngIf="loading">
+            <h3>Küldés...</h3>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type='button' class='button' data-dismiss='modal' (click)='cancel()'>
+            <span>Vissza</span>
+        </button>
+
+        <button type='button' class='button'  (click)='upload()'>
+            <span>Feltöltés</span>
+        </button>
+    </div>
+</div>

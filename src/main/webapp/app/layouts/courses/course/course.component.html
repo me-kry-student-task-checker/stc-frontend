@@ -6,7 +6,7 @@
     <div class='taskH_buttonCont'>
         <button *jhiHasAnyAuthority="'TEACHER'" class='button' (click)='courseInvite(course)'>Diákok meghívása</button>
         <button class='button' (click)='taskList(course)'>Feladatok</button>
-        <button class='button'>Fájlok</button>
+        <button class='button' (click)="fileUpload(course)">Fájlfeltöltés</button>
     </div>
 
 

@@ -28,4 +28,14 @@ export class TasksService {
   delete(id: number): Observable<{}> {
     return this.http.delete(`${SERVER_API_URL + 'api/task/delete'}/${id}`);
   }
+
+  uploadFiles(files: any, service: string, tagId: any): Observable<any> {
+    const fileData: FormData = new FormData();
+    files.forEach((file: any) => {
+      fileData.append('files', file);
+    });
+    fileData.append('serviceType', service);
+    fileData.append('tagId', tagId);
+    return this.http.post(SERVER_API_URL + 'api/filemanagement/uploadFiles', fileData);
+  }
 }

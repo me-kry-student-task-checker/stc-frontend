@@ -6,10 +6,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NewTaskComponent } from '../../tasks/new-task/newTask.component';
 import { ActivatedRoute } from '@angular/router';
 import { TasksListComponent } from '../../tasks/tasks-list/tasksList.component';
-import { CourseInviteComponent } from "app/layouts/courses/course-invite/courseInvite.component";
-import {AccountService} from "app/core/auth/account.service";
-import {Student} from "app/core/user/student.model";
-import  students  from "app/files/students.json";
+import { CourseInviteComponent } from 'app/layouts/courses/course-invite/courseInvite.component';
+import { AccountService } from 'app/core/auth/account.service';
+import { Student } from 'app/core/user/student.model';
+import students from 'app/files/students.json';
+import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-upload/courseFileUpload.component';
 
 @Component({
   selector: 'jhi-tasks',
@@ -19,7 +20,6 @@ import  students  from "app/files/students.json";
 export class CourseComponent implements OnInit {
   course!: Course;
   courseSubscription?: Subscription;
-  courseId!: Course
   students: Student[] = [];
   student!: Student;
   accSubscription?: Subscription;
@@ -28,20 +28,27 @@ export class CourseComponent implements OnInit {
   studentsList = students;
   assignedStudents: Student[] = [];
 
-  constructor(private courseService: CourseService, private modalService: NgbModal, private route: ActivatedRoute, private accountService: AccountService) {}
+  constructor(
+    private courseService: CourseService,
+    private modalService: NgbModal,
+    private route: ActivatedRoute,
+    private accountService: AccountService
+  ) {}
 
   ngOnInit(): void {
     this.route.data.subscribe(({ course }) => {
       this.course = course;
     });
 
-    for (let i = 0; i < this.studentsList.length; i++){
+    for (let i = 0; i < this.studentsList.length; i++) {
       if (this.studentsList[i].assignedCourseIds.includes(this.course.id)) {
-        this.assignedStudents.push(this.studentsList[i])
+        this.assignedStudents.push(this.studentsList[i]);
       }
     }
 
-    this.accSubscription = this.accountService.getStudentsByAssignedCourseId(this.course.id).subscribe(student => (this.students = student));
+    this.accSubscription = this.accountService
+      .getStudentsByAssignedCourseId(this.course.id)
+      .subscribe(student => (this.students = student));
   }
   newTask(course: Course): void {
     const modalRef = this.modalService.open(NewTaskComponent, { size: 'lg', backdrop: 'static' });
@@ -56,5 +63,9 @@ export class CourseComponent implements OnInit {
   courseInvite(courseId: Course): void {
     const modalRef = this.modalService.open(CourseInviteComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.course = courseId;
+  }
+  fileUpload(course: Course): void {
+    const modalRef = this.modalService.open(CourseFileUploadComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.course = course;
   }
 }

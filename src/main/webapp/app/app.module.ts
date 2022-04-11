@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -21,34 +21,36 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { NewTaskComponent } from 'app/layouts/tasks/new-task/newTask.component';
 import { TasksListComponent } from 'app/layouts/tasks/tasks-list/tasksList.component';
-import {TaskComponent} from 'app/layouts/tasks/task.component';
+import { TaskComponent } from 'app/layouts/tasks/task.component';
 import { CourseListComponent } from './layouts/courses/course-list/courseList.component';
 import { NewCourseComponent } from './layouts/courses/course-new/newCourse.component';
 import { EditCourseComponent } from './layouts/courses/course-edit/editCourse.component';
 import { CourseDeleteComponent } from 'app/layouts/courses/course-delete/courseDelete.component';
 import { CourseComponent } from 'app/layouts/courses/course/course.component';
-import { CourseInviteComponent } from "app/layouts/courses/course-invite/courseInvite.component";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {EditTaskComponent} from "app/layouts/tasks/edit-task/editTask.component";
-import {DeleteTaskComponent} from "app/layouts/tasks/delete-task/deleteTask.component";
+import { CourseInviteComponent } from 'app/layouts/courses/course-invite/courseInvite.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { EditTaskComponent } from 'app/layouts/tasks/edit-task/editTask.component';
+import { DeleteTaskComponent } from 'app/layouts/tasks/delete-task/deleteTask.component';
+import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-upload/courseFileUpload.component';
+import { TaskFileUploadComponent } from 'app/layouts/tasks/task-file-upload/taskFileUpload.component';
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        StchFrontendSharedModule,
-        StchFrontendCoreModule,
-        StchFrontendHomeModule,
-        StchFrontendAppRoutingModule,
-        FlexLayoutModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatButtonModule,
-        CommonModule,
-        MatTableModule,
-        MatButtonToggleModule,
-        MatCheckboxModule,
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    StchFrontendSharedModule,
+    StchFrontendCoreModule,
+    StchFrontendHomeModule,
+    StchFrontendAppRoutingModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    CommonModule,
+    MatTableModule,
+    MatButtonToggleModule,
+    MatCheckboxModule,
+  ],
   declarations: [
     MainComponent,
     NavbarComponent,
@@ -65,6 +67,8 @@ import {DeleteTaskComponent} from "app/layouts/tasks/delete-task/deleteTask.comp
     CourseInviteComponent,
     EditTaskComponent,
     DeleteTaskComponent,
+    CourseFileUploadComponent,
+    TaskFileUploadComponent,
   ],
   bootstrap: [MainComponent],
 })
