@@ -6,9 +6,10 @@ import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NewCourseComponent } from 'app/layouts/courses/newCourse.component';
-import { CourseDeleteComponent } from 'app/layouts/courses/courseDelete.component';
+import { DeleteCourseComponent } from 'app/layouts/courses/deleteCourse.component';
 import { Course } from 'app/models/course.model';
 import { CourseService } from 'app/layouts/courses/course.service';
+import { EditCourseComponent } from 'app/layouts/courses/editCourse.component';
 
 @Component({
   selector: 'jhi-home',
@@ -46,7 +47,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   deleteCourse(course: Course): void {
-    const modalRef = this.modalService.open(CourseDeleteComponent, { size: 'lg', backdrop: 'static' });
+    const modalRef = this.modalService.open(DeleteCourseComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.course = course;
+  }
+
+  editCourse(course: Course): void {
+    const modalRef = this.modalService.open(EditCourseComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.course = course;
   }
 

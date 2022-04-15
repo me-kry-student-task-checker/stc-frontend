@@ -20,14 +20,6 @@ export class CourseResolver implements Resolve<Course> {
 
 export const courseRoute: Routes = [
   {
-    path: 'newCourse',
-    component: NewCourseComponent,
-    data: {
-      authorities: [Authority.TEACHER],
-      pageTitle: 'Új kurzus',
-    },
-  },
-  {
     path: 'editCourse/:id',
     component: EditCourseComponent,
     resolve: {

@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+<<<<<<< HEAD:src/main/webapp/app/layouts/courses/course-edit/editCourse.component.ts
 import { AccountService } from 'app/core/auth/account.service';
 import { CourseService } from '../course.service';
+=======
+import { CourseService } from './course.service';
+>>>>>>> 8712c6c (Kurzus szerkesztés frissitve):src/main/webapp/app/layouts/courses/editCourse.component.ts
 import { Course } from 'app/models/course.model';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-edit-course',
@@ -20,18 +25,15 @@ export class EditCourseComponent implements OnInit {
   });
 
   constructor(
-    private accountService: AccountService,
     private fb: FormBuilder,
     private coursesService: CourseService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
-    this.route.data.subscribe(({ course }) => {
-      this.course = course;
-      this.updateForm(course);
-    });
+    this.updateForm(this.course);
   }
 
   private updateForm(course: Course): void {
@@ -56,7 +58,7 @@ export class EditCourseComponent implements OnInit {
     }
   }
 
-  backTo(): void {
-    this.location.back();
+  cancel(): void {
+    this.activeModal.dismiss();
   }
 }
