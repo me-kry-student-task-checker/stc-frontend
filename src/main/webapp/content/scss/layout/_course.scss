@@ -5,7 +5,6 @@
 
 .courseButtonCont {
   margin-top: 80px;
-  display: flex;
   margin-left: 12vw;
   width: 80vw;
   height: 40px;
@@ -18,12 +17,12 @@
   align-items: center;
 }
 
-.collapsible{
+.collapsible {
   margin-left: 12vw;
   margin-top: 20px;
   width: 75vw;
   min-height: 120px;
-  background:  hsl(144, 10%, 95%);
+  background: hsl(144, 10%, 95%);
   color: black;
   border-radius: 10px;
   border: 2px solid hsl(213, 65%, 33%);
@@ -33,14 +32,14 @@ table {
   width: 100%;
 }
 
-.studentWrapper{
+.studentWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
   justify-items: center;
 }
 
-.studentCard{
+.studentCard {
   display: grid;
   height: 30px;
   width: 300px;

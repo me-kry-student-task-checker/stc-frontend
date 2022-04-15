@@ -5,11 +5,11 @@ import { LoginModalService } from 'app/core/login/login-modal.service';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NewCourseComponent } from 'app/layouts/courses/newCourse.component';
-import { DeleteCourseComponent } from 'app/layouts/courses/deleteCourse.component';
+import { NewCourseComponent } from 'app/layouts//courses/course-new/newCourse.component';
+import { DeleteCourseComponent } from 'app/layouts/courses/course-delete/deleteCourse.component';
 import { Course } from 'app/models/course.model';
 import { CourseService } from 'app/layouts/courses/course.service';
-import { EditCourseComponent } from 'app/layouts/courses/editCourse.component';
+import { EditCourseComponent } from 'app/layouts/courses/course-edit/editCourse.component';
 
 @Component({
   selector: 'jhi-home',
