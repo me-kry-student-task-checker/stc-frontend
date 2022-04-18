@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { LoadingDialogComponent } from 'app/shared/loading/loading-dialog.componenet';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ShowFileComponent } from 'app/shared/showFile/showFile.component';
 
 @NgModule({
   imports: [StchFrontendSharedLibsModule, MatDialogModule, MatButtonModule, MatProgressSpinnerModule],
@@ -19,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HasAnyAuthorityDirective,
     ErrorDialogComponent,
     LoadingDialogComponent,
+    ShowFileComponent,
   ],
   entryComponents: [LoginModalComponent],
   exports: [StchFrontendSharedLibsModule, AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective],

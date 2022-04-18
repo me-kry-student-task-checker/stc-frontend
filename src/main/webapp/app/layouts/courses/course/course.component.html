@@ -13,7 +13,7 @@
     <div class='courseButtonCont'>
         <button class='tasksButton'  (click)="descCollapsed = !descCollapsed" [attr.aria-expanded]="!descCollapsed" >Kurzus leírása</button>
         <button class='tasksButton' (click)="studentCollapsed = !studentCollapsed" [attr.aria-expanded]="!studentCollapsed" >Diákok a kurzuson</button>
-        <button class='tasksButton'>Feltöltött fájlok</button>
+        <button class='tasksButton'  (click)="fileCollapsed = !fileCollapsed" [attr.aria-expanded]="!fileCollapsed">Feltöltött fájlok</button>
     </div>
     <div>
         <div id="courseDesc" [ngbCollapse]="descCollapsed" class="collapsible">
@@ -22,6 +22,21 @@
         <div id="courseStudents" [ngbCollapse]="studentCollapsed" class="collapsible" >
             <div class="studentWrapper">
                 <div class="studentCard" *ngFor="let student of assignedStudents">{{student.firstName}} {{student.lastName}} - {{student.email}}</div>
+            </div>
+        </div>
+        <div id="fileCollapsed" [ngbCollapse]="fileCollapsed" class="collapsible">
+            <div  *ngFor="let file of course.files">
+                <div class="fileCard" (click)="showFile(course)">
+                    <div class="fileIcon"><fa-icon size="3x" [icon]="faImage" *ngIf="imageFile(this.file.contentType)"></fa-icon></div>
+                    <div class="fileIcon"><fa-icon size="3x" [icon]="faFilePdf" *ngIf="pdfFile(this.file.contentType)"></fa-icon></div>
+                    <div class="fileIcon"><fa-icon size="3x" [icon]="faFileAlt" *ngIf="textFile(this.file.contentType)"></fa-icon></div>
+                    <div class="fileDate">
+                        {{file.uploadDate | date}}
+                    </div>
+                    <div class="fileUploader">
+                        {{file.uploadedBy}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

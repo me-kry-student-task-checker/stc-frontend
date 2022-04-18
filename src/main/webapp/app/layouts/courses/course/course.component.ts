@@ -11,6 +11,8 @@ import { AccountService } from 'app/core/auth/account.service';
 import { Student } from 'app/core/user/student.model';
 import students from 'app/files/students.json';
 import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-upload/courseFileUpload.component';
+import { faImage, faFilePdf, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { ShowFileComponent } from 'app/shared/showFile/showFile.component';
 
 @Component({
   selector: 'jhi-tasks',
@@ -19,20 +21,23 @@ import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-uploa
 })
 export class CourseComponent implements OnInit {
   course!: Course;
-  courseSubscription?: Subscription;
   students: Student[] = [];
   student!: Student;
   accSubscription?: Subscription;
   descCollapsed = true;
   studentCollapsed = true;
+  fileCollapsed = true;
   studentsList = students;
   assignedStudents: Student[] = [];
+  faImage = faImage;
+  faFilePdf = faFilePdf;
+  faFileAlt = faFileAlt;
 
   constructor(
     private courseService: CourseService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
-    private accountService: AccountService
+    private accountService: AccountService,
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +55,25 @@ export class CourseComponent implements OnInit {
       .getStudentsByAssignedCourseId(this.course.id)
       .subscribe(student => (this.students = student));
   }
+
+  imageFile(fileType: string): boolean {
+    if (fileType.includes('image/png')) {
+      return true;
+    } else return fileType.includes('image/jpeg');
+  }
+
+  pdfFile(fileType: string): boolean {
+    return fileType.includes('application/pdf');
+  }
+
+  textFile(fileType: string): boolean {
+    if (fileType.includes('text/plain')) {
+      return true;
+    } else if (fileType.includes('application/msword')) {
+      return true;
+    } else return fileType.includes('application/vnd.oasis.opendocument.text');
+  }
+
   newTask(course: Course): void {
     const modalRef = this.modalService.open(NewTaskComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.course = course;
@@ -66,6 +90,11 @@ export class CourseComponent implements OnInit {
   }
   fileUpload(course: Course): void {
     const modalRef = this.modalService.open(CourseFileUploadComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.course = course;
+  }
+
+  showFile(course: Course): void {
+    const modalRef = this.modalService.open(ShowFileComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.course = course;
   }
 }

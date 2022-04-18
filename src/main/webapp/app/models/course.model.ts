@@ -12,7 +12,19 @@ export class Course {
       role: string;
       enabled: boolean;
       createdCourseIds: number[];
-      student: string[];
-    }
+    },
+    public student: string[],
+    public tasks: [],
+    public comments: [],
+    public files: [
+      {
+        id: string;
+        name: string;
+        contentType: string;
+        uploadDate: Date;
+        uploadedBy: string;
+        downloadLink: string;
+      }
+    ]
   ) {}
 }
