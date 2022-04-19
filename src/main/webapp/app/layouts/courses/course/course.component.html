@@ -47,3 +47,26 @@
 <div class='new_task'>
     <button *jhiHasAnyAuthority="'TEACHER'" class='button' (click)='newTask(course)'>Új feladat</button>
 </div>
+
+<div class="commentArea">
+    <div class="col-12 col-sm-12 commentsHeader">
+        <h4>Hozzászolások</h4>
+    </div>
+    <div class="col-12 col-sm-12 body">
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+           <div class="form-group">
+               <textarea class="form-control" placeholder="Hozzászolás..." formControlName="comment"></textarea>
+           </div>
+            <div class="form-group">
+                <button class='commentBut' type="submit">
+                    <fa-icon [icon]="faCommentDots"></fa-icon>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="comments">
+    <div>Még senki nem szólt hozzá!</div>
+</div>
