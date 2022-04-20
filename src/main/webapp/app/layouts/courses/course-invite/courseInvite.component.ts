@@ -3,7 +3,6 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {AccountService} from "app/core/auth/account.service";
 import {Subscription} from "rxjs";
 import {Course} from "app/models/course.model";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {CourseService} from "app/layouts/courses/course.service";
 import  students  from "app/files/students.json";
 import {Student} from "app/core/user/student.model";
@@ -20,7 +19,6 @@ export class CourseInviteComponent implements OnInit{
   course!: Course;
   accSubscription?: Subscription;
   displayTask: string[] = ["név", "email", "meghívás"];
-  faEnvelope = faEnvelope;
   notAssignedStudents: Student[] = [];
   emails: string[] = [];
   studentsList = students;

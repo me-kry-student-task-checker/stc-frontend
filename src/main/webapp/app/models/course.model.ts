@@ -15,7 +15,15 @@ export class Course {
     },
     public student: string[],
     public tasks: [],
-    public comments: [],
+    public comments: [
+      {
+        authorId: string;
+        courseId: number;
+        createDate: Date;
+        id: number;
+        text: string;
+      }
+    ],
     public files: [
       {
         id: string;

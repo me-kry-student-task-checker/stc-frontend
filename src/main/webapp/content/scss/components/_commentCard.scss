@@ -1,0 +1,45 @@
+.commentCard{
+  margin-top: 10px;
+}
+
+.commentFooter {
+  margin-bottom: 5px;
+}
+
+.author{
+  padding-inline: 5px;
+}
+
+.commentText{
+  width: fit-content;
+  max-width: 42vw;
+  padding-inline: 10px;
+  padding-block: 8px;
+  border-radius: 10px;
+  background: hsl(214, 97%, 27%);
+  font-size: 1.125rem;
+  color: hsl(190, 77%, 88%);
+}
+
+.commentDate{
+  padding-inline: 5px;
+}
+
+.commentWrapper{
+  width: fit-content;
+  max-width: 42vw;
+  font-size: 0.9rem;
+}
+
+.deleteComment{
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  float: right;
+  margin-right: -22px;
+  margin-top: -28px;
+
+  &:hover {
+    color: red;
+  }
+}

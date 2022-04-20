@@ -50,4 +50,8 @@ export class CourseService {
   createCourseComment(comment: Comment): Observable<Comment> {
     return this.http.post<Comment>(SERVER_API_URL + '/api/feedback/createCourseComment', comment)
   }
+
+  removeCourseComment(id: number): Observable<{}>{
+    return this.http.delete(`${SERVER_API_URL + 'api/feedback/delete/course'}/${id}`);
+  }
 }

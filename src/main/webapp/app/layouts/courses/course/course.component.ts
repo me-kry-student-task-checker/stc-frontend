@@ -11,19 +11,20 @@ import { AccountService } from 'app/core/auth/account.service';
 import { Student } from 'app/core/user/student.model';
 import students from 'app/files/students.json';
 import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-upload/courseFileUpload.component';
-import { faImage, faFilePdf, faFileAlt, faCommentDots, faFile } from '@fortawesome/free-solid-svg-icons';
+import { faImage, faFilePdf, faFileAlt, faCommentDots, faFile, faTrash  } from '@fortawesome/free-solid-svg-icons';
 import { ShowFileComponent } from 'app/shared/showFile/showFile.component';
 import {FormBuilder, Validators} from "@angular/forms";
+import {Account} from "app/core/user/account.model";
 
 @Component({
   selector: 'jhi-tasks',
   templateUrl: './course.component.html',
-  styleUrls: ['../../../../content/scss/layout/_course.scss'],
 })
 export class CourseComponent implements OnInit {
   course!: Course;
   students: Student[] = [];
   student!: Student;
+  account: Account | null = null;
   accSubscription?: Subscription;
   descCollapsed = true;
   studentCollapsed = true;
@@ -35,6 +36,8 @@ export class CourseComponent implements OnInit {
   faFileAlt = faFileAlt;
   faCommentDots = faCommentDots;
   faFile = faFile;
+  faTrash = faTrash
+  authSubscription?: Subscription;
 
   commentForm = this.formBuilder.group({
     comment: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]]
@@ -53,6 +56,8 @@ export class CourseComponent implements OnInit {
       this.course = course;
     });
 
+    this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+
     for (let i = 0; i < this.studentsList.length; i++) {
       if (this.studentsList[i].assignedCourseIds.includes(this.course.id)) {
         this.assignedStudents.push(this.studentsList[i]);
@@ -70,6 +75,10 @@ export class CourseComponent implements OnInit {
       courseId: this.course.id,
       text: this.commentForm.get('comment')!.value})
       .subscribe();
+  }
+
+  allowDelete(author: string): boolean {
+    return author === this.account?.email;
   }
 
   imageFile(fileType: string): boolean {
@@ -114,5 +123,8 @@ export class CourseComponent implements OnInit {
     modalRef.componentInstance.course = course;
   }
 
+  deleteComment(id: number): void {
+    this.courseService.removeCourseComment(id).subscribe()
+  }
 
 }

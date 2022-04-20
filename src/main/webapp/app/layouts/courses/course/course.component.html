@@ -50,12 +50,12 @@
 
 <div class="commentArea">
     <div class="col-12 col-sm-12 commentsHeader">
-        <h4>Hozzászolások</h4>
+        <h4>Hozzászólások({{course.comments.length}})</h4>
     </div>
     <div class="col-12 col-sm-12 body">
         <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
            <div class="form-group">
-               <textarea class="form-control" placeholder="Hozzászolás..." formControlName="comment"></textarea>
+               <textarea class="form-control" placeholder="Hozzászólás..." formControlName="comment"></textarea>
            </div>
             <div class="form-group">
                 <button class='commentBut' type="submit">
@@ -68,5 +68,17 @@
 </div>
 
 <div class="comments">
-    <div>Még senki nem szólt hozzá!</div>
+    <h6 *ngIf="course.comments.length < 1">Még senki nem szólt hozzá</h6>
+        <div class="commentWrapper" *ngFor="let post of course.comments;">
+            <div class="commentCard">
+                <div class="author">{{post.authorId}}</div>
+                <div class="commentText">{{post.text}}</div>
+            </div>
+            <div class="deleteComment" *ngIf="allowDelete(post.authorId)" (click)="deleteComment(post.id)">
+                <fa-icon [icon]="faTrash"></fa-icon>
+            </div>
+            <div class="commentFooter">
+                <div class="commentDate">{{post.createDate | date: 'MM.dd HH:mm'}}</div>
+            </div>
+        </div>
 </div>
