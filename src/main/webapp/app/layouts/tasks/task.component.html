@@ -21,16 +21,56 @@
         <button class='taskButton'>Feltöltött fájlok</button>
     </div>
 
-    <div class="commentTextArea">
-        <textarea></textarea>
-        <button class='commentBut'>
-            <fa-icon [icon]="faCommentDots"></fa-icon>
-        </button>
-        <button class='commentBut'><fa-icon [icon]="faFile"></fa-icon></button>
+    <div class="commentArea">
+        <div class="col-12 col-sm-12 commentsHeader">
+            <h4>Hozzászólások({{task.comments.length}})</h4>
+        </div>
+        <div class="col-12 col-sm-12 body">
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Hozzászólás..." formControlName="comment"></textarea>
+                    <div
+                        *ngIf="commentForm.get('comment')!.invalid && (commentForm.get('comment')!.dirty || commentForm.get('comment')!.touched)">
+                        <small class='form-text text-danger'
+                               *ngIf="commentForm.get('comment')?.errors?.required">
+                            A hozzászólás nem lehet üres!
+                        </small>
+
+                        <small class='form-text text-danger'
+                               *ngIf="commentForm.get('comment')?.errors?.maxlength">
+                            A hozzászolás maximum 100 karakter lehet
+                        </small>
+
+                        <small class='form-text text-danger'
+                               *ngIf="commentForm.get('comment')?.errors?.minlength">
+                            A hozzászolás minimum 6 karakter kell hogy legyen!
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class='commentBut' type="submit" [disabled]='commentForm.invalid'>
+                        <fa-icon [icon]="faCommentDots"></fa-icon>
+                    </button>
+                </div>
+
+            </form>
+        </div>
     </div>
 
     <div class="comments">
-        <div>Még senki nem szólt hozzá!</div>
+        <h6 *ngIf="task.comments.length < 1">Még senki nem szólt hozzá</h6>
+        <div class="commentWrapper" *ngFor="let post of task.comments;">
+            <div class="commentCard">
+                <div class="author">{{post.authorId}}</div>
+                <div class="commentText">{{post.text}}</div>
+            </div>
+            <div class="deleteComment" *ngIf="allowDelete(post.authorId)" (click)="deleteComment(post.id)">
+                <fa-icon [icon]="faTrash"></fa-icon>
+            </div>
+            <div class="commentFooter">
+                <div class="commentDate">{{post.createDate | date: 'MM.dd HH:mm'}}</div>
+            </div>
+        </div>
     </div>
 
 </div>

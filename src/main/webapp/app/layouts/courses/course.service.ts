@@ -5,7 +5,7 @@ import { SERVER_API_URL } from 'app/app.constants';
 import { Observable } from 'rxjs';
 import { NewCourse } from 'app/models/newcourse.model';
 import { Course } from 'app/models/course.model';
-import { Comment } from 'app/models/comment.model';
+import {CourseComment} from 'app/models/comment.model';
 
 @Injectable({ providedIn: 'root' })
 export class CourseService {
@@ -47,8 +47,8 @@ export class CourseService {
     return this.http.post(SERVER_API_URL + 'api/filemanagement/uploadFiles', fileData);
   }
 
-  createCourseComment(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(SERVER_API_URL + '/api/feedback/createCourseComment', comment)
+  createCourseComment(comment: CourseComment): Observable<CourseComment> {
+    return this.http.post<CourseComment>(SERVER_API_URL + '/api/feedback/createCourseComment', comment)
   }
 
   removeCourseComment(id: number): Observable<{}>{

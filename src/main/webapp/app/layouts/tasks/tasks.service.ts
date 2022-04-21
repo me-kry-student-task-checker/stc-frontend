@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { TaskModel } from 'app/models/task.model';
 import { NewTaskModel } from 'app/models/newTask.model';
 import { SERVER_API_URL } from 'app/app.constants';
+import {TaskComment} from "app/models/comment.model";
 
 @Injectable({ providedIn: 'root' })
 export class TasksService {
@@ -37,5 +38,13 @@ export class TasksService {
     fileData.append('serviceType', service);
     fileData.append('tagId', tagId);
     return this.http.post(SERVER_API_URL + 'api/filemanagement/uploadFiles', fileData);
+  }
+
+  createTaskComment(comment: TaskComment): Observable<TaskComment> {
+    return this.http.post<TaskComment>(SERVER_API_URL + '/api/feedback/createTaskComment', comment)
+  }
+
+  removeTaskComment(id: number): Observable<{}>{
+    return this.http.delete(`${SERVER_API_URL + 'api/feedback/delete/task'}/${id}`);
   }
 }

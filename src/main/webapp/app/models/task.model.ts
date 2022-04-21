@@ -1,6 +1,14 @@
 export class TaskModel {
   constructor(
-    public comments: string[],
+    public comments: [
+      {
+        authorId: string;
+        courseId: number;
+        createDate: Date;
+        id: number;
+        text: string;
+      }
+    ],
     public completedStudents: string[],
     public courseId: number,
     public creationDate: Date,
