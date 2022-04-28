@@ -5,10 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { faCommentDots, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { TaskFileUploadComponent } from 'app/layouts/tasks/task-file-upload/taskFileUpload.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {AccountService} from "app/core/auth/account.service";
-import {Subscription} from "rxjs";
-import {Account} from "app/core/user/account.model";
-import {FormBuilder, Validators} from "@angular/forms";
+import { AccountService } from 'app/core/auth/account.service';
+import { Subscription } from 'rxjs';
+import { Account } from 'app/core/user/account.model';
+import { FormBuilder, Validators } from '@angular/forms';
 import Timeout = NodeJS.Timeout;
 
 @Component({
@@ -27,7 +27,7 @@ export class TaskComponent implements OnInit, OnDestroy {
   interval: Timeout | undefined;
 
   commentForm = this.formBuilder.group({
-    comment: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]]
+    comment: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]],
   });
 
   constructor(
@@ -35,8 +35,8 @@ export class TaskComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private modalService: NgbModal,
     private accountService: AccountService,
-    private formBuilder: FormBuilder,
-    ) {}
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.route.data.subscribe(({ task }) => {
@@ -44,7 +44,7 @@ export class TaskComponent implements OnInit, OnDestroy {
     });
     this.interval = setInterval(() => {
       this.taskSubscription = this.taskService.getTask(this.task.id).subscribe(task => (this.task = task));
-    }, 5000)
+    }, 5000);
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
   }
 
@@ -54,9 +54,11 @@ export class TaskComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    this.taskService.createTaskComment({
-      taskId: this.task.id,
-      text: this.commentForm.get('comment')!.value})
+    this.taskService
+      .createTaskComment({
+        taskId: this.task.id,
+        text: this.commentForm.get('comment')!.value,
+      })
       .subscribe();
   }
 
@@ -65,24 +67,24 @@ export class TaskComponent implements OnInit, OnDestroy {
   }
 
   deleteComment(taskId: number): void {
-    this.taskService.removeTaskComment(taskId).subscribe()
+    this.taskService.removeTaskComment(taskId).subscribe();
   }
 
   taskDone(taskId: number): void {
-    this.taskService.setTaskDone(taskId).subscribe()
+    this.taskService.setTaskDone(taskId).subscribe();
   }
 
   taskComplete(taskId: number): void {
-    this.taskService.setTaskComplete(taskId).subscribe()
+    this.taskService.setTaskComplete(taskId).subscribe();
   }
 
   needHelp(taskId: number): void {
-    this.taskService.helpNeeded(taskId).subscribe()
+    this.taskService.helpNeeded(taskId).subscribe();
   }
 
   ngOnDestroy(): void {
-    if (this.interval){
-      clearInterval(this.interval)
+    if (this.interval) {
+      clearInterval(this.interval);
     }
   }
 }
