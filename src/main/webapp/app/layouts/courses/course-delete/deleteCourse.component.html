@@ -1,27 +1,26 @@
-<form *ngIf='course' name='deleteForm' (ngSubmit)=confirmDelete(course.id)>
-    <div class='modal-header'>
-        <h4 class='modal-title'> Törlés megerősítése!</h4>
-
-        <button type='button' class='close' data-dismiss='modal' aria-hidden='true' (click)='cancel()'>&times;
-        </button>
+<form *ngIf="course" name="deleteForm" (ngSubmit)="confirmDelete(course.id)">
+  <div class="modal-header">
+    <div class="deleteCourseHeader">
+      <h4 class="modal-title">Törlés megerősítése!</h4>
     </div>
+    <button type="button" class="modalClose" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
 
-    <div class='modal-body'>
-        <p>Kurzus neve: {{course.name}}</p>
-        <p>Kurzus létrehozoja: {{course.creator.firstName}} {{course.creator.lastName}}</p>
-        <p>Kurzus leírása: {{course.description}}</p>
-        <p>Kurzus létrehozásának Dátuma: {{course.creationDate | date}}</p>
-    </div>
+  <div class="modal-body">
+    <p>Kurzus neve: {{ course.name }}</p>
+    <p>Kurzus létrehozoja: {{ course.creator.firstName }} {{ course.creator.lastName }}</p>
+    <p>Kurzus leírása: {{ course.description }}</p>
+    <p>Kurzus létrehozásának Dátuma: {{ course.creationDate | date }}</p>
+  </div>
 
-    <div class='modal-footer'>
-        <p class='delete-footer'>Biztos hogy törölni akarja az alábbi kurzust?</p>
-        <button type='button' class='button' data-dismiss='modal' (click)='cancel()'>
-            <span>Mégse</span>
-        </button>
+  <div class="modal-footer">
+    <p class="delete-footer">Biztos hogy törölni akarja az alábbi kurzust?</p>
+    <button type="button" class="button" data-dismiss="modal" (click)="cancel()">
+      <span>Mégse</span>
+    </button>
 
-        <button type='submit' class='delete-button'>
-            <span>Törlés</span>
-        </button>
-    </div>
-
+    <button type="submit" class="delete-button">
+      <span>Törlés</span>
+    </button>
+  </div>
 </form>

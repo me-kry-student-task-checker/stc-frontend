@@ -1,20 +1,19 @@
-#taskListHeader{
-  background-color: hsl(213, 65%, 33%);
-  color: hsl(26, 100%, 92%);
-}
+@use '../abstracts' as *;
 
-.mat-cell{
+.mat-cell {
   max-width: 300px;
   min-width: 100px;
   padding-right: 10px;
 }
 
-th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
   padding: 12px !important;
   text-align: center !important;
 }
 
-.tableDesc{
+.tableDesc {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

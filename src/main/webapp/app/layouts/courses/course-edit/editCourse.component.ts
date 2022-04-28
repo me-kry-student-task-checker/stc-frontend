@@ -8,7 +8,6 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'jhi-edit-course',
   templateUrl: './editCourse.component.html',
-  styleUrls: ['../../../../content/scss/layout/_editcourse.scss'],
 })
 export class EditCourseComponent implements OnInit {
   course!: Course;

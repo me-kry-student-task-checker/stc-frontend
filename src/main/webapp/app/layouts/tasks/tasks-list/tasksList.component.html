@@ -1,55 +1,57 @@
 <div>
-    <div id="taskListHeader" class='modal-header'>
-        <h4 class='modal-title'>Feladatok</h4>
-        <button type="button" class="modalClose" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
-    </div>
+  <div id="taskListHeader" class="modal-header">
+    <h4 id="tableTitle" class="modal-title">Feladatok</h4>
+    <button type="button" class="modalClose" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
 
-        <table mat-table [dataSource]="tasks" class='mat-elevation-z8'>
+  <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Azonosító</th>
+      <td mat-cell *matCellDef="let task">{{ task.id }}</td>
+    </ng-container>
 
-            <ng-container matColumnDef='id'>
-                <th mat-header-cell *matHeaderCellDef>Azonosító</th>
-                <td mat-cell *matCellDef='let task'>{{task.id}}</td>
-            </ng-container>
+    <ng-container matColumnDef="feladat">
+      <th mat-header-cell *matHeaderCellDef>Feladat</th>
+      <td mat-cell *matCellDef="let task">{{ task.name }}</td>
+    </ng-container>
 
-            <ng-container matColumnDef='feladat'>
-                <th mat-header-cell *matHeaderCellDef>Feladat</th>
-                <td mat-cell *matCellDef='let task'>{{task.name}}</td>
-            </ng-container>
+    <ng-container matColumnDef="leírás">
+      <th mat-header-cell *matHeaderCellDef>Leírás</th>
+      <td mat-cell class="tableDesc" *matCellDef="let task">{{ task.description }}</td>
+    </ng-container>
 
-            <ng-container matColumnDef='leírás'>
-                <th mat-header-cell *matHeaderCellDef>Leírás</th>
-                <td mat-cell class="tableDesc" *matCellDef='let task'>{{task.description}}</td>
-            </ng-container>
+    <ng-container matColumnDef="részletek">
+      <th mat-header-cell *matHeaderCellDef>Részletek</th>
+      <td mat-cell *matCellDef="let task">
+        <button class="button" mat-button [routerLink]="['/task', task.id]" (click)="cancel()">>>></button>
+      </td>
+    </ng-container>
 
-            <ng-container matColumnDef='részletek'>
-                <th mat-header-cell *matHeaderCellDef>Részletek</th>
-                <td mat-cell *matCellDef='let task'>
-                    <button class="button" mat-button [routerLink]="['/task', task.id]"  (click)="cancel()">>>></button>
-                </td>
-            </ng-container>
-
-            <ng-container matColumnDef='szerkesztés'>
-                <th mat-header-cell *matHeaderCellDef>Módosítás</th>
-                <td mat-cell *matCellDef='let task'>
-                    <button class="button" mat-button (click)="editTask(task)"><fa-icon class="modalIcon" size="2x" [icon]="faPenSquare"></fa-icon></button>
-                </td>
-            </ng-container>
-
-            <ng-container matColumnDef='törlés'>
-                <th mat-header-cell *matHeaderCellDef>Törlés</th>
-                <td mat-cell *matCellDef='let task'>
-                    <button class="delete-button " mat-button (click)="deleteTask(task)"><fa-icon class="modalIcon" size="2x" [icon]="faTrash"></fa-icon></button>
-                </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayTask"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayTask;"></tr>
-        </table>
-
-    <div class='modal-footer'>
-        <button type='button' class='button' data-dismiss='modal' (click)='cancel()'>
-            <span>Mégse</span>
+    <ng-container matColumnDef="szerkesztés">
+      <th mat-header-cell *matHeaderCellDef>Módosítás</th>
+      <td mat-cell *matCellDef="let task">
+        <button class="button" mat-button (click)="editTask(task)">
+          <fa-icon class="modalIcon" size="2x" [icon]="faPenSquare"></fa-icon>
         </button>
-    </div>
-</div>
+      </td>
+    </ng-container>
 
+    <ng-container matColumnDef="törlés">
+      <th mat-header-cell *matHeaderCellDef>Törlés</th>
+      <td mat-cell *matCellDef="let task">
+        <button class="delete-button" mat-button (click)="deleteTask(task)">
+          <fa-icon class="modalIcon" size="2x" [icon]="faTrash"></fa-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayTask"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayTask"></tr>
+  </table>
+
+  <div class="modal-footer">
+    <button type="button" class="button" data-dismiss="modal" (click)="cancel()">
+      <span>Mégse</span>
+    </button>
+  </div>
+</div>

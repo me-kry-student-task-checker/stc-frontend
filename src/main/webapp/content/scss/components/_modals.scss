@@ -1,13 +1,15 @@
-.modal-header{
-  background-color: hsl(213, 65%, 33%);
-  color: hsl(26, 100%, 92%);
+@use '../abstracts' as *;
+
+.modal-header {
+  background-color: $darkCornflower;
+  color: $lightCyan;
 }
 
-.modal-body{
-  font-size: 18px;
+.modal-body {
+  font-size: $font-size;
 }
 
-.modalIcon{
+.modalIcon {
   display: flex;
   justify-content: center;
   align-items: center;

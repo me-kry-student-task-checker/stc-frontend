@@ -39,9 +39,12 @@ a:hover {
 
 .loginEmail,
 .loginPassword {
-  font-size: 1.5rem;
+  font-size: $font-size;
 }
 
 label {
-  font-size: 1.125rem;
+  font-size: $font-size;
+}
+p {
+  font-size: $font-size;
 }

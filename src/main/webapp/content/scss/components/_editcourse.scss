@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+
+.editCourseHeader {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  color: $lightCyan;
+}

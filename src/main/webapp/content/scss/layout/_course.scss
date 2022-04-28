@@ -1,6 +1,15 @@
+@use '../abstracts' as *;
+
 .taskH_buttonCont {
   margin-left: 62vw;
   width: 700px;
+
+
+.mainButtonsContainer {
+  width: 90vw;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .courseButtonCont {
@@ -22,10 +31,10 @@
   margin-top: 20px;
   width: 75vw;
   min-height: 120px;
-  background: hsl(144, 10%, 95%);
-  color: black;
+  background: $lightCyan;
+  color: $black;
   border-radius: 10px;
-  border: 2px solid hsl(213, 65%, 33%);
+  border: 2px solid $darkCornflower;
 }
 
 table {
@@ -44,8 +53,8 @@ table {
   height: 30px;
   width: 300px;
   border-radius: 10px;
-  border: 2px solid hsl(213, 65%, 33%);
-  background-color: #00b4d8;
+  border: 2px solid $darkCornflower;
+  background-color: $middleBlue;
   justify-items: center;
   margin-block: 10px;
 }

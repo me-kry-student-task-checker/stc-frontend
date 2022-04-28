@@ -3,7 +3,7 @@
     {{ course.name }}
     <hr class="header" />
   </div>
-  <div class="taskH_buttonCont">
+  <div class="mainButtonsContainer">
     <button *jhiHasAnyAuthority="'TEACHER'" class="button" (click)="courseInvite(course)">Diákok meghívása</button>
     <button class="button" (click)="taskList(course)">Feladatok</button>
     <button class="button" (click)="fileUpload(course)">Fájlfeltöltés</button>
