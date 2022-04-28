@@ -20,11 +20,12 @@
     <div id="courseDesc" [ngbCollapse]="descCollapsed" class="collapsible">
       {{ course.description }}
     </div>
-    <div id="courseStudents" [ngbCollapse]="studentCollapsed" class="collapsible">
+    <div id="courseStudents" [ngbCollapse]="studentCollapsed" class="collapsible" >
       <div class="studentWrapper">
-        <div class="studentCard" *ngFor="let student of assignedStudents">
-          {{ student.firstName }} {{ student.lastName }} - {{ student.email }}
-        </div>
+          <div class="studentCard" *ngFor="let student of assignedStudents">{{student.firstName}} {{student.lastName}} - {{student.email}}</div>
+      </div>
+    </div>
+
         <div id="fileCollapsed" [ngbCollapse]="fileCollapsed" class="collapsible">
           <div *ngFor="let file of course.files">
             <div class="fileCard" (click)="showFile(course)">
@@ -40,6 +41,7 @@
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </div>

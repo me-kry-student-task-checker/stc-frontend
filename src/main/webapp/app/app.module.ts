@@ -47,7 +47,6 @@ import { TaskFileUploadComponent } from 'app/layouts/tasks/task-file-upload/task
     CommonModule,
     MatTableModule,
     MatButtonToggleModule,
-    MatCheckboxModule,
   ],
   declarations: [
     MainComponent,
