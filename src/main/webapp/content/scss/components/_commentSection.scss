@@ -1,20 +1,22 @@
-.commentArea{
+@use '../abstracts' as *;
+
+.commentArea {
   margin-block: 4rem;
   width: 50vw;
   margin-left: 25vw;
 }
 
-textarea{
+textarea {
   resize: none !important;
 }
 
-.comments{
+.comments {
   display: grid;
   justify-content: center;
   margin-top: 2rem;
 }
 
-.commentsHeader{
+.commentsHeader {
   margin-block: 1rem;
-  border-bottom: 1px solid hsl(201, 100%, 36%);
+  border-bottom: 1px solid $starCommandBlue;
 }

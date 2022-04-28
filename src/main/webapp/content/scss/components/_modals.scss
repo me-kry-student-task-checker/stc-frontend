@@ -17,12 +17,12 @@
   height: 36px;
 }
 
-.fileUpload{
+.fileUpload {
   align-self: flex-start;
-  border: 2px solid hsl(196, 84%, 36%);;
-  background-color: hsl(213, 65%, 33%);
+  border: 2px solid $starCommandBlue;
+  background-color: $darkCornflower;
   border-radius: 5px;
-  color: hsl(26, 100%, 92%);
+  color: $lightCyan;
   cursor: auto;
   max-inline-size: 100%;
   padding: 0;

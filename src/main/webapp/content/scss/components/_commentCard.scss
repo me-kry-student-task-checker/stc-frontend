@@ -1,4 +1,6 @@
-.commentCard{
+@use '../abstracts' as *;
+
+.commentCard {
   margin-top: 10px;
 }
 
@@ -6,32 +8,32 @@
   margin-bottom: 5px;
 }
 
-.author{
+.author {
   padding-inline: 5px;
 }
 
-.commentText{
+.commentText {
   width: fit-content;
   max-width: 42vw;
   padding-inline: 10px;
   padding-block: 8px;
   border-radius: 10px;
-  background: hsl(214, 97%, 27%);
+  background: $darkCornflower;
   font-size: 1.125rem;
-  color: hsl(190, 77%, 88%);
+  color: $lightCyan;
 }
 
-.commentDate{
+.commentDate {
   padding-inline: 5px;
 }
 
-.commentWrapper{
+.commentWrapper {
   width: fit-content;
   max-width: 42vw;
   font-size: 0.9rem;
 }
 
-.deleteComment{
+.deleteComment {
   width: fit-content;
   height: fit-content;
   padding: 5px;
@@ -40,6 +42,6 @@
   margin-top: -28px;
 
   &:hover {
-    color: red;
+    color: $rossoCorsa;
   }
 }

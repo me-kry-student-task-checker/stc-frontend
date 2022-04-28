@@ -94,25 +94,7 @@
   }
 }
 
-.back-button {
-  padding: 15px 50px;
-  text-transform: uppercase;
-  background: linear-gradient(0.5turn, #7d8597, #5c677d, #33415c, #5c677d, #7d8597);
-  color: #e8e8e4;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 0.75rem;
-  cursor: pointer;
-
-  &:hover {
-    color: #03071e;
-    background: linear-gradient(0.5turn, #33415c, #5c677d, #7d8597, #5c677d, #33415c);
-  }
-}
-
 .commentBut {
-  margin-top: 35px;
   width: 50px;
   height: 50px;
   margin-left: 10px;

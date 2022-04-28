@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Course } from 'app/models/course.model';
 import { Subscription } from 'rxjs';
 import { CourseService } from '../course.service';
@@ -11,14 +11,14 @@ import { AccountService } from 'app/core/auth/account.service';
 import { Student } from 'app/core/user/student.model';
 import students from 'app/files/students.json';
 import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-upload/courseFileUpload.component';
-import { faImage, faFilePdf, faFileAlt, faCommentDots, faFile, faTrash  } from '@fortawesome/free-solid-svg-icons';
+import { faImage, faFilePdf, faFileAlt, faCommentDots, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ShowFileComponent } from 'app/shared/showFile/showFile.component';
-import {FormBuilder, Validators} from "@angular/forms";
-import {Account} from "app/core/user/account.model";
+import { FormBuilder, Validators } from '@angular/forms';
+import { Account } from 'app/core/user/account.model';
 
 @Component({
   selector: 'jhi-tasks',
-  templateUrl: './course.component.html',
+  templateUrl: 'course.component.html',
 })
 export class CourseComponent implements OnInit {
   course!: Course;
@@ -36,11 +36,11 @@ export class CourseComponent implements OnInit {
   faFileAlt = faFileAlt;
   faCommentDots = faCommentDots;
   faFile = faFile;
-  faTrash = faTrash
+  faTrash = faTrash;
   authSubscription?: Subscription;
 
   commentForm = this.formBuilder.group({
-    comment: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]]
+    comment: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]],
   });
 
   constructor(
@@ -48,7 +48,7 @@ export class CourseComponent implements OnInit {
     private modalService: NgbModal,
     private route: ActivatedRoute,
     private accountService: AccountService,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -67,13 +67,14 @@ export class CourseComponent implements OnInit {
     this.accSubscription = this.accountService
       .getStudentsByAssignedCourseId(this.course.id)
       .subscribe(student => (this.students = student));
-
   }
 
   onSubmit(): void {
-    this.courseService.createCourseComment({
-      courseId: this.course.id,
-      text: this.commentForm.get('comment')!.value})
+    this.courseService
+      .createCourseComment({
+        courseId: this.course.id,
+        text: this.commentForm.get('comment')!.value,
+      })
       .subscribe();
   }
 
@@ -124,7 +125,6 @@ export class CourseComponent implements OnInit {
   }
 
   deleteComment(id: number): void {
-    this.courseService.removeCourseComment(id).subscribe()
+    this.courseService.removeCourseComment(id).subscribe();
   }
-
 }
