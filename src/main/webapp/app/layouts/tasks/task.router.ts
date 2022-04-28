@@ -12,7 +12,7 @@ export class TaskResolver implements Resolve<TaskModel> {
 
   resolve(route: ActivatedRouteSnapshot): Observable<TaskModel> {
     const id = route.params['id'];
-    return this.service.get(id);
+    return this.service.getTask(id);
   }
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TaskModel } from 'app/models/task.model';
 import { TasksService } from './tasks.service';
 import { ActivatedRoute } from '@angular/router';
@@ -9,19 +9,22 @@ import {AccountService} from "app/core/auth/account.service";
 import {Subscription} from "rxjs";
 import {Account} from "app/core/user/account.model";
 import {FormBuilder, Validators} from "@angular/forms";
+import Timeout = NodeJS.Timeout;
 
 @Component({
   selector: 'jhi-task',
   templateUrl: './task.component.html',
   styleUrls: ['../../../content/scss/layout/_task.scss'],
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent implements OnInit, OnDestroy {
   faCommentDots = faCommentDots;
   faFile = faFile;
   faTrash = faTrash;
   task!: TaskModel;
   authSubscription?: Subscription;
+  taskSubscription?: Subscription;
   account: Account | null = null;
+  interval: Timeout | undefined;
 
   commentForm = this.formBuilder.group({
     comment: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]]
@@ -39,6 +42,9 @@ export class TaskComponent implements OnInit {
     this.route.data.subscribe(({ task }) => {
       this.task = task;
     });
+    this.interval = setInterval(() => {
+      this.taskSubscription = this.taskService.getTask(this.task.id).subscribe(task => (this.task = task));
+    }, 5000)
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
   }
 
@@ -58,7 +64,25 @@ export class TaskComponent implements OnInit {
     return author === this.account?.email;
   }
 
-  deleteComment(id: number): void {
-    this.taskService.removeTaskComment(id).subscribe()
+  deleteComment(taskId: number): void {
+    this.taskService.removeTaskComment(taskId).subscribe()
+  }
+
+  taskDone(taskId: number): void {
+    this.taskService.setTaskDone(taskId).subscribe()
+  }
+
+  taskComplete(taskId: number): void {
+    this.taskService.setTaskComplete(taskId).subscribe()
+  }
+
+  needHelp(taskId: number): void {
+    this.taskService.helpNeeded(taskId).subscribe()
+  }
+
+  ngOnDestroy(): void {
+    if (this.interval){
+      clearInterval(this.interval)
+    }
   }
 }

@@ -6,18 +6,31 @@
 
     <div class="container">
         <div>
-            <label for="complete">Befejezték</label>
-            <div id="complete">Még senki nem fejezte be a feladatott...</div>
+            <label for="completeWrapper">Befejezték</label>
+            <div id="completeWrapper" >
+                <div *ngIf="task.completedStudents.length < 1">Még senki nem fejezte be a feladatott...</div>
+                <div class="complete" *ngFor="let studentDone of task.completedStudents">
+                    <div> {{studentDone.firstName}} {{studentDone.lastName}} </div>
+                </div>
+            </div>
         </div>
         <div>
-            <label for="help">Segítséget kérnek</label>
-            <div id="help">Senki nem kért segítséget még ehez a feladatohoz...</div>
+            <label for="helpWrapper">Segítséget kérnek</label>
+            <div id="helpWrapper">
+                <div *ngIf="task.helpNeededStudents.length < 1">Senki nem kért segítséget még ehez a feladatohoz...</div>
+                <div class="help" *ngFor="let studentHelp of task.helpNeededStudents">
+                    <div>{{studentHelp.firstName}} {{studentHelp.lastName}}</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <div class='taskButtonCont'>
         <button class='taskButton' (click)="fileUpload(task)">Fájl feltöltése</button>
-        <button class='taskButton'>Feledat lezárása</button>
+        <button class='taskButton' *jhiHasAnyAuthority="'STUDENT'" (click)="needHelp(task.id)">Segítségkérés</button>
+        <button class='taskButton' *jhiHasAnyAuthority="'STUDENT'" (click)="taskComplete(task.id)">Feladat befejezve</button>
+        <button class='taskButton' *jhiHasAnyAuthority="'TEACHER'" (click)="taskDone(task.id)">Feledat lezárása</button>
         <button class='taskButton'>Feltöltött fájlok</button>
     </div>
 
@@ -52,7 +65,6 @@
                         <fa-icon [icon]="faCommentDots"></fa-icon>
                     </button>
                 </div>
-
             </form>
         </div>
     </div>

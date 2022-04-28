@@ -18,7 +18,7 @@ export class TasksService {
     return this.http.get<TaskModel[]>(SERVER_API_URL + '/api/task/getAll/' + id);
   }
 
-  get(id: number): Observable<TaskModel> {
+  getTask(id: number): Observable<TaskModel> {
     return this.http.get<TaskModel>(SERVER_API_URL + '/api/task/get/' + id);
   }
 
@@ -46,5 +46,17 @@ export class TasksService {
 
   removeTaskComment(id: number): Observable<{}>{
     return this.http.delete(`${SERVER_API_URL + 'api/feedback/delete/task'}/${id}`);
+  }
+
+  setTaskDone(taskId: number): Observable<any> {
+    return this.http.post(SERVER_API_URL + 'api/task/setDone/' + taskId, null);
+  }
+
+  setTaskComplete(taskId: number): Observable<any> {
+    return this.http.post(SERVER_API_URL + 'api/task/setComplete/' + taskId, null);
+  }
+
+  helpNeeded(taskId: number): Observable<any> {
+    return this.http.post(SERVER_API_URL + 'api/task/toggleHelp/' + taskId, null)
   }
 }

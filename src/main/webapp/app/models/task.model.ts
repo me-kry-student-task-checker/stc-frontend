@@ -9,13 +9,27 @@ export class TaskModel {
         text: string;
       }
     ],
-    public completedStudents: string[],
+    public completedStudents: [
+      {
+        email: string;
+        firstName: string;
+        lastName: string
+        role: string;
+      }
+    ],
     public courseId: number,
     public creationDate: Date,
     public description: string,
     public done: boolean,
     public file: File[],
-    public helpNeededStudents: string[],
+    public helpNeededStudents: [
+      {
+      email: string;
+      firstName: string;
+      lastName: string
+      role: string;
+      }
+    ],
     public id: number,
     public name: string
   ) {}
