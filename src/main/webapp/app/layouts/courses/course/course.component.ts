@@ -8,13 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 import { TasksListComponent } from '../../tasks/tasks-list/tasksList.component';
 import { CourseInviteComponent } from 'app/layouts/courses/course-invite/courseInvite.component';
 import { AccountService } from 'app/core/auth/account.service';
-import { Student } from 'app/core/user/student.model';
+import { StudentModel } from 'app/models/account.model';
 import students from 'app/files/students.json';
 import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-upload/courseFileUpload.component';
 import { faImage, faFilePdf, faFileAlt, faCommentDots, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ShowFileComponent } from 'app/shared/showFile/showFile.component';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Account } from 'app/core/user/account.model';
+import { SimpleAccountModel } from 'app/models/account.model';
 
 @Component({
   selector: 'jhi-tasks',
@@ -22,15 +22,15 @@ import { Account } from 'app/core/user/account.model';
 })
 export class CourseComponent implements OnInit {
   course!: Course;
-  students: Student[] = [];
-  student!: Student;
-  account: Account | null = null;
+  students: StudentModel[] = [];
+  student!: StudentModel;
+  account: SimpleAccountModel | null = null;
   accSubscription?: Subscription;
   descCollapsed = true;
   studentCollapsed = true;
   fileCollapsed = true;
   studentsList = students;
-  assignedStudents: Student[] = [];
+  assignedStudents: StudentModel[] = [];
   faImage = faImage;
   faFilePdf = faFilePdf;
   faFileAlt = faFileAlt;

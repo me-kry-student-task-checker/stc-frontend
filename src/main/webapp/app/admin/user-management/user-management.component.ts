@@ -7,9 +7,9 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { AccountService } from 'app/core/auth/account.service';
-import { Account } from 'app/core/user/account.model';
+import { SimpleAccountModel } from 'app/models/account.model';
 import { UserService } from 'app/core/user/user.service';
-import { User } from 'app/core/user/user.model';
+import { User } from 'app/models/user.model';
 import { UserManagementDeleteDialogComponent } from './user-management-delete-dialog.component';
 
 @Component({
@@ -17,7 +17,7 @@ import { UserManagementDeleteDialogComponent } from './user-management-delete-di
   templateUrl: './user-management.component.html',
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
-  currentAccount: Account | null = null;
+  currentAccount: SimpleAccountModel | null = null;
   users: User[] | null = null;
   userListSubscription?: Subscription;
   totalItems = 0;

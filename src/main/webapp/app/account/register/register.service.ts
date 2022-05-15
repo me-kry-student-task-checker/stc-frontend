@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { SERVER_API_URL } from 'app/app.constants';
-import { NewAccount } from './register.model';
+import { NewAccount } from 'app/models/credentials.model';
 
 @Injectable({ providedIn: 'root' })
 export class RegisterService {

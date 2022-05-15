@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AccountService } from 'app/core/auth/account.service';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { LoginService } from 'app/core/login/login.service';
-import { Account } from 'app/core/user/account.model';
+import { SimpleAccountModel } from 'app/models/account.model';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit {
   isNavbarCollapsed = true;
   swaggerEnabled?: boolean;
-  account: Account | null = null;
+  account: SimpleAccountModel | null = null;
   authSubscription?: Subscription;
 
   constructor(

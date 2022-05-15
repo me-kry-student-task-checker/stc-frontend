@@ -7,7 +7,7 @@ import { TaskFileUploadComponent } from 'app/layouts/tasks/task-file-upload/task
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AccountService } from 'app/core/auth/account.service';
 import { Subscription } from 'rxjs';
-import { Account } from 'app/core/user/account.model';
+import { SimpleAccountModel } from 'app/models/account.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import Timeout = NodeJS.Timeout;
 
@@ -23,7 +23,7 @@ export class TaskComponent implements OnInit, OnDestroy {
   task!: TaskModel;
   authSubscription?: Subscription;
   taskSubscription?: Subscription;
-  account: Account | null = null;
+  account: SimpleAccountModel | null = null;
   interval: Timeout | undefined;
 
   commentForm = this.formBuilder.group({

@@ -7,7 +7,7 @@ import { StchFrontendTestModule } from '../../../test.module';
 import { MockEventManager } from '../../../helpers/mock-event-manager.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
 import { UserManagementDeleteDialogComponent } from 'app/admin/user-management/user-management-delete-dialog.component';
-import { UserService } from 'app/core/user/user.service';
+import { UserService } from 'app/models/user.service';
 
 describe('Component Tests', () => {
   describe('User Management Delete Component', () => {

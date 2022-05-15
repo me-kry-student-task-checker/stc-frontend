@@ -7,8 +7,8 @@ import { of } from 'rxjs';
 import { Authority } from 'app/shared/constants/authority.constants';
 import { StchFrontendTestModule } from '../../../test.module';
 import { UserManagementUpdateComponent } from 'app/admin/user-management/user-management-update.component';
-import { UserService } from 'app/core/user/user.service';
-import { User } from 'app/core/user/user.model';
+import { UserService } from 'app/models/user.service';
+import { User } from 'app/models/user.model';
 
 describe('Component Tests', () => {
   describe('User Management Update Component', () => {

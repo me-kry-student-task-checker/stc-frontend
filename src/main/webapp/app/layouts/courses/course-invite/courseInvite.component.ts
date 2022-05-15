@@ -1,52 +1,49 @@
-import {Component, OnInit} from "@angular/core";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import {AccountService} from "app/core/auth/account.service";
-import {Subscription} from "rxjs";
-import {Course} from "app/models/course.model";
-import {CourseService} from "app/layouts/courses/course.service";
-import  students  from "app/files/students.json";
-import {Student} from "app/core/user/student.model";
+import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { AccountService } from 'app/core/auth/account.service';
+import { Subscription } from 'rxjs';
+import { Course } from 'app/models/course.model';
+import { CourseService } from 'app/layouts/courses/course.service';
+import students from 'app/files/students.json';
+import { StudentModel } from 'app/models/account.model';
 
 @Component({
   selector: 'jhi-course-invite',
   templateUrl: 'courseInvite.component.html',
 })
-
-
-export class CourseInviteComponent implements OnInit{
-  students: Student[] = [];
-  student!: Student;
+export class CourseInviteComponent implements OnInit {
+  students: StudentModel[] = [];
+  student!: StudentModel;
   course!: Course;
   accSubscription?: Subscription;
-  displayTask: string[] = ["név", "email", "meghívás"];
-  notAssignedStudents: Student[] = [];
+  displayTask: string[] = ['név', 'email', 'meghívás'];
+  notAssignedStudents: StudentModel[] = [];
   emails: string[] = [];
   studentsList = students;
   public isChecked = false;
 
-  constructor(private coursesService: CourseService, private activeModal: NgbActiveModal, private accountService: AccountService, ) {
-  }
+  constructor(private coursesService: CourseService, private activeModal: NgbActiveModal, private accountService: AccountService) {}
 
   ngOnInit(): void {
-    for (let i = 0; i < this.studentsList.length; i++){
-        if (!(this.studentsList[i].assignedCourseIds.includes(this.course.id))) {
-          this.notAssignedStudents.push(this.studentsList[i])
-        }
+    for (let i = 0; i < this.studentsList.length; i++) {
+      if (!this.studentsList[i].assignedCourseIds.includes(this.course.id)) {
+        this.notAssignedStudents.push(this.studentsList[i]);
+      }
     }
     this.accSubscription = this.accountService.getNonAssignedStudents(this.course.id).subscribe(student => (this.students = student));
   }
 
   inviteStudents(): void {
-    for (let i = 0; i< this.notAssignedStudents.length; i++){
-      if (this.notAssignedStudents[i].enabled){
-        this.emails.push(this.notAssignedStudents[i].email)
+    for (let i = 0; i < this.notAssignedStudents.length; i++) {
+      if (this.notAssignedStudents[i].enabled) {
+        this.emails.push(this.notAssignedStudents[i].email);
       }
     }
-    this.coursesService.inviteStudents(this.course.id, this.emails).subscribe()
-    for (let i = 0; i< this.studentsList.length; i++){
+    this.coursesService.inviteStudents(this.course.id, this.emails).subscribe();
+    for (let i = 0; i < this.studentsList.length; i++) {
       this.studentsList[i].enabled = false;
     }
-    this.activeModal.close()
+    this.activeModal.close();
   }
 
   cancel(): void {

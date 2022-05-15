@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { AccountService } from 'app/core/auth/account.service';
-import { Account } from 'app/core/user/account.model';
+import { SimpleAccountModel } from 'app/models/account.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NewCourseComponent } from 'app/layouts//courses/course-new/newCourse.component';
 import { DeleteCourseComponent } from 'app/layouts/courses/course-delete/deleteCourse.component';
@@ -16,7 +16,7 @@ import { EditCourseComponent } from 'app/layouts/courses/course-edit/editCourse.
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  account: Account | null = null;
+  account: SimpleAccountModel | null = null;
   authSubscription?: Subscription;
   courseSubscription?: Subscription;
   cardCourse: Course[] = [];

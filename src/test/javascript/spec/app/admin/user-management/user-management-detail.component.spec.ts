@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { Authority } from 'app/shared/constants/authority.constants';
 import { StchFrontendTestModule } from '../../../test.module';
 import { UserManagementDetailComponent } from 'app/admin/user-management/user-management-detail.component';
-import { User } from 'app/core/user/user.model';
+import { User } from 'app/models/user.model';
 
 describe('Component Tests', () => {
   describe('User Management Detail Component', () => {

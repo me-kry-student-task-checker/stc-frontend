@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TaskModel } from 'app/models/task.model';
-import { NewTaskModel } from 'app/models/newTask.model';
+import { TaskModel, NewTaskModel } from 'app/models/task.model';
 import { SERVER_API_URL } from 'app/app.constants';
-import {TaskComment} from "app/models/comment.model";
+import { TaskComment } from 'app/models/comment.model';
 
 @Injectable({ providedIn: 'root' })
 export class TasksService {
@@ -41,10 +40,10 @@ export class TasksService {
   }
 
   createTaskComment(comment: TaskComment): Observable<TaskComment> {
-    return this.http.post<TaskComment>(SERVER_API_URL + '/api/feedback/createTaskComment', comment)
+    return this.http.post<TaskComment>(SERVER_API_URL + '/api/feedback/createTaskComment', comment);
   }
 
-  removeTaskComment(id: number): Observable<{}>{
+  removeTaskComment(id: number): Observable<{}> {
     return this.http.delete(`${SERVER_API_URL + 'api/feedback/delete/task'}/${id}`);
   }
 
@@ -57,6 +56,6 @@ export class TasksService {
   }
 
   helpNeeded(taskId: number): Observable<any> {
-    return this.http.post(SERVER_API_URL + 'api/task/toggleHelp/' + taskId, null)
+    return this.http.post(SERVER_API_URL + 'api/task/toggleHelp/' + taskId, null);
   }
 }

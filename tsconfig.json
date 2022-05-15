@@ -1,7 +1,8 @@
 {
   "compileOnSave": true,
+  "experimentalDecorators": true,
   "compilerOptions": {
-    "strict": false,
+    "strict": false
   },
   "files": [],
   "references": [

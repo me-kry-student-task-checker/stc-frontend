@@ -13,7 +13,7 @@ export class TaskModel {
       {
         email: string;
         firstName: string;
-        lastName: string
+        lastName: string;
         role: string;
       }
     ],
@@ -24,13 +24,17 @@ export class TaskModel {
     public file: File[],
     public helpNeededStudents: [
       {
-      email: string;
-      firstName: string;
-      lastName: string
-      role: string;
+        email: string;
+        firstName: string;
+        lastName: string;
+        role: string;
       }
     ],
     public id: number,
     public name: string
   ) {}
+}
+
+export class NewTaskModel {
+  constructor(public id: null, public courseId: number, public name: string, public description: string) {}
 }

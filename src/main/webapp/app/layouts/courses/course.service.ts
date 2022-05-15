@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { Observable } from 'rxjs';
-import { NewCourse } from 'app/models/newcourse.model';
-import { Course } from 'app/models/course.model';
-import {CourseComment} from 'app/models/comment.model';
+import { Course, NewCourse } from 'app/models/course.model';
+import { CourseComment } from 'app/models/comment.model';
 
 @Injectable({ providedIn: 'root' })
 export class CourseService {
@@ -48,10 +47,10 @@ export class CourseService {
   }
 
   createCourseComment(comment: CourseComment): Observable<CourseComment> {
-    return this.http.post<CourseComment>(SERVER_API_URL + '/api/feedback/createCourseComment', comment)
+    return this.http.post<CourseComment>(SERVER_API_URL + '/api/feedback/createCourseComment', comment);
   }
 
-  removeCourseComment(id: number): Observable<{}>{
+  removeCourseComment(id: number): Observable<{}> {
     return this.http.delete(`${SERVER_API_URL + 'api/feedback/delete/course'}/${id}`);
   }
 }

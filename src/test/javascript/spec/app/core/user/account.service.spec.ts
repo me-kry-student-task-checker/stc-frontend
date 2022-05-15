@@ -6,7 +6,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { AccountService } from 'app/core/auth/account.service';
-import { Account } from 'app/core/user/account.model';
+import { Account } from 'app/models/account.model';
 import { Authority } from 'app/shared/constants/authority.constants';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { MockRouter } from '../../../helpers/mock-route.service';

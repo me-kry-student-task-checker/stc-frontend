@@ -4,8 +4,8 @@ import { of } from 'rxjs';
 
 import { StchFrontendTestModule } from '../../../test.module';
 import { UserManagementComponent } from 'app/admin/user-management/user-management.component';
-import { UserService } from 'app/core/user/user.service';
-import { User } from 'app/core/user/user.model';
+import { UserService } from 'app/models/user.service';
+import { User } from 'app/models/user.model';
 
 describe('Component Tests', () => {
   describe('User Management Component', () => {

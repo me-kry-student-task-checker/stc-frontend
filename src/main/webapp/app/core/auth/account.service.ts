@@ -6,22 +6,22 @@ import { shareReplay, tap, catchError } from 'rxjs/operators';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 
 import { SERVER_API_URL } from 'app/app.constants';
-import { Account } from 'app/core/user/account.model';
-import {Student} from "app/core/user/student.model";
+import { SimpleAccountModel } from 'app/models/account.model';
+import { StudentModel } from 'app/models/account.model';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
-  private userIdentity: Account | null = null;
-  private authenticationState = new ReplaySubject<Account | null>(1);
-  private accountCache$?: Observable<Account | null>;
+  private userIdentity: SimpleAccountModel | null = null;
+  private authenticationState = new ReplaySubject<SimpleAccountModel | null>(1);
+  private accountCache$?: Observable<SimpleAccountModel | null>;
 
   constructor(private http: HttpClient, private stateStorageService: StateStorageService, private router: Router) {}
 
-  save(account: Account): Observable<{}> {
+  save(account: SimpleAccountModel): Observable<{}> {
     return this.http.post(SERVER_API_URL + 'api/user/me', account);
   }
 
-  authenticate(identity: Account | null): void {
+  authenticate(identity: SimpleAccountModel | null): void {
     this.userIdentity = identity;
     this.authenticationState.next(this.userIdentity);
   }
@@ -38,13 +38,13 @@ export class AccountService {
     return rAuthoritie.some((authority: string) => authorities.includes(authority));
   }
 
-  identity(force?: boolean): Observable<Account | null> {
+  identity(force?: boolean): Observable<SimpleAccountModel | null> {
     if (!this.accountCache$ || force || !this.isAuthenticated()) {
       this.accountCache$ = this.fetch().pipe(
         catchError(() => {
           return of(null);
         }),
-        tap((account: Account | null) => {
+        tap((account: SimpleAccountModel | null) => {
           this.authenticate(account);
 
           if (account) {
@@ -61,20 +61,20 @@ export class AccountService {
     return this.userIdentity !== null;
   }
 
-  getAuthenticationState(): Observable<Account | null> {
+  getAuthenticationState(): Observable<SimpleAccountModel | null> {
     return this.authenticationState.asObservable();
   }
 
-  private fetch(): Observable<Account> {
-    return this.http.get<Account>(SERVER_API_URL + 'api/user/me');
+  private fetch(): Observable<SimpleAccountModel> {
+    return this.http.get<SimpleAccountModel>(SERVER_API_URL + 'api/user/me');
   }
 
-  getNonAssignedStudents(id: number): Observable<Student[]> {
-      return this.http.get<Student[]>(SERVER_API_URL + 'api/user/student/notassigned/' + id)
+  getNonAssignedStudents(id: number): Observable<StudentModel[]> {
+    return this.http.get<StudentModel[]>(SERVER_API_URL + 'api/user/student/notassigned/' + id);
   }
 
-  getStudentsByAssignedCourseId(id: number): Observable<Student[]> {
-    return this.http.get<Student[]>(SERVER_API_URL + 'api/user/student/assigned/' + id)
+  getStudentsByAssignedCourseId(id: number): Observable<StudentModel[]> {
+    return this.http.get<StudentModel[]>(SERVER_API_URL + 'api/user/student/assigned/' + id);
   }
 
   private navigateToStoredUrl(): void {

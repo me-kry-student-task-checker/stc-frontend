@@ -4,7 +4,7 @@ import { throwError, of } from 'rxjs';
 
 import { StchFrontendTestModule } from '../../../test.module';
 import { AccountService } from 'app/core/auth/account.service';
-import { Account } from 'app/core/user/account.model';
+import { Account } from 'app/models/account.model';
 import { SettingsComponent } from 'app/account/settings/settings.component';
 import { MockAccountService } from '../../../helpers/mock-account.service';
 
