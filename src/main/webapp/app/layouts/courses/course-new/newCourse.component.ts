@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CourseService } from '../course.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Course } from 'app/models/course.model';
 
 @Component({
   selector: 'jhi-newcourse',
@@ -12,6 +13,7 @@ export class NewCourseComponent {
     name: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(5)]],
     description: ['', Validators.maxLength(220)],
   });
+  cardCourse: Course[] = [];
 
   constructor(private activeModal: NgbActiveModal, private coursesService: CourseService, private fb: FormBuilder) {}
 
@@ -23,7 +25,6 @@ export class NewCourseComponent {
       })
       .subscribe();
     this.activeModal.close();
-    window.location.reload();
   }
 
   cancel(): void {
