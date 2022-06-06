@@ -11,10 +11,11 @@ import { AccountService } from 'app/core/auth/account.service';
 import { StudentModel } from 'app/models/account.model';
 import students from 'app/files/students.json';
 import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-upload/courseFileUpload.component';
-import { faImage, faFilePdf, faFileAlt, faCommentDots, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faImage, faFilePdf, faFileAlt, faCommentDots, faFile, faTrash, faPen, faPeopleArrows } from '@fortawesome/free-solid-svg-icons';
 import { ShowFileComponent } from 'app/shared/showFile/showFile.component';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SimpleAccountModel } from 'app/models/account.model';
+import Timeout = NodeJS.Timeout;
 
 @Component({
   selector: 'jhi-tasks',
@@ -37,7 +38,11 @@ export class CourseComponent implements OnInit {
   faCommentDots = faCommentDots;
   faFile = faFile;
   faTrash = faTrash;
+  faPen = faPen;
+  faPeopleArrows = faPeopleArrows;
   authSubscription?: Subscription;
+  interval: Timeout | undefined;
+  courseSubscription?: Subscription;
 
   commentForm = this.formBuilder.group({
     comment: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]],
@@ -55,6 +60,10 @@ export class CourseComponent implements OnInit {
     this.route.data.subscribe(({ course }) => {
       this.course = course;
     });
+
+    this.interval = setInterval(() => {
+      this.courseSubscription = this.courseService.get(this.course.id).subscribe(course => (this.course = course));
+    }, 5000);
 
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
 

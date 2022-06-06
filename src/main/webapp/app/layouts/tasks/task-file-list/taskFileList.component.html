@@ -1,0 +1,32 @@
+<div>
+  <div id="taskListHeader" class="modal-header">
+    <h4 id="tableTitle" class="modal-title">Fájlok</h4>
+    <button type="button" class="modalClose" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
+
+  <table mat-table [dataSource]="task.files" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Azonosító</th>
+      <td mat-cell *matCellDef="let task">{{ task.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fájl_név">
+      <th mat-header-cell *matHeaderCellDef>Fájl név</th>
+      <td mat-cell *matCellDef="let task">{{ task.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="kiterjesztés">
+      <th mat-header-cell *matHeaderCellDef>Kiterjesztés</th>
+      <td mat-cell class="tableDesc" *matCellDef="let task">{{ task.contentType }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayTask"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayTask"></tr>
+  </table>
+
+  <div class="modal-footer">
+    <button type="button" class="button" data-dismiss="modal" (click)="cancel()">
+      <span>Bezárás</span>
+    </button>
+  </div>
+</div>

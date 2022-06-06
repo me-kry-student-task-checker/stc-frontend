@@ -2,8 +2,6 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
   margin-top: 4rem;
   min-height: 170px;
 }
@@ -19,15 +17,47 @@
 }
 
 label {
-  width: 535px;
   background: $darkCornflower;
   color: $lightCyan;
 }
 
 .taskButtonCont {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 5rem;
-  width: 40vw;
-  margin-left: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+@media (min-width: 1260px) {
+  label {
+    width: 535px;
+  }
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+  .taskButtonCont {
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 1260px) {
+  label {
+    width: 400px;
+  }
+  .container {
+    height: 600px;
+  }
+  .taskButtonCont {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .taskButton {
+    padding: 10px 25px;
+  }
+  .taskButtonCont {
+    gap: 1rem;
+  }
 }

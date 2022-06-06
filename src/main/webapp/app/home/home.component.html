@@ -19,8 +19,8 @@
           <div class="cardCont"><b>Leírás:</b> {{ card.description }}</div>
           <div class="cardCont"><b>Létrehozás dátuma:</b> {{ card.creationDate | date }}</div>
           <div class="cardButtonCont">
-            <button class="cardButtonLeft" (click)="editCourse(card)">Módosítás</button>
-            <button class="cardButtonMiddle" (click)="deleteCourse(card)">Törlés</button>
+            <button *jhiHasAnyAuthority="'TEACHER'" class="cardButtonLeft" (click)="editCourse(card)">Módosítás</button>
+            <button *jhiHasAnyAuthority="'TEACHER'" class="cardButtonMiddle" (click)="deleteCourse(card)">Törlés</button>
             <button class="cardButtonRight" [routerLink]="['/course', card.id]">Részletek</button>
           </div>
         </div>

@@ -21,7 +21,16 @@ export class TaskModel {
     public creationDate: Date,
     public description: string,
     public done: boolean,
-    public file: File[],
+    public files: [
+      {
+        id: string;
+        name: string;
+        contentType: string;
+        uploadDate: Date;
+        uploadedBy: string;
+        downloadLink: string;
+      }
+    ],
     public helpNeededStudents: [
       {
         email: string;

@@ -10,14 +10,21 @@
   </div>
 
   <div class="courseButtonCont">
-    <button class="courseDescButtom" (click)="descCollapsed = !descCollapsed" [attr.aria-expanded]="!descCollapsed">Kurzus leírása</button>
-    <button class="studentsButton" (click)="studentCollapsed = !studentCollapsed" [attr.aria-expanded]="!studentCollapsed">
-      Diákok a kurzuson
+    <button class="courseDescButtom" (click)="descCollapsed = !descCollapsed" [attr.aria-expanded]="!descCollapsed">
+      <span class="textSpan">Kurzus leírása</span>
+      <span class="iconSpan"><fa-icon size="3x" [icon]="faPen"></fa-icon></span>
     </button>
-    <button class="filesButton" (click)="fileCollapsed = !fileCollapsed" [attr.aria-expanded]="!fileCollapsed">Feltöltött fájlok</button>
+    <button class="studentsButton" (click)="studentCollapsed = !studentCollapsed" [attr.aria-expanded]="!studentCollapsed">
+      <span class="textSpan">Diákok a kurzuson</span>
+      <span class="iconSpan"><fa-icon size="3x" [icon]="faPeopleArrows"></fa-icon></span>
+    </button>
+    <button class="filesButton" (click)="fileCollapsed = !fileCollapsed" [attr.aria-expanded]="!fileCollapsed">
+      <span class="textSpan">Feltöltött fájlok</span>
+      <span class="iconSpan"><fa-icon size="3x" [icon]="faFile"></fa-icon></span>
+    </button>
   </div>
 
-  <div>
+  <div class="collapsibles">
     <div id="courseDesc" [ngbCollapse]="descCollapsed" class="collapsible">
       {{ course.description }}
     </div>

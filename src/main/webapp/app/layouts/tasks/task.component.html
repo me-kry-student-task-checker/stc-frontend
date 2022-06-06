@@ -30,7 +30,7 @@
     <button class="taskButton" *jhiHasAnyAuthority="'STUDENT'" (click)="needHelp(task.id)">Segítségkérés</button>
     <button class="taskButton" *jhiHasAnyAuthority="'STUDENT'" (click)="taskComplete(task.id)">Feladat befejezve</button>
     <button class="taskButton" *jhiHasAnyAuthority="'TEACHER'" (click)="taskDone(task.id)">Feledat lezárása</button>
-    <button class="taskButton">Feltöltött fájlok</button>
+    <button class="taskButton" *jhiHasAnyAuthority="'TEACHER'" (click)="taskFileList(task)">Feltöltött fájlok</button>
   </div>
 
   <div class="commentArea">

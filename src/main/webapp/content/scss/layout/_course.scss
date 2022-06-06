@@ -6,7 +6,6 @@
 }
 
 .mainButtonsContainer {
-  width: 90vw;
   display: flex;
   justify-content: flex-end;
   gap: 10px;
@@ -14,8 +13,9 @@
 
 .courseButtonCont {
   margin-top: 80px;
-  margin-left: 12vw;
-  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
 }
 
@@ -26,8 +26,13 @@
   align-items: center;
 }
 
+.collapsibles {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
 .collapsible {
-  margin-left: 12vw;
   margin-top: 20px;
   width: 75vw;
   min-height: 120px;
@@ -57,4 +62,28 @@ table {
   background-color: $middleBlue;
   justify-items: center;
   margin-block: 10px;
+}
+
+@media (min-width: 680px) {
+  .mainButtonsContainer {
+    margin-right: 10vw;
+  }
+  span.iconSpan {
+    display: none;
+  }
+  span.textSpan {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 680px) {
+  span.iconSpan {
+    display: inline-block;
+  }
+  span.textSpan {
+    display: none;
+  }
+  .button {
+    padding: 10px 25px;
+  }
 }

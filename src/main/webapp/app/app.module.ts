@@ -31,6 +31,7 @@ import { EditTaskComponent } from 'app/layouts/tasks/edit-task/editTask.componen
 import { DeleteTaskComponent } from 'app/layouts/tasks/delete-task/deleteTask.component';
 import { CourseFileUploadComponent } from 'app/layouts/courses/course-file-upload/courseFileUpload.component';
 import { TaskFileUploadComponent } from 'app/layouts/tasks/task-file-upload/taskFileUpload.component';
+import { TaskFileListComponent } from 'app/layouts/tasks/task-file-list/taskFileList.component';
 
 @NgModule({
   imports: [
@@ -65,6 +66,7 @@ import { TaskFileUploadComponent } from 'app/layouts/tasks/task-file-upload/task
     DeleteTaskComponent,
     CourseFileUploadComponent,
     TaskFileUploadComponent,
+    TaskFileListComponent,
   ],
   bootstrap: [MainComponent],
 })

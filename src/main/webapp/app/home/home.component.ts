@@ -10,6 +10,7 @@ import { DeleteCourseComponent } from 'app/layouts/courses/course-delete/deleteC
 import { Course } from 'app/models/course.model';
 import { CourseService } from 'app/layouts/courses/course.service';
 import { EditCourseComponent } from 'app/layouts/courses/course-edit/editCourse.component';
+import Timeout = NodeJS.Timeout;
 
 @Component({
   selector: 'jhi-home',
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   authSubscription?: Subscription;
   courseSubscription?: Subscription;
   cardCourse: Course[] = [];
+  interval: Timeout | undefined;
 
   constructor(
     private accountService: AccountService,
@@ -31,6 +33,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
     this.courseSubscription = this.courseService.getAll().subscribe(course => (this.cardCourse = course));
+    this.interval = setInterval(() => {
+      this.courseSubscription = this.courseService.getAll().subscribe(course => (this.cardCourse = course));
+    }, 5000);
   }
 
   isAuthenticated(): boolean {

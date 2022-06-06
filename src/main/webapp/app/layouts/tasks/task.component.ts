@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 import { SimpleAccountModel } from 'app/models/account.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import Timeout = NodeJS.Timeout;
+import { TaskFileListComponent } from './task-file-list/taskFileList.component';
 
 @Component({
   selector: 'jhi-task',
@@ -80,6 +81,11 @@ export class TaskComponent implements OnInit, OnDestroy {
 
   needHelp(taskId: number): void {
     this.taskService.helpNeeded(taskId).subscribe();
+  }
+
+  taskFileList(task: TaskModel): void {
+    const modalRef = this.modalService.open(TaskFileListComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.task = task;
   }
 
   ngOnDestroy(): void {
