@@ -33,9 +33,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
     this.courseSubscription = this.courseService.getAll().subscribe(course => (this.cardCourse = course));
-    this.interval = setInterval(() => {
-      this.courseSubscription = this.courseService.getAll().subscribe(course => (this.cardCourse = course));
-    }, 5000);
   }
 
   isAuthenticated(): boolean {

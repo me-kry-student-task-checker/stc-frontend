@@ -21,7 +21,8 @@ label {
   color: $lightCyan;
 }
 
-.taskButtonCont {
+.taskButtonContStudent,
+.taskButtonContTeacher {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +37,8 @@ label {
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
   }
-  .taskButtonCont {
+  .taskButtonContStudent,
+  .taskButtonContTeacher {
     gap: 5rem;
   }
 }
@@ -48,7 +50,8 @@ label {
   .container {
     height: 600px;
   }
-  .taskButtonCont {
+  .taskButtonContStudent,
+  .taskButtonContTeacher {
     gap: 2.5rem;
   }
 }
@@ -57,7 +60,8 @@ label {
   .taskButton {
     padding: 10px 25px;
   }
-  .taskButtonCont {
+  .taskButtonContStudent,
+  .taskButtonContTeacher {
     gap: 1rem;
   }
 }

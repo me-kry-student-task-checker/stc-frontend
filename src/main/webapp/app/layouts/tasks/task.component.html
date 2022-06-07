@@ -25,12 +25,16 @@
     </div>
   </div>
 
-  <div class="taskButtonCont">
+  <div class="taskButtonContStudent" *jhiHasAnyAuthority="'STUDENT'">
     <button class="taskButton" (click)="fileUpload(task)">Fájl feltöltése</button>
-    <button class="taskButton" *jhiHasAnyAuthority="'STUDENT'" (click)="needHelp(task.id)">Segítségkérés</button>
-    <button class="taskButton" *jhiHasAnyAuthority="'STUDENT'" (click)="taskComplete(task.id)">Feladat befejezve</button>
-    <button class="taskButton" *jhiHasAnyAuthority="'TEACHER'" (click)="taskDone(task.id)">Feledat lezárása</button>
-    <button class="taskButton" *jhiHasAnyAuthority="'TEACHER'" (click)="taskFileList(task)">Feltöltött fájlok</button>
+    <button class="taskButton" (click)="needHelp(task.id)">Segítségkérés</button>
+    <button class="taskButton" [disabled]="this.task.done === true" (click)="taskComplete(task.id)">Feladat befejezve</button>
+  </div>
+
+  <div class="taskButtonContTeacher" *jhiHasAnyAuthority="'TEACHER'">
+    <button class="taskButton" (click)="fileUpload(task)">Fájl feltöltése</button>
+    <button class="taskButton" (click)="taskDone(task.id)">Feledat lezárása</button>
+    <button class="taskButton" (click)="taskFileList(task)">Feltöltött fájlok</button>
   </div>
 
   <div class="commentArea">
